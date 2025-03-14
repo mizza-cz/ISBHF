@@ -1,0 +1,12 @@
+.titleDecore {
+  position: relative;
+  padding-right: 8px;
+  width: fit-content;
+  &::before {
+    content: ".";
+    position: absolute;
+    color: var(--color-accent);
+    right: 0;
+    bottom: 0;
+  }
+}

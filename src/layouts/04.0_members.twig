@@ -1,0 +1,43 @@
+{% extends "@components/base/base.twig" %} {% set title = "04.0_members" %} {%
+block main %}
+
+<section class="subpage">
+  <div class="container">
+    <h1 class="h1 titleDecore mb-lg-40">MEMBERS</h1>
+
+    <div class="row g-3">
+      <div class="col-lg-4 col-sm-6">
+        {% include "@components/memberItem/memberItem.twig" %}
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        {% include "@components/memberItem/memberItem.twig" %}
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        {% include "@components/memberItem/memberItem.twig" %}
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        {% include "@components/memberItem/memberItem.twig" %}
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        {% include "@components/memberItem/memberItem.twig" %}
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        {% include "@components/memberItem/memberItem.twig" %}
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        {% include "@components/memberItem/memberItem.twig" %}
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        {% include "@components/memberItem/memberItem.twig" %}
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        {% include "@components/memberItem/memberItem.twig" %}
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        {% include "@components/memberItem/memberItem.twig" %}
+      </div>
+    </div>
+  </div>
+</section>
+{% include "@components/partnersSlider/partnersSlider.twig" %}
+{% endblock %}

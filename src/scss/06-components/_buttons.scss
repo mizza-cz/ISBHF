@@ -1,0 +1,42 @@
+.btn {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 8px;
+  transition: color ba linear 0.3s;
+  width: fit-content;
+  color: var(--color-dark);
+  padding: 12px 24px;
+  path {
+    transition: all 0.3s;
+  }
+}
+
+.btn-stroke {
+  border-color: var(--color-accent);
+  background-color: transparent;
+  &:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-light);
+    path {
+      fill: var(--color-light);
+    }
+  }
+}
+
+.btn-primary {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent);
+  color: var(--color-light);
+  &:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background-color: var(--color-light);
+  }
+}

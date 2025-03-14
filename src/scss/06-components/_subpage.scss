@@ -1,0 +1,8 @@
+.subpage {
+  padding: 40px 0 80px;
+  background-color: var(--color-light);
+  @include media-breakpoint-down(lg) {
+    padding-bottom: 40px;
+    padding-top: 32px;
+  }
+}

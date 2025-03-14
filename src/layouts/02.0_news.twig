@@ -1,0 +1,49 @@
+{% extends "@components/base/base.twig" %} {% set title = "02.0_news" %} {%
+block main %}
+
+<section class="subpage">
+  <div class="container">
+    <h1 class="h1 titleDecore mb-3">NEWS</h1>
+    <ul class="menuCategories">
+      <li>
+        <a class="active" href="#">All</a>
+      </li>
+      <li>
+        <a href="#">News</a>
+      </li>
+      <li>
+        <a href="#">Report</a>
+      </li>
+      <li>
+        <a href="#">Foto</a>
+      </li>
+      <li>
+        <a href="#">Video</a>
+      </li>
+    </ul>
+    {% include "@components/searchInput/searchInput.twig" %}
+
+    <div class="row justify-content-between">
+      <div class="col-lg-8">
+        <div class="d-flex flex-column gap-4">
+          {% include "@components/newsItem/newsItem.twig" %} {% include
+          "@components/newsItem/newsItem.twig" %} {% include
+          "@components/newsItem/newsItem.twig" %} {% include
+          "@components/newsItem/newsItem.twig" %}
+        </div>
+        <button class="btn btn-primary mx-auto mt-40 text-lg fw-medium">
+          More
+        </button>
+      </div>
+      <div class="col-lg-3">
+        <aside class="aside">
+          <a href="#" target="_blank" class="aside__ban">
+            <img src="images/content/aside-ban.png" loading="lazy" alt="app" />
+          </a>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+.partnersSlider {
+  background-color: var(--color-blue-400);
+  padding: 64px 0 40px;
+  @include media-breakpoint-down(lg) {
+    padding-top: 40px;
+  }
+  .slick-list {
+    margin: 0 -6px;
+  }
+
+  &__inner {
+    margin-top: -6px;
+    margin-bottom: -12px;
+  }
+  &__item {
+    padding: 6px 12px;
+
+    @include media-breakpoint-down(lg) {
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+  }
+  &__link {
+    width: 100%;
+    aspect-ratio: 190/88;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    img {
+      height: 80%;
+      width: 80%;
+      object-fit: contain;
+    }
+  }
+}
