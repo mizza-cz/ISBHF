@@ -4,37 +4,29 @@ block main %}
 <section class="subpage">
   <div class="container">
     <h1 class="h1 titleDecore mb-3">NEWS</h1>
-    <ul class="menuCategories">
-      <li>
-        <a class="active" href="#">All</a>
-      </li>
-      <li>
-        <a href="#">News</a>
-      </li>
-      <li>
-        <a href="#">Report</a>
-      </li>
-      <li>
-        <a href="#">Foto</a>
-      </li>
-      <li>
-        <a href="#">Video</a>
-      </li>
-    </ul>
-    {% include "@components/searchInput/searchInput.twig" %}
 
-    <div class="row justify-content-between">
+    {% include "@components/menuFilter/menuFilter.twig" %}
+
+    <div class="row justify-content-between gy-5">
       <div class="col-lg-8">
-        <div class="d-flex flex-column gap-4">
+        <div id="news-grid" class="d-flex flex-column gap-4" role="list">
           {% include "@components/newsItem/newsItem.twig" %} {% include
           "@components/newsItem/newsItem.twig" %} {% include
           "@components/newsItem/newsItem.twig" %} {% include
           "@components/newsItem/newsItem.twig" %}
         </div>
-        <button class="btn btn-primary mx-auto mt-40 text-lg fw-medium">
+        <button
+          class="btn btn-primary mx-auto mt-40 text-lg fw-medium news-load-more"
+        >
           More
         </button>
       </div>
+      <script>
+        /**
+         * DEFINE AJAX SOURCE FOR MASONRY REFERENCE
+         */
+        const newsSource = "/_ajax-news.json";
+      </script>
       <div class="col-lg-3">
         <aside class="aside">
           <a href="#" target="_blank" class="aside__ban">

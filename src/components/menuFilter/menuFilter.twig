@@ -1,0 +1,33 @@
+<form class="menuFilter">
+  <ul class="menuCategories" role="tablist">
+    <li>
+      <button
+        name="category"
+        value="all"
+        class="active"
+        role="tab"
+        aria-selected="true"
+      >
+        All
+      </button>
+    </li>
+    <li>
+      <button name="category" value="1" role="tab">News</button>
+    </li>
+    <li>
+      <button name="category" value="2" role="tab">Report</button>
+    </li>
+    <li>
+      <button name="category" value="3" role="tab">Foto</button>
+    </li>
+    <li>
+      <button name="category" value="4" role="tab">Video</button>
+    </li>
+  </ul>
+  <input
+    type="text"
+    placeholder="Vyhledejte v článcích podle názvu, datumu,..."
+  />
+  <!-- hidden input to keep current category value if query search -->
+  <input type="hidden" name="category" value="1" />
+</form>

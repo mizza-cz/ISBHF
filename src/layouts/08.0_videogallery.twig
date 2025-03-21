@@ -1,0 +1,67 @@
+{% extends "@components/base/base.twig" %} {% set title = "08.0_videogallery" %}
+{% block main %}
+
+<section class="subpage">
+  <div class="container">
+    <h1 class="h1 titleDecore mb-3">Video</h1>
+
+    {% include "@components/menuFilter/menuFilter.twig" %}
+
+    <div class="row g-4" id="video-grid">
+      <div class="col-lg-4 col-sm-6">
+        {% include "@components/videoItem/videoItem.twig" %}
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        {% include "@components/videoItem/videoItem.twig" %}
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        {% include "@components/videoItem/videoItem.twig" %}
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        {% include "@components/videoItem/videoItem.twig" %}
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        {% include "@components/videoItem/videoItem.twig" %}
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        {% include "@components/videoItem/videoItem.twig" %}
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="modalVideoToggle"
+      aria-hidden="true"
+      aria-labelledby="modalVideoLabel"
+      tabindex="-1"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/-6xNMzouiAM?si=muepwU1sToYnqndX"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="btn btn-primary mx-auto mt-40 text-lg fw-medium video-load-more"
+    >
+      More
+    </button>
+  </div>
+</section>
+<script>
+  /**
+   * DEFINE AJAX SOURCE FOR MASONRY REFERENCE
+   */
+  const videoSource = "/_ajax-video.json";
+</script>
+{% endblock %}

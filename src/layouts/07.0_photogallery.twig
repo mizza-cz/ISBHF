@@ -1,0 +1,30 @@
+{% extends "@components/base/base.twig" %} {% set title = "07.0_photogallery" %}
+{% block main %}
+
+<section class="subpage">
+  <div class="container">
+    <h1 class="h1 titleDecore mb-3">Photo</h1>
+    {% include "@components/menuFilter/menuFilter.twig" %}
+
+    <div id="photogallery-grid" class="photogallery__inner">
+      {% include "@components/galleryItem/galleryItem.twig" %} {% include
+      "@components/galleryItem/galleryItem.twig" %} {% include
+      "@components/galleryItem/galleryItem.twig" %} {% include
+      "@components/galleryItem/galleryItem.twig" %} {% include
+      "@components/galleryItem/galleryItem.twig" %} {% include
+      "@components/galleryItem/galleryItem.twig" %}
+    </div>
+    <button
+      class="btn btn-primary mx-auto mt-40 text-lg fw-medium photogallery-load-more"
+    >
+      More
+    </button>
+  </div>
+</section>
+<script>
+  /**
+   * DEFINE AJAX SOURCE FOR MASONRY REFERENCE
+   */
+  const gallerySource = "/_ajax-photogallery.json";
+</script>
+{% endblock %}

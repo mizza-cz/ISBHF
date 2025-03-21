@@ -1,4 +1,9 @@
 .newsItem {
+  display: flex;
+  gap: 24px;
+  @include media-breakpoint-down(md) {
+    flex-direction: column;
+  }
   &__img {
     width: 100%;
     aspect-ratio: 302/220;
