@@ -1,0 +1,39 @@
+.aside {
+  &__post {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    &:hover {
+      img {
+        transform: scale(1.05);
+      }
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.3s;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 120, 197, 0) 17.79%,
+        #003a5f 84.25%
+      );
+      left: 0;
+      top: 0;
+    }
+  }
+  &__post-content {
+    position: absolute;
+    padding: 0 16px;
+    bottom: 16px;
+    z-index: 2;
+  }
+}
