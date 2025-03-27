@@ -254,5 +254,59 @@
         </div>
       </li>
     </ul>
+
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button
+          class="nav-link active"
+          id="nav-men-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#nav-men"
+          type="button"
+          role="tab"
+          aria-controls="nav-men"
+          aria-selected="true"
+        >
+          Men’s
+        </button>
+        <button
+          class="nav-link"
+          id="nav-women-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#nav-women"
+          type="button"
+          role="tab"
+          aria-controls="nav-women"
+          aria-selected="false"
+        >
+          Women’s
+        </button>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div
+        class="tab-pane fade show active"
+        id="nav-men"
+        role="tabpanel"
+        aria-labelledby="nav-men-tab"
+      >
+        <div class="row g-4">
+          <div class="col-lg-6">
+            {% include "@components/standingsBox/standingsBox.twig" %}
+          </div>
+          <div class="col-lg-6">
+            {% include "@components/statsBox/statsBox.twig" %}
+          </div>
+        </div>
+      </div>
+      <div
+        class="tab-pane fade"
+        id="nav-women"
+        role="tabpanel"
+        aria-labelledby="nav-women-tab"
+      >
+        1323 232 3232
+      </div>
+    </div>
   </div>
 </section>

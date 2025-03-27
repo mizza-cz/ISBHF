@@ -34,9 +34,18 @@
   border-color: var(--color-accent);
   background-color: var(--color-accent);
   color: var(--color-light);
+  cursor: auto;
   path {
     fill: var(--color-light);
   }
+  &:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+}
+a.btn-primary,
+button.btn-primary {
+  cursor: pointer;
   &:hover {
     border-color: var(--color-accent);
     color: var(--color-accent);

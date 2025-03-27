@@ -3,37 +3,40 @@ iframesWrap();
 
 // TABLE (wysiwyg editor) responsive
 function tablesWrap() {
-	var contentTables = document.querySelectorAll(".content table"),
-      i;
+  var contentTables = document.querySelectorAll(".o-content table"),
+    i;
 
-	for (i = 0; i < contentTables.length; ++i) {
-		contentTables[i].classList.add("table");
+  for (i = 0; i < contentTables.length; ++i) {
+    contentTables[i].classList.add("table");
 
     var contentTableWrap = document.createElement("div");
 
     contentTableWrap.classList.add("table-responsive");
 
-		contentTables[i].parentNode.insertBefore(contentTableWrap, contentTables[i]);
+    contentTables[i].parentNode.insertBefore(
+      contentTableWrap,
+      contentTables[i]
+    );
 
-		contentTableWrap.appendChild(contentTables[i]);
-	}
+    contentTableWrap.appendChild(contentTables[i]);
+  }
 }
 
 // IFRAME youtube/google (wysiwyg editor) responsive
 function iframesWrap() {
-	var contentIframes = document.querySelectorAll(".content iframe"),
-      i;
+  var contentIframes = document.querySelectorAll(".o-content iframe"),
+    i;
 
-	for (i = 0; i < contentIframes.length; ++i) {
-		contentIframes[i].removeAttribute("height");
-		contentIframes[i].removeAttribute("width");
+  for (i = 0; i < contentIframes.length; ++i) {
+    contentIframes[i].removeAttribute("height");
+    contentIframes[i].removeAttribute("width");
 
     var iframeWrap = document.createElement("div");
     iframeWrap.classList.add("ratio");
-		iframeWrap.classList.add("ratio-16x9");
+    iframeWrap.classList.add("ratio-16x9");
 
-		contentIframes[i].parentNode.insertBefore(iframeWrap, contentIframes[i]);
+    contentIframes[i].parentNode.insertBefore(iframeWrap, contentIframes[i]);
 
-		iframeWrap.appendChild(contentIframes[i]);
-	}
+    iframeWrap.appendChild(contentIframes[i]);
+  }
 }

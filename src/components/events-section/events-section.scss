@@ -1,5 +1,9 @@
 .events-section {
   background-color: var(--color-light);
+  padding-bottom: 56px;
+  @include media-breakpoint-down(lg) {
+    padding-bottom: 40px;
+  }
   &__wrapper {
     background: linear-gradient(90deg, #007bc0 0%, #003a5f 63.6%);
     border-radius: 18px;
@@ -11,6 +15,7 @@
     @include media-breakpoint-down(xl) {
       flex-direction: column;
       justify-content: center;
+      padding-left: 28px;
     }
   }
   .slick-track {
