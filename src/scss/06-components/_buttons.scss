@@ -46,3 +46,20 @@
     }
   }
 }
+
+.btn-red {
+  border-color: var(--color-red);
+  background-color: var(--color-red);
+  color: var(--color-light);
+  path {
+    fill: var(--color-light);
+  }
+  &:hover {
+    border-color: var(--color-red);
+    color: var(--color-red);
+    background-color: var(--color-light);
+    path {
+      fill: var(--color-red);
+    }
+  }
+}

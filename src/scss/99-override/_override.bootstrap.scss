@@ -75,4 +75,15 @@
 .bg-blue-500 {
   background-color: var(--color-blue-500);
 }
+.bg-gray-200 {
+  background-color: var(--color-gray-200);
+}
+.underline {
+  transition: all 0.3s;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  &:hover {
+    text-decoration-color: inherit;
+  }
+}
 /*! purgecss end ignore */
