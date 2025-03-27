@@ -34,9 +34,15 @@
   border-color: var(--color-accent);
   background-color: var(--color-accent);
   color: var(--color-light);
+  path {
+    fill: var(--color-light);
+  }
   &:hover {
     border-color: var(--color-accent);
     color: var(--color-accent);
     background-color: var(--color-light);
+    path {
+      fill: var(--color-accent);
+    }
   }
 }
