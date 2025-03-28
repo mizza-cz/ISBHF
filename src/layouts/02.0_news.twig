@@ -2,11 +2,13 @@
 block main %}
 
 <section class="subpage">
+  <div class="subpage-header">
+    <div class="container">
+      <h1 class="h1 titleDecore mb-3 text-light">NEWS</h1>
+      {% include "@components/menuFilter/menuFilter.twig" %}
+    </div>
+  </div>
   <div class="container">
-    <h1 class="h1 titleDecore mb-3">NEWS</h1>
-
-    {% include "@components/menuFilter/menuFilter.twig" %}
-
     <div class="row justify-content-between gy-5">
       <div class="col-lg-8">
         <div id="news-grid" class="d-flex flex-column gap-4" role="list">
@@ -18,7 +20,7 @@ block main %}
         <button
           class="btn btn-primary mx-auto mt-40 text-lg fw-medium news-load-more"
         >
-          More
+          +
         </button>
       </div>
       <script>
@@ -37,5 +39,4 @@ block main %}
     </div>
   </div>
 </section>
-{% include "@components/partnersSlider/partnersSlider.twig" %}
-{% endblock %}
+{% include "@components/partnersSlider/partnersSlider.twig" %} {% endblock %}

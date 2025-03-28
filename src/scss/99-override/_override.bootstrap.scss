@@ -1,12 +1,18 @@
 /*! purgecss start ignore */
 .mt-40 {
   margin-top: 40px;
+  @include media-breakpoint-down(lg) {
+    padding-top: 32px;
+  }
 }
 .mt-lg-40 {
   margin-top: 40px;
   @include media-breakpoint-down(lg) {
     margin-top: 32px;
   }
+}
+.pt-40 {
+  padding-top: 40px;
 }
 .mb-lg-40 {
   margin-bottom: 40px;
@@ -50,6 +56,9 @@
 
 .text-light {
   color: var(--color-light) !important;
+}
+.text-white {
+  color: var(--color-white) !important;
 }
 .text-primary {
   color: var(--color-blue-600) !important;

@@ -2,10 +2,13 @@
 {% block main %}
 
 <section class="subpage">
+  <div class="subpage-header">
+    <div class="container">
+      <h1 class="h1 titleDecore mb-3 text-light">Photo</h1>
+      {% include "@components/menuFilter/menuFilter.twig" %}
+    </div>
+  </div>
   <div class="container">
-    <h1 class="h1 titleDecore mb-3">Photo</h1>
-    {% include "@components/menuFilter/menuFilter.twig" %}
-
     <div id="photogallery-grid" class="photogallery__inner">
       {% include "@components/galleryItem/galleryItem.twig" %} {% include
       "@components/galleryItem/galleryItem.twig" %} {% include
@@ -27,6 +30,4 @@
    */
   const gallerySource = "/build/_ajax-photogallery.json";
 </script>
-{% include "@components/partnersSlider/partnersSlider.twig" %}
-{% endblock %}
- 
+{% include "@components/partnersSlider/partnersSlider.twig" %} {% endblock %}

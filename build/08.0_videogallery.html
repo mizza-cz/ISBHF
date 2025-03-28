@@ -168,34 +168,37 @@
 		<main class="main" aria-label="Hlavní obsah">
 
 			<section class="subpage">
+				<div class="subpage-header">
+					<div class="container">
+						<h1 class="h1 titleDecore mb-3 text-light">Video</h1>
+
+						<form class="menuFilter">
+							<ul class="menuCategories" role="tablist">
+								<li>
+									<button name="category" value="all" class="active" role="tab" aria-selected="true">
+										All
+									</button>
+								</li>
+								<li>
+									<button name="category" value="1" role="tab">News</button>
+								</li>
+								<li>
+									<button name="category" value="2" role="tab">Report</button>
+								</li>
+								<li>
+									<button name="category" value="3" role="tab">Foto</button>
+								</li>
+								<li>
+									<button name="category" value="4" role="tab">Video</button>
+								</li>
+							</ul>
+							<input type="text" placeholder="Vyhledejte v článcích podle názvu, datumu,..." />
+							<!-- hidden input to keep current category value if query search -->
+							<input type="hidden" name="category" value="1" />
+						</form>
+					</div>
+				</div>
 				<div class="container">
-					<h1 class="h1 titleDecore mb-3">Video</h1>
-
-					<form class="menuFilter">
-						<ul class="menuCategories" role="tablist">
-							<li>
-								<button name="category" value="all" class="active" role="tab" aria-selected="true">
-									All
-								</button>
-							</li>
-							<li>
-								<button name="category" value="1" role="tab">News</button>
-							</li>
-							<li>
-								<button name="category" value="2" role="tab">Report</button>
-							</li>
-							<li>
-								<button name="category" value="3" role="tab">Foto</button>
-							</li>
-							<li>
-								<button name="category" value="4" role="tab">Video</button>
-							</li>
-						</ul>
-						<input type="text" placeholder="Vyhledejte v článcích podle názvu, datumu,..." />
-						<!-- hidden input to keep current category value if query search -->
-						<input type="hidden" name="category" value="1" />
-					</form>
-
 					<div class="row g-4" id="video-grid">
 						<div class="col-lg-4 col-sm-6">
 							<a data-bs-toggle="modal" href="#modalVideoToggle" class="videoItem" role="button">

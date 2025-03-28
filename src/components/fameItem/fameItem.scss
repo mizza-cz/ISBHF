@@ -1,0 +1,76 @@
+.fameItem {
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 302/288;
+  display: block;
+  &:hover {
+    &::before {
+      opacity: 1;
+    }
+    .fameItem__hover {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 58, 95, 0) 0%, #003a5f 81.94%);
+
+    opacity: 0.6;
+    transition: opacity 0.3s;
+    left: 0;
+    top: 0;
+  }
+  &__content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    height: 100%;
+    @include media-breakpoint-down(sm) {
+      padding: 16px;
+    }
+  }
+  &__category {
+    padding: 4px;
+    border-radius: 4px;
+    color: var(--color-gray-100);
+    background: rgba(#e6732fb8, 72);
+    width: fit-content;
+  }
+  &__hover {
+    border-radius: 100%;
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    background-color: var(--color-accent);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+    opacity: 0;
+    visibility: hidden;
+    img {
+      width: 12px;
+      height: 18px;
+      object-fit: contain;
+    }
+  }
+  .tags {
+    img {
+      width: 20px;
+      height: 20px;
+      border-radius: 100%;
+    }
+  }
+}

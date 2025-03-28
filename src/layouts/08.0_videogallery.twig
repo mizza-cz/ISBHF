@@ -2,11 +2,14 @@
 {% block main %}
 
 <section class="subpage">
+  <div class="subpage-header">
+    <div class="container">
+      <h1 class="h1 titleDecore mb-3 text-light">Video</h1>
+
+      {% include "@components/menuFilter/menuFilter.twig" %}
+    </div>
+  </div>
   <div class="container">
-    <h1 class="h1 titleDecore mb-3">Video</h1>
-
-    {% include "@components/menuFilter/menuFilter.twig" %}
-
     <div class="row g-4" id="video-grid">
       <div class="col-lg-4 col-sm-6">
         {% include "@components/videoItem/videoItem.twig" %}
@@ -64,5 +67,4 @@
    */
   const videoSource = "./build/_ajax-video.json";
 </script>
-{% include "@components/partnersSlider/partnersSlider.twig" %}
-{% endblock %}
+{% include "@components/partnersSlider/partnersSlider.twig" %} {% endblock %}
