@@ -1,10 +1,36 @@
 .article-section {
-  margin-top: 28px;
-  margin-bottom: 80px;
+  padding-top: 28px;
+  background-color: var(--color-light);
+  padding-bottom: 80px;
+  @include media-breakpoint-down(lg) {
+    padding-bottom: 60px;
+  }
   .topstoryMain {
     margin-bottom: 48px;
     @include media-breakpoint-down(lg) {
       margin-bottom: 32px;
+    }
+  }
+
+  &__tourney {
+    margin-top: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: flex-end;
+    font-weight: 500;
+    text-decoration-color: transparent;
+    background-color: var(--color-white);
+    padding: 12px 16px;
+    width: fit-content;
+    &:hover {
+      text-decoration-color: inherit;
+    }
+    img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
     }
   }
 }
