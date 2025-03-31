@@ -9,7 +9,10 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 100%;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     padding: 6px 10px;
     background-color: var(--color-gray-100);
     border: 2px solid transparent;
