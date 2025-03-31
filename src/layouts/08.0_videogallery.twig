@@ -6,7 +6,73 @@
     <div class="container">
       <h1 class="h1 titleDecore mb-3 text-light">Video</h1>
 
-      {% include "@components/menuFilter/menuFilter.twig" %}
+      <form class="menuFilter">
+        <ul class="menuCategories" role="tablist">
+          <li>
+            <button
+              name="category"
+              value="all"
+              class="active"
+              role="tab"
+              aria-selected="true"
+            >
+              All
+            </button>
+          </li>
+          <li>
+            <button name="category" value="1" role="tab">
+              <img
+                srcset="images/content/event-2.png 16w"
+                width="16"
+                height="16"
+                loading="lazy"
+                alt="logo"
+              />
+              Poprad 2025
+            </button>
+          </li>
+          <li>
+            <button name="category" value="2" role="tab">
+              <img
+                srcset="images/content/event-1.png 16w"
+                width="16"
+                height="16"
+                loading="lazy"
+                alt="logo"
+              />Hradec 2025
+            </button>
+          </li>
+          <li>
+            <button name="category" value="1" role="tab">
+              <img
+                srcset="images/content/event-3.png 16w"
+                width="16"
+                height="16"
+                loading="lazy"
+                alt="logo"
+              />
+              Poprad 2025
+            </button>
+          </li>
+          <li>
+            <button name="category" value="2" role="tab">
+              <img
+                srcset="images/content/event-1.png 16w"
+                width="16"
+                height="16"
+                loading="lazy"
+                alt="logo"
+              />Hradec 2025
+            </button>
+          </li>
+        </ul>
+        <input
+          type="text"
+          placeholder="Vyhledejte v článcích podle názvu, datumu,..."
+        />
+        <!-- hidden input to keep current category value if query search -->
+        <input type="hidden" name="category" value="1" />
+      </form>
     </div>
   </div>
   <div class="container">
