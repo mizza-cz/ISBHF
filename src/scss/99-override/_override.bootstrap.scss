@@ -87,6 +87,9 @@
 .bg-gray-200 {
   background-color: var(--color-gray-200);
 }
+.bg-white {
+  background-color: var(--color-white) !important;
+}
 .underline {
   transition: all 0.3s;
   text-decoration: underline;
