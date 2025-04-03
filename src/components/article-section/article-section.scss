@@ -10,8 +10,43 @@
     @include media-breakpoint-down(lg) {
       margin-bottom: 32px;
     }
+    &::before {
+      @include media-breakpoint-down(md) {
+        display: none;
+      }
+    }
+    img {
+      @include media-breakpoint-down(md) {
+        border-radius: 1rem;
+        aspect-ratio: 260 / 200;
+      }
+    }
   }
-
+  .tags {
+    @include media-breakpoint-down(md) {
+      color: var(--color-blue-600) !important;
+    }
+  }
+  .tags.text-gray-200 li + li:before {
+    @include media-breakpoint-down(md) {
+      background: rgba(15, 26, 32, 0.2);
+      opacity: 1;
+    }
+  }
+  .topstoryMain__content {
+    @include media-breakpoint-down(md) {
+      position: relative;
+      top: 0;
+      bottom: auto;
+      margin-top: 1.25rem;
+      padding: 0;
+    }
+    .h1 {
+      @include media-breakpoint-down(md) {
+        color: var(--color-dark) !important;
+      }
+    }
+  }
   &__tourney {
     margin-top: 40px;
     border-radius: 8px;
