@@ -21,18 +21,19 @@
         aspect-ratio: 260 / 200;
       }
     }
-  }
-  .tags {
-    @include media-breakpoint-down(md) {
-      color: var(--color-blue-600) !important;
+    .tags {
+      @include media-breakpoint-down(md) {
+        color: var(--color-blue-600) !important;
+      }
+    }
+    .tags.text-gray-200 li + li:before {
+      @include media-breakpoint-down(md) {
+        background: rgba(15, 26, 32, 0.2);
+        opacity: 1;
+      }
     }
   }
-  .tags.text-gray-200 li + li:before {
-    @include media-breakpoint-down(md) {
-      background: rgba(15, 26, 32, 0.2);
-      opacity: 1;
-    }
-  }
+
   .topstoryMain__content {
     @include media-breakpoint-down(md) {
       position: relative;

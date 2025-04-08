@@ -65,12 +65,12 @@
     }
   }
   &__img {
-    aspect-ratio: 193/176;
+    aspect-ratio: 193/150;
     overflow: hidden;
     border-radius: 16px;
     max-width: 12.8rem;
     width: 100%;
-    min-width: 12.867rem;
+    min-width: 12.8rem;
     @include media-breakpoint-down(sm) {
       max-width: 100%;
       aspect-ratio: 260/200;
