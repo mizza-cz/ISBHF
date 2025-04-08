@@ -1,13 +1,17 @@
 {% extends "@components/base/base.twig" %} {% set title = "01.0_homepage" %} {%
-block main %} {% include "@components/topstory/topstory.twig" %} {% include
-"@components/matchesLive/matchesLive.twig" %} {% include
-"@components/events-section/events-section.twig" %} {% include
-"@components/infoBoard/infoBoard.twig" %} 
+block main %}
+<div class="topGradient">
+  {% include "@components/header/header.twig" %} {% include
+  "@components/topstory/topstory.twig" %}
+</div>
 
-{% include
-   "@components/aboutBoard/aboutBoard.twig" %} 
+<main class="main" aria-label="Hlavní obsah">
+  {% include "@components/matchesLive/matchesLive.twig" %} {% include
+  "@components/events-section/events-section.twig" %} {% include
+  "@components/infoBoard/infoBoard.twig" %} {% include
+  "@components/aboutBoard/aboutBoard.twig" %} {% include
+  "@components/videoSlider/videoSlider.twig" %} {% include
+  "@components/partnersSlider/partnersSlider.twig" %}
+</main>
 
-
-{% include
-"@components/videoSlider/videoSlider.twig" %} {% include
-"@components/partnersSlider/partnersSlider.twig" %} {% endblock %}
+{% endblock %}

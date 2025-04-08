@@ -1,8 +1,9 @@
 {% extends "@components/base/base.twig" %} {% set title = "07.0_photogallery" %}
 {% block main %}
 
-<section class="subpage">
-  <div class="subpage-header">
+<div class="topGradient">
+  {% include "@components/header/header.twig" %}
+  <section class="subpage-header">
     <div class="container">
       <h1 class="h1 titleDecore mb-3 text-light">Photo</h1>
       <form class="menuFilter">
@@ -65,35 +66,38 @@
             </button>
           </li>
         </ul>
-        <input
-          type="text"
-          placeholder="Search"
-        />
+        <input type="text" placeholder="Search" />
         <!-- hidden input to keep current category value if query search -->
         <input type="hidden" name="category" value="1" />
       </form>
     </div>
-  </div>
-  <div class="container">
-    <div id="photogallery-grid" class="photogallery__inner">
-      {% include "@components/galleryItem/galleryItem.twig" %} {% include
-      "@components/galleryItem/galleryItem.twig" %} {% include
-      "@components/galleryItem/galleryItem.twig" %} {% include
-      "@components/galleryItem/galleryItem.twig" %} {% include
-      "@components/galleryItem/galleryItem.twig" %} {% include
-      "@components/galleryItem/galleryItem.twig" %}
+  </section>
+</div>
+
+<main class="main" aria-label="Hlavní obsah">
+  <section class="subpage">
+    <div class="container">
+      <div id="photogallery-grid" class="photogallery__inner">
+        {% include "@components/galleryItem/galleryItem.twig" %} {% include
+        "@components/galleryItem/galleryItem.twig" %} {% include
+        "@components/galleryItem/galleryItem.twig" %} {% include
+        "@components/galleryItem/galleryItem.twig" %} {% include
+        "@components/galleryItem/galleryItem.twig" %} {% include
+        "@components/galleryItem/galleryItem.twig" %}
+      </div>
+      <button
+        class="btn btn-primary mx-auto mt-40 text-lg fw-medium photogallery-load-more"
+      >
+        More
+      </button>
     </div>
-    <button
-      class="btn btn-primary mx-auto mt-40 text-lg fw-medium photogallery-load-more"
-    >
-      More
-    </button>
-  </div>
-</section>
-<script>
-  /**
-   * DEFINE AJAX SOURCE FOR MASONRY REFERENCE
-   */
-  const gallerySource = "/build/_ajax-photogallery.json";
-</script>
-{% include "@components/partnersSlider/partnersSlider.twig" %} {% endblock %}
+  </section>
+  <script>
+    /**
+     * DEFINE AJAX SOURCE FOR MASONRY REFERENCE
+     */
+    const gallerySource = "/build/_ajax-photogallery.json";
+  </script>
+  {% include "@components/partnersSlider/partnersSlider.twig" %}
+</main>
+{% endblock %}

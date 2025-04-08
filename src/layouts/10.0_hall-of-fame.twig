@@ -1,8 +1,8 @@
 {% extends "@components/base/base.twig" %} {% set title = "10.0_hall-of-fame" %}
 {% block main %}
-
-<section class="subpage">
-  <div class="subpage-header">
+<div class="topGradient">
+  {% include "@components/header/header.twig" %}
+  <section class="subpage-header">
     <div class="container">
       <h1 class="h1 titleDecore mb-3 text-light">HALL OF FAME</h1>
       <form class="menuFilter mb-0">
@@ -33,86 +33,92 @@
         </ul>
       </form>
     </div>
-  </div>
-  <div class="container">
-    <div class="mb-4">
-      <h2 class="h2 mb-2">Builder</h2>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum aperiam
-        voluptatum dolorum obcaecati a saepe incidunt, tempore rerum temporibus
-        delectus harum quisquam commodi quasi optio corporis mollitia unde
-        consectetur omnis? Adipisci dignissimos enim sequi, deleniti esse, ut
-        velit quos atque inventore labore sunt aut architecto totam. Quae,
-        voluptas provident dolorum facilis vitae mollitia quis officia facere
-        perferendis ad nihil numquam! Recusandae cumque quae dolorum ad,
-        suscipit aspernatur perspiciatis ea, obcaecati ut numquam tempora
-        quaerat excepturi praesentium? Velit quos veniam sit repellat dolores
-        deserunt! Sint, sapiente.
-      </p>
+  </section>
+</div>
+<main class="main" aria-label="Hlavní obsah">
+  <section class="subpage">
+    <div class="container">
+      <div class="mb-4">
+        <h2 class="h2 mb-2">Builder</h2>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum
+          aperiam voluptatum dolorum obcaecati a saepe incidunt, tempore rerum
+          temporibus delectus harum quisquam commodi quasi optio corporis
+          mollitia unde consectetur omnis? Adipisci dignissimos enim sequi,
+          deleniti esse, ut velit quos atque inventore labore sunt aut
+          architecto totam. Quae, voluptas provident dolorum facilis vitae
+          mollitia quis officia facere perferendis ad nihil numquam! Recusandae
+          cumque quae dolorum ad, suscipit aspernatur perspiciatis ea, obcaecati
+          ut numquam tempora quaerat excepturi praesentium? Velit quos veniam
+          sit repellat dolores deserunt! Sint, sapiente.
+        </p>
+      </div>
+      <div class="mb-4">
+        <h2 class="h2 mb-2">Player</h2>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum
+          aperiam voluptatum dolorum obcaecati a saepe incidunt, tempore rerum
+          temporibus delectus harum quisquam commodi quasi optio corporis
+          mollitia unde consectetur omnis? Adipisci dignissimos enim sequi,
+          deleniti esse, ut velit quos atque inventore labore sunt aut
+          architecto totam. Quae, voluptas provident dolorum facilis vitae
+          mollitia quis officia facere perferendis ad nihil numquam! Recusandae
+          cumque quae dolorum ad, suscipit aspernatur perspiciatis ea, obcaecati
+          ut numquam tempora quaerat excepturi praesentium? Velit quos veniam
+          sit repellat dolores deserunt! Sint, sapiente.
+        </p>
+      </div>
+      <div class="mb-4">
+        <h2 class="h2 mb-2">Coach</h2>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum
+          aperiam voluptatum dolorum obcaecati a saepe incidunt, tempore rerum
+          temporibus delectus harum quisquam commodi quasi optio corporis
+          mollitia unde consectetur omnis? Adipisci dignissimos enim sequi,
+          deleniti esse, ut
+        </p>
+      </div>
+      <div class="row g-4 mt-4" id="video-grid">
+        <div class="col-xl-3 col-lg-4 col-md-6">
+          {% include "@components/fameItem/fameItem.twig" %}
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-6">
+          {% include "@components/fameItem/fameItem.twig" %}
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-6">
+          {% include "@components/fameItem/fameItem.twig" %}
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-6">
+          {% include "@components/fameItem/fameItem.twig" %}
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-6">
+          {% include "@components/fameItem/fameItem.twig" %}
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-6">
+          {% include "@components/fameItem/fameItem.twig" %}
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-6">
+          {% include "@components/fameItem/fameItem.twig" %}
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-6">
+          {% include "@components/fameItem/fameItem.twig" %}
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-6">
+          {% include "@components/fameItem/fameItem.twig" %}
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-6">
+          {% include "@components/fameItem/fameItem.twig" %}
+        </div>
+      </div>
     </div>
-    <div class="mb-4">
-      <h2 class="h2 mb-2">Player</h2>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum aperiam
-        voluptatum dolorum obcaecati a saepe incidunt, tempore rerum temporibus
-        delectus harum quisquam commodi quasi optio corporis mollitia unde
-        consectetur omnis? Adipisci dignissimos enim sequi, deleniti esse, ut
-        velit quos atque inventore labore sunt aut architecto totam. Quae,
-        voluptas provident dolorum facilis vitae mollitia quis officia facere
-        perferendis ad nihil numquam! Recusandae cumque quae dolorum ad,
-        suscipit aspernatur perspiciatis ea, obcaecati ut numquam tempora
-        quaerat excepturi praesentium? Velit quos veniam sit repellat dolores
-        deserunt! Sint, sapiente.
-      </p>
-    </div>
-    <div class="mb-4">
-      <h2 class="h2 mb-2">Coach</h2>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum aperiam
-        voluptatum dolorum obcaecati a saepe incidunt, tempore rerum temporibus
-        delectus harum quisquam commodi quasi optio corporis mollitia unde
-        consectetur omnis? Adipisci dignissimos enim sequi, deleniti esse, ut
-      </p>
-    </div>
-    <div class="row g-4 mt-4" id="video-grid">
-      <div class="col-xl-3 col-lg-4 col-md-6">
-        {% include "@components/fameItem/fameItem.twig" %}
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6">
-        {% include "@components/fameItem/fameItem.twig" %}
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6">
-        {% include "@components/fameItem/fameItem.twig" %}
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6">
-        {% include "@components/fameItem/fameItem.twig" %}
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6">
-        {% include "@components/fameItem/fameItem.twig" %}
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6">
-        {% include "@components/fameItem/fameItem.twig" %}
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6">
-        {% include "@components/fameItem/fameItem.twig" %}
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6">
-        {% include "@components/fameItem/fameItem.twig" %}
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6">
-        {% include "@components/fameItem/fameItem.twig" %}
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6">
-        {% include "@components/fameItem/fameItem.twig" %}
-      </div>
-    </div>
-  </div>
-</section>
-{% include "@components/fameModal/fameModal.twig" %}
-<script>
-  /**
-   * DEFINE AJAX SOURCE FOR MASONRY REFERENCE
-   */
-  const videoSource = "./build/_ajax-video.json";
-</script>
-{% include "@components/partnersSlider/partnersSlider.twig" %} {% endblock %}
+  </section>
+  {% include "@components/fameModal/fameModal.twig" %}
+  <script>
+    /**
+     * DEFINE AJAX SOURCE FOR MASONRY REFERENCE
+     */
+    const videoSource = "./build/_ajax-video.json";
+  </script>
+  {% include "@components/partnersSlider/partnersSlider.twig" %}
+</main>
+{% endblock %}

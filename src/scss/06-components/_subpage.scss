@@ -9,10 +9,8 @@
     margin-bottom: 40px;
     padding-top: 40px;
     padding-bottom: 60px;
-    background: linear-gradient(
-      180deg,
-      rgba(0, 90, 142, 0.95) 0%,
-      #003a5f 93.5%
-    );
+    @include media-breakpoint-down(lg) {
+      padding-bottom: 40px;
+    }
   }
 }

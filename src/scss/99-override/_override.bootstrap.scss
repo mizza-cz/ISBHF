@@ -2,7 +2,7 @@
 .mt-40 {
   margin-top: 40px;
   @include media-breakpoint-down(lg) {
-    padding-top: 32px;
+    margin-top: 32px;
   }
 }
 .mt-lg-40 {
@@ -77,7 +77,7 @@
 }
 
 .container {
-  max-width: 85.8rem !important;
+  max-width: 87.4rem !important;
   padding: 0 16px !important;
   margin: 0 auto;
 }

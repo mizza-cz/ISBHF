@@ -1,8 +1,8 @@
 {% extends "@components/base/base.twig" %} {% set title = "11.0_tournaments" %}
 {% block main %}
-
-<section class="subpage">
-  <div class="subpage-header">
+<div class="topGradient">
+  {% include "@components/header/header.twig" %}
+  <section class="subpage-header">
     <div class="container">
       <h1 class="h1 titleDecore mb-3 text-light">Tournaments</h1>
       <form class="menuFilter mb-0">
@@ -31,199 +31,202 @@
             <button name="category" value="4" role="tab">U18</button>
           </li>
         </ul>
-        <input
-          type="text"
-          placeholder="Search"
-        />
+        <input type="text" placeholder="Search" />
         <!-- hidden input to keep current category value if query search -->
         <input type="hidden" name="category" value="1" />
       </form>
     </div>
-  </div>
-  <div class="container">
-    <div class="row g-4 mt-4" id="video-grid">
-      <div class="col-xl-3 col-lg-4 col-md-6">
-        <a href="#" class="eventsSlider__item bg-white">
-          <div class="eventsSlider__item-content">
-            <img
-              class="h-auto"
-              alt="app"
-              src="images/content/event-1.png"
-              sizes="
-              (min-width: 132px) 132w
-            "
-              width="132"
-              height="132"
-            />
-            <h4 class="h3">
-              U20 Men’s <br />
-              U20 Women’s
-            </h4>
-          </div>
+  </section>
+</div>
+<main class="main" aria-label="Hlavní obsah">
+  <section class="subpage">
+    <div class="container">
+      <div class="row g-4 mt-4" id="video-grid">
+        <div class="col-xl-3 col-lg-4 col-md-6">
+          <a href="#" class="eventsSlider__item bg-white">
+            <div class="eventsSlider__item-content">
+              <img
+                class="h-auto"
+                alt="app"
+                src="images/content/event-1.png"
+                sizes="
+                (min-width: 132px) 132w
+              "
+                width="132"
+                height="132"
+              />
+              <h4 class="h3">
+                U20 Men’s <br />
+                U20 Women’s
+              </h4>
+            </div>
 
-          <div class="eventsSlider__item-footer">July 2–6, 2025</div>
-        </a>
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6">
-        <a href="#" class="eventsSlider__item bg-white">
-          <div class="eventsSlider__item-content">
-            <img
-              class="h-auto"
-              alt="app"
-              src="images/content/event-2.png"
-              sizes="
-             (min-width: 132px) 132w
-           "
-              width="132"
-              height="132"
-            />
-            <h4 class="h3">35+ Masters</h4>
-          </div>
+            <div class="eventsSlider__item-footer">July 2–6, 2025</div>
+          </a>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-6">
+          <a href="#" class="eventsSlider__item bg-white">
+            <div class="eventsSlider__item-content">
+              <img
+                class="h-auto"
+                alt="app"
+                src="images/content/event-2.png"
+                sizes="
+               (min-width: 132px) 132w
+             "
+                width="132"
+                height="132"
+              />
+              <h4 class="h3">35+ Masters</h4>
+            </div>
 
-          <div class="eventsSlider__item-footer">November 11–16, 2025</div>
-        </a>
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6">
-        <a href="#" class="eventsSlider__item bg-white">
-          <div class="eventsSlider__item-content">
-            <img
-              class="h-auto"
-              alt="app"
-              src="images/content/event-3.png"
-              sizes="
-             (min-width: 132px) 132w
-           "
-              width="132"
-              height="132"
-            />
-            <h4 class="h3">Men’s & Women’s</h4>
-          </div>
+            <div class="eventsSlider__item-footer">November 11–16, 2025</div>
+          </a>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-6">
+          <a href="#" class="eventsSlider__item bg-white">
+            <div class="eventsSlider__item-content">
+              <img
+                class="h-auto"
+                alt="app"
+                src="images/content/event-3.png"
+                sizes="
+               (min-width: 132px) 132w
+             "
+                width="132"
+                height="132"
+              />
+              <h4 class="h3">Men’s & Women’s</h4>
+            </div>
 
-          <div class="eventsSlider__item-footer">June 20–28, 2026</div>
-        </a>
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6">
-        <a href="#" class="eventsSlider__item bg-white">
-          <div class="eventsSlider__item-content">
-            <img
-              class="h-auto"
-              alt="app"
-              src="images/content/event-1.png"
-              sizes="
-              (min-width: 132px) 132w
-            "
-              width="132"
-              height="132"
-            />
-            <h4 class="h3">
-              U20 Men’s <br />
-              U20 Women’s
-            </h4>
-          </div>
+            <div class="eventsSlider__item-footer">June 20–28, 2026</div>
+          </a>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-6">
+          <a href="#" class="eventsSlider__item bg-white">
+            <div class="eventsSlider__item-content">
+              <img
+                class="h-auto"
+                alt="app"
+                src="images/content/event-1.png"
+                sizes="
+                (min-width: 132px) 132w
+              "
+                width="132"
+                height="132"
+              />
+              <h4 class="h3">
+                U20 Men’s <br />
+                U20 Women’s
+              </h4>
+            </div>
 
-          <div class="eventsSlider__item-footer">July 2–6, 2025</div>
-        </a>
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6">
-        <a href="#" class="eventsSlider__item bg-white">
-          <div class="eventsSlider__item-content">
-            <img
-              class="h-auto"
-              alt="app"
-              src="images/content/event-2.png"
-              sizes="
-             (min-width: 132px) 132w
-           "
-              width="132"
-              height="132"
-            />
-            <h4 class="h3">35+ Masters</h4>
-          </div>
+            <div class="eventsSlider__item-footer">July 2–6, 2025</div>
+          </a>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-6">
+          <a href="#" class="eventsSlider__item bg-white">
+            <div class="eventsSlider__item-content">
+              <img
+                class="h-auto"
+                alt="app"
+                src="images/content/event-2.png"
+                sizes="
+               (min-width: 132px) 132w
+             "
+                width="132"
+                height="132"
+              />
+              <h4 class="h3">35+ Masters</h4>
+            </div>
 
-          <div class="eventsSlider__item-footer">November 11–16, 2025</div>
-        </a>
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6">
-        <a href="#" class="eventsSlider__item bg-white">
-          <div class="eventsSlider__item-content">
-            <img
-              class="h-auto"
-              alt="app"
-              src="images/content/event-3.png"
-              sizes="
-             (min-width: 132px) 132w
-           "
-              width="132"
-              height="132"
-            />
-            <h4 class="h3">Men’s & Women’s</h4>
-          </div>
+            <div class="eventsSlider__item-footer">November 11–16, 2025</div>
+          </a>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-6">
+          <a href="#" class="eventsSlider__item bg-white">
+            <div class="eventsSlider__item-content">
+              <img
+                class="h-auto"
+                alt="app"
+                src="images/content/event-3.png"
+                sizes="
+               (min-width: 132px) 132w
+             "
+                width="132"
+                height="132"
+              />
+              <h4 class="h3">Men’s & Women’s</h4>
+            </div>
 
-          <div class="eventsSlider__item-footer">June 20–28, 2026</div>
-        </a>
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6">
-        <a href="#" class="eventsSlider__item bg-white">
-          <div class="eventsSlider__item-content">
-            <img
-              class="h-auto"
-              alt="app"
-              src="images/content/event-1.png"
-              sizes="
-              (min-width: 132px) 132w
-            "
-              width="132"
-              height="132"
-            />
-            <h4 class="h3">
-              U20 Men’s <br />
-              U20 Women’s
-            </h4>
-          </div>
+            <div class="eventsSlider__item-footer">June 20–28, 2026</div>
+          </a>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-6">
+          <a href="#" class="eventsSlider__item bg-white">
+            <div class="eventsSlider__item-content">
+              <img
+                class="h-auto"
+                alt="app"
+                src="images/content/event-1.png"
+                sizes="
+                (min-width: 132px) 132w
+              "
+                width="132"
+                height="132"
+              />
+              <h4 class="h3">
+                U20 Men’s <br />
+                U20 Women’s
+              </h4>
+            </div>
 
-          <div class="eventsSlider__item-footer">July 2–6, 2025</div>
-        </a>
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6">
-        <a href="#" class="eventsSlider__item bg-white">
-          <div class="eventsSlider__item-content">
-            <img
-              class="h-auto"
-              alt="app"
-              src="images/content/event-2.png"
-              sizes="
-             (min-width: 132px) 132w
-           "
-              width="132"
-              height="132"
-            />
-            <h4 class="h3">35+ Masters</h4>
-          </div>
+            <div class="eventsSlider__item-footer">July 2–6, 2025</div>
+          </a>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-6">
+          <a href="#" class="eventsSlider__item bg-white">
+            <div class="eventsSlider__item-content">
+              <img
+                class="h-auto"
+                alt="app"
+                src="images/content/event-2.png"
+                sizes="
+               (min-width: 132px) 132w
+             "
+                width="132"
+                height="132"
+              />
+              <h4 class="h3">35+ Masters</h4>
+            </div>
 
-          <div class="eventsSlider__item-footer">November 11–16, 2025</div>
-        </a>
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-6">
-        <a href="#" class="eventsSlider__item bg-white">
-          <div class="eventsSlider__item-content">
-            <img
-              class="h-auto"
-              alt="app"
-              src="images/content/event-3.png"
-              sizes="
-             (min-width: 132px) 132w
-           "
-              width="132"
-              height="132"
-            />
-            <h4 class="h3">Men’s & Women’s</h4>
-          </div>
+            <div class="eventsSlider__item-footer">November 11–16, 2025</div>
+          </a>
+        </div>
+        <div class="col-xl-3 col-lg-4 col-md-6">
+          <a href="#" class="eventsSlider__item bg-white">
+            <div class="eventsSlider__item-content">
+              <img
+                class="h-auto"
+                alt="app"
+                src="images/content/event-3.png"
+                sizes="
+               (min-width: 132px) 132w
+             "
+                width="132"
+                height="132"
+              />
+              <h4 class="h3">Men’s & Women’s</h4>
+            </div>
 
-          <div class="eventsSlider__item-footer">June 20–28, 2026</div>
-        </a>
+            <div class="eventsSlider__item-footer">June 20–28, 2026</div>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-{% include "@components/partnersSlider/partnersSlider.twig" %} {% endblock %}
+  {% include "@components/partnersSlider/partnersSlider.twig" %}
+</main>
+
+{% endblock %}

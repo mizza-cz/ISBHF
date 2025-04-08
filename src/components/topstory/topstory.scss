@@ -1,6 +1,4 @@
 .topstory {
-  background: linear-gradient(180deg, rgba(0, 90, 142, 0.95) 0%, #003a5f 93.5%);
-
   padding: 16px 0 68px;
   @include media-breakpoint-down(lg) {
     padding-bottom: 40px;
@@ -71,6 +69,8 @@
     overflow: hidden;
     border-radius: 16px;
     max-width: 12.8rem;
+    width: 100%;
+    min-width: 12.867rem;
     @include media-breakpoint-down(sm) {
       max-width: 100%;
       aspect-ratio: 260/200;

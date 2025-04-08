@@ -1,9 +1,10 @@
-{% extends "@components/base/base.twig" %}
+{% extends "@components/base/base.twig" %} {% set title = "03.0_article" %} {%
+block main %}
 
-{% set title = "03.0_article" %}
+<div class="topGradient-2">{% include "@components/header/header.twig" %}</div>
 
-{% block main %}
-
-{% include "@components/article-section/article-section.twig" %}
-{% include "@components/partnersSlider/partnersSlider.twig" %}
+<main class="main" aria-label="Hlavní obsah">
+  {% include "@components/article-section/article-section.twig" %} {% include
+  "@components/partnersSlider/partnersSlider.twig" %}
+</main>
 {% endblock %}
