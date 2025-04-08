@@ -4,6 +4,7 @@
   margin-top: -20px;
   background-color: var(--color-light);
   padding-bottom: 64px;
+ 
   @include media-breakpoint-down(lg) {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -17,6 +18,11 @@
   }
   .slick-slide li,
   .slick-slide > div {
+    height: 100%;
+  }
+  .slick-track {
+    display: flex;
+    align-self: stretch;
     height: 100%;
   }
 }

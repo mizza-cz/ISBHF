@@ -13,7 +13,6 @@
   }
   .videoItem {
     aspect-ratio: 360/200;
-    max-width: 376px;
     @include media-breakpoint-down(md) {
       max-width: 100%;
     }
@@ -22,13 +21,14 @@
     padding: 0 16px;
     bottom: 16px;
   }
-  .slick-slide:not(.slick-active) {
-    .videoItem:before {
-      background: linear-gradient(
-        270deg,
-        #fafafa 34%,
-        rgba(250, 250, 250, 0) 100%
-      );
-    }
-  }
+
+  // .slick-slide:not(.slick-active) {
+  //   .videoItem:before {
+  //     background: linear-gradient(
+  //       270deg,
+  //       #fafafa 34%,
+  //       rgba(250, 250, 250, 0) 100%
+  //     );
+  //   }
+  // }
 }

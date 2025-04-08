@@ -99,6 +99,9 @@
   background-color: var(--color-blue-600);
   color: var(--color-light);
   border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .matchItem--after {
