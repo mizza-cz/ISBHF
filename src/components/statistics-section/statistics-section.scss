@@ -1,0 +1,72 @@
+.statistics-section {
+  padding-bottom: 80px;
+  background-color: var(--color-light);
+  padding-top: 40px;
+  @include media-breakpoint-down(lg) {
+    padding-bottom: 40px;
+  }
+  &__inner + &__inner {
+    margin-top: 24px;
+  }
+  &__inner {
+    table {
+      margin-bottom: 0;
+      white-space: nowrap;
+      th:nth-child(1),
+      th:nth-child(2),
+      td:nth-child(1),
+      td:nth-child(2) {
+        width: 40px;
+      }
+      th,
+      td {
+        text-align: center;
+        width: 50px;
+        vertical-align: middle;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22.4px;
+      }
+      th:nth-child(1),
+      td:nth-child(1) {
+        border-radius: 2px 0 0 2px;
+      }
+      th:last-child,
+      td:last-child {
+        border-radius: 0 2px 2px 0;
+      }
+      th:nth-child(3),
+      td:nth-child(3) {
+        text-align: left;
+        width: auto;
+        padding-left: 0;
+      }
+    }
+    .avatar {
+      display: flex;
+      align-items: center;
+      width: 25px;
+      height: 25px;
+      border-radius: 100%;
+      position: relative;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .state {
+      position: absolute;
+      width: 11px;
+      display: block;
+      height: 7px;
+      bottom: 0;
+      right: 0px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}

@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>15.0_tournament-videogallery - ISBHF</title>
+	<title>13.0_tournament-table - ISBHF</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
 	<meta name="format-detection" content="telephone=no" />
 
@@ -199,7 +199,9 @@
 								<button name="category" value="3" role="tab">Awards</button>
 							</li>
 							<li>
-								<button name="category" value="4" role="tab">Statistics</button>
+								<button class="active" aria-selected="true" name="category" value="4" role="tab">
+									Statistics
+								</button>
 							</li>
 							<li>
 								<button name="category" value="7" role="tab">Rosters</button>
@@ -208,9 +210,7 @@
 								<button name="category" value="5" role="tab">News</button>
 							</li>
 							<li>
-								<button class="active" aria-selected="true" name="category" value="6" role="tab">
-									Videos
-								</button>
+								<button name="category" value="6" role="tab">Videos</button>
 							</li>
 						</ul>
 					</form>
@@ -219,139 +219,469 @@
 		</div>
 
 		<main class="main" aria-label="Hlavní obsah">
-			<section class="subpage">
+			<section class="statistics-section">
 				<div class="container">
-					<h1 class="h1 titleDecore mb-3 text-blue-700">Video</h1>
-
+					<h2 class="h1 mb-4">Statistiky</h2>
 					<form class="menuFilter mb-40">
-						<input type="text" placeholder="Search" />
-						<!-- hidden input to keep current category value if query search -->
-						<input type="hidden" name="category" value="1" />
+						<label class="o-select mb-12 d-block">
+							<select class="js-select">
+								<option>All teams</option>
+								<option>CZE</option>
+								<option>GBA</option>
+								<option>SVK</option>
+								<option>CZE</option>
+								<option>GBA</option>
+								<option>SVK</option>
+								<option>CZE</option>
+								<option>GBA</option>
+								<option>SVK</option>
+							</select>
+						</label>
+						<ul class="menuCategories mb-0" role="tablist">
+							<li>
+								<button name="category" value="all" class="active" role="tab" aria-selected="true">
+									All
+								</button>
+							</li>
+							<li>
+								<button name="category" value="1" role="tab">Goalkeepers</button>
+							</li>
+							<li>
+								<button name="category" value="2" role="tab">In the field</button>
+							</li>
+							<li>
+								<button name="category" value="3" role="tab">Defenders</button>
+							</li>
+							<li>
+								<button name="category" value="4" role="tab">Forwards</button>
+							</li>
+						</ul>
 					</form>
-					<div class="row g-4" id="video-grid">
-						<div class="col-lg-4 col-sm-6">
-							<a data-bs-toggle="modal" href="#modalVideoToggle" class="videoItem" role="button">
-								<img srcset="
-      https://picsum.photos/784/520 784w,
-      https://picsum.photos/392/490 392w
-    " width="392" height="260" loading="lazy" alt="video" />
-								<div class="videoItem__content">
-									<h2 class="text-lg text-light">
-										<span>Full Match:</span> Canada vs. Greece
-									</h2>
-								</div>
-								<div class="videoItem__tourney">
-									<img srcset="images/content/event-3.png 32w" width="40" height="40" loading="lazy" alt="logo" />
-								</div>
-							</a>
 
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<a data-bs-toggle="modal" href="#modalVideoToggle" class="videoItem" role="button">
-								<img srcset="
-      https://picsum.photos/784/520 784w,
-      https://picsum.photos/392/490 392w
-    " width="392" height="260" loading="lazy" alt="video" />
-								<div class="videoItem__content">
-									<h2 class="text-lg text-light">
-										<span>Full Match:</span> Canada vs. Greece
-									</h2>
-								</div>
-								<div class="videoItem__tourney">
-									<img srcset="images/content/event-3.png 32w" width="40" height="40" loading="lazy" alt="logo" />
-								</div>
-							</a>
-
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<a data-bs-toggle="modal" href="#modalVideoToggle" class="videoItem" role="button">
-								<img srcset="
-      https://picsum.photos/784/520 784w,
-      https://picsum.photos/392/490 392w
-    " width="392" height="260" loading="lazy" alt="video" />
-								<div class="videoItem__content">
-									<h2 class="text-lg text-light">
-										<span>Full Match:</span> Canada vs. Greece
-									</h2>
-								</div>
-								<div class="videoItem__tourney">
-									<img srcset="images/content/event-3.png 32w" width="40" height="40" loading="lazy" alt="logo" />
-								</div>
-							</a>
-
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<a data-bs-toggle="modal" href="#modalVideoToggle" class="videoItem" role="button">
-								<img srcset="
-      https://picsum.photos/784/520 784w,
-      https://picsum.photos/392/490 392w
-    " width="392" height="260" loading="lazy" alt="video" />
-								<div class="videoItem__content">
-									<h2 class="text-lg text-light">
-										<span>Full Match:</span> Canada vs. Greece
-									</h2>
-								</div>
-								<div class="videoItem__tourney">
-									<img srcset="images/content/event-3.png 32w" width="40" height="40" loading="lazy" alt="logo" />
-								</div>
-							</a>
-
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<a data-bs-toggle="modal" href="#modalVideoToggle" class="videoItem" role="button">
-								<img srcset="
-      https://picsum.photos/784/520 784w,
-      https://picsum.photos/392/490 392w
-    " width="392" height="260" loading="lazy" alt="video" />
-								<div class="videoItem__content">
-									<h2 class="text-lg text-light">
-										<span>Full Match:</span> Canada vs. Greece
-									</h2>
-								</div>
-								<div class="videoItem__tourney">
-									<img srcset="images/content/event-3.png 32w" width="40" height="40" loading="lazy" alt="logo" />
-								</div>
-							</a>
-
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<a data-bs-toggle="modal" href="#modalVideoToggle" class="videoItem" role="button">
-								<img srcset="
-      https://picsum.photos/784/520 784w,
-      https://picsum.photos/392/490 392w
-    " width="392" height="260" loading="lazy" alt="video" />
-								<div class="videoItem__content">
-									<h2 class="text-lg text-light">
-										<span>Full Match:</span> Canada vs. Greece
-									</h2>
-								</div>
-								<div class="videoItem__tourney">
-									<img srcset="images/content/event-3.png 32w" width="40" height="40" loading="lazy" alt="logo" />
-								</div>
-							</a>
-
+					<div class="statistics-section__inner">
+						<div class="o-content">
+							<table>
+								<thead>
+									<tr>
+										<th><strong>#</strong></th>
+										<th></th>
+										<th><strong>Name</strong></th>
+										<th><strong>POST</strong></th>
+										<th><strong>Z</strong></th>
+										<th><strong>G</strong></th>
+										<th><strong>A</strong></th>
+										<th><strong>B</strong></th>
+										<th><strong>PPG</strong></th>
+										<th><strong>SHG</strong></th>
+										<th><strong>TM</strong></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><strong>1</strong></td>
+										<td>
+											<div class="avatar">
+												<img src="images/content/ava.png" alt="" />
+												<span class="state">
+													<img src="images/ico/cz.svg" alt="" /></span>
+											</div>
+										</td>
+										<td>
+											<a class="text-primary" href="#"><strong>Karel Skočdopole</strong></a>
+										</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td><strong>22</strong></td>
+										<td>22</td>
+										<td>22</td>
+									</tr>
+									<tr>
+										<td><strong>1</strong></td>
+										<td>
+											<div class="avatar">
+												<img src="images/content/ava.png" alt="" />
+												<span class="state">
+													<img src="images/ico/cz.svg" alt="" /></span>
+											</div>
+										</td>
+										<td>
+											<a class="text-primary" href="#"><strong>Karel Skočdopole</strong></a>
+										</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td><strong>22</strong></td>
+										<td>22</td>
+										<td>54</td>
+									</tr>
+									<tr>
+										<td><strong>1</strong></td>
+										<td>
+											<div class="avatar">
+												<img src="images/content/ava.png" alt="" />
+												<span class="state">
+													<img src="images/ico/cz.svg" alt="" /></span>
+											</div>
+										</td>
+										<td>
+											<a class="text-primary" href="#"><strong>Karel Skočdopole</strong></a>
+										</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td><strong>22</strong></td>
+										<td>22</td>
+										<td>54</td>
+									</tr>
+									<tr>
+										<td><strong>1</strong></td>
+										<td>
+											<div class="avatar">
+												<img src="images/content/ava.png" alt="" />
+												<span class="state">
+													<img src="images/ico/cz.svg" alt="" /></span>
+											</div>
+										</td>
+										<td>
+											<a class="text-primary" href="#"><strong>Karel Skočdopole</strong></a>
+										</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td><strong>22</strong></td>
+										<td>22</td>
+										<td>22</td>
+									</tr>
+									<tr>
+										<td><strong>1</strong></td>
+										<td>
+											<div class="avatar">
+												<img src="images/content/ava.png" alt="" />
+												<span class="state">
+													<img src="images/ico/cz.svg" alt="" /></span>
+											</div>
+										</td>
+										<td>
+											<a class="text-primary" href="#"><strong>Karel Skočdopole</strong></a>
+										</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td><strong>22</strong></td>
+										<td>22</td>
+										<td>54</td>
+									</tr>
+									<tr>
+										<td><strong>1</strong></td>
+										<td>
+											<div class="avatar">
+												<img src="images/content/ava.png" alt="" />
+												<span class="state">
+													<img src="images/ico/cz.svg" alt="" /></span>
+											</div>
+										</td>
+										<td>
+											<a class="text-primary" href="#"><strong>Karel Skočdopole</strong></a>
+										</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td><strong>22</strong></td>
+										<td>22</td>
+										<td>54</td>
+									</tr>
+									<tr>
+										<td><strong>1</strong></td>
+										<td>
+											<div class="avatar">
+												<img src="images/content/ava.png" alt="" />
+												<span class="state">
+													<img src="images/ico/cz.svg" alt="" /></span>
+											</div>
+										</td>
+										<td>
+											<a class="text-primary" href="#"><strong>Karel Skočdopole</strong></a>
+										</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td><strong>22</strong></td>
+										<td>22</td>
+										<td>54</td>
+									</tr>
+									<tr>
+										<td><strong>1</strong></td>
+										<td>
+											<div class="avatar">
+												<img src="images/content/ava.png" alt="" />
+												<span class="state">
+													<img src="images/ico/cz.svg" alt="" /></span>
+											</div>
+										</td>
+										<td>
+											<a class="text-primary" href="#"><strong>Karel Skočdopole</strong></a>
+										</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td><strong>22</strong></td>
+										<td>22</td>
+										<td>54</td>
+									</tr>
+									<tr>
+										<td><strong>1</strong></td>
+										<td>
+											<div class="avatar">
+												<img src="images/content/ava.png" alt="" />
+												<span class="state">
+													<img src="images/ico/cz.svg" alt="" /></span>
+											</div>
+										</td>
+										<td>
+											<a class="text-primary" href="#"><strong>Karel Skočdopole</strong></a>
+										</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td><strong>22</strong></td>
+										<td>22</td>
+										<td>54</td>
+									</tr>
+									<tr>
+										<td><strong>1</strong></td>
+										<td>
+											<div class="avatar">
+												<img src="images/content/ava.png" alt="" />
+												<span class="state">
+													<img src="images/ico/cz.svg" alt="" /></span>
+											</div>
+										</td>
+										<td>
+											<a class="text-primary" href="#"><strong>Karel Skočdopole</strong></a>
+										</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td><strong>22</strong></td>
+										<td>22</td>
+										<td>54</td>
+									</tr>
+									<tr>
+										<td><strong>1</strong></td>
+										<td>
+											<div class="avatar">
+												<img src="images/content/ava.png" alt="" />
+												<span class="state">
+													<img src="images/ico/cz.svg" alt="" /></span>
+											</div>
+										</td>
+										<td>
+											<a class="text-primary" href="#"><strong>Karel Skočdopole</strong></a>
+										</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td><strong>22</strong></td>
+										<td>22</td>
+										<td>54</td>
+									</tr>
+									<tr>
+										<td><strong>1</strong></td>
+										<td>
+											<div class="avatar">
+												<img src="images/content/ava.png" alt="" />
+												<span class="state">
+													<img src="images/ico/cz.svg" alt="" /></span>
+											</div>
+										</td>
+										<td>
+											<a class="text-primary" href="#"><strong>Karel Skočdopole</strong></a>
+										</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td><strong>22</strong></td>
+										<td>22</td>
+										<td>54</td>
+									</tr>
+									<tr>
+										<td><strong>1</strong></td>
+										<td>
+											<div class="avatar">
+												<img src="images/content/ava.png" alt="" />
+												<span class="state">
+													<img src="images/ico/cz.svg" alt="" /></span>
+											</div>
+										</td>
+										<td>
+											<a class="text-primary" href="#"><strong>Karel Skočdopole</strong></a>
+										</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td><strong>22</strong></td>
+										<td>22</td>
+										<td>54</td>
+									</tr>
+									<tr>
+										<td><strong>1</strong></td>
+										<td>
+											<div class="avatar">
+												<img src="images/content/ava.png" alt="" />
+												<span class="state">
+													<img src="images/ico/cz.svg" alt="" /></span>
+											</div>
+										</td>
+										<td>
+											<a class="text-primary" href="#"><strong>Karel Skočdopole</strong></a>
+										</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td><strong>22</strong></td>
+										<td>22</td>
+										<td>54</td>
+									</tr>
+									<tr>
+										<td><strong>1</strong></td>
+										<td>
+											<div class="avatar">
+												<img src="images/content/ava.png" alt="" />
+												<span class="state">
+													<img src="images/ico/cz.svg" alt="" /></span>
+											</div>
+										</td>
+										<td>
+											<a class="text-primary" href="#"><strong>Karel Skočdopole</strong></a>
+										</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td><strong>22</strong></td>
+										<td>22</td>
+										<td>54</td>
+									</tr>
+									<tr>
+										<td><strong>1</strong></td>
+										<td>
+											<div class="avatar">
+												<img src="images/content/ava.png" alt="" />
+												<span class="state">
+													<img src="images/ico/cz.svg" alt="" /></span>
+											</div>
+										</td>
+										<td>
+											<a class="text-primary" href="#"><strong>Karel Skočdopole</strong></a>
+										</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td><strong>22</strong></td>
+										<td>22</td>
+										<td>54</td>
+									</tr>
+									<tr>
+										<td><strong>1</strong></td>
+										<td>
+											<div class="avatar">
+												<img src="images/content/ava.png" alt="" />
+												<span class="state">
+													<img src="images/ico/cz.svg" alt="" /></span>
+											</div>
+										</td>
+										<td>
+											<a class="text-primary" href="#"><strong>Karel Skočdopole</strong></a>
+										</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td><strong>22</strong></td>
+										<td>22</td>
+										<td>54</td>
+									</tr>
+									<tr>
+										<td><strong>1</strong></td>
+										<td>
+											<div class="avatar">
+												<img src="images/content/ava.png" alt="" />
+												<span class="state">
+													<img src="images/ico/cz.svg" alt="" /></span>
+											</div>
+										</td>
+										<td>
+											<a class="text-primary" href="#"><strong>Karel Skočdopole</strong></a>
+										</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td><strong>22</strong></td>
+										<td>22</td>
+										<td>54</td>
+									</tr>
+									<tr>
+										<td><strong>1</strong></td>
+										<td>
+											<div class="avatar">
+												<img src="images/content/ava.png" alt="" />
+												<span class="state">
+													<img src="images/ico/cz.svg" alt="" /></span>
+											</div>
+										</td>
+										<td>
+											<a class="text-primary" href="#"><strong>Karel Skočdopole</strong></a>
+										</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td>22</td>
+										<td><strong>22</strong></td>
+										<td>22</td>
+										<td>54</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
 					</div>
-					<div class="modal fade" id="modalVideoToggle" aria-hidden="true" aria-labelledby="modalVideoLabel" tabindex="-1">
-						<div class="modal-dialog modal-dialog-centered">
-							<div class="modal-content">
-								<div class="modal-body">
-									<iframe width="560" height="315" src="https://www.youtube.com/embed/-6xNMzouiAM?si=muepwU1sToYnqndX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-								</div>
-							</div>
-						</div>
-					</div>
-					<button class="btn btn-primary mx-auto mt-40 text-lg fw-medium video-load-more">
-						More
-					</button>
 				</div>
 			</section>
-			<script>
-				/**
-				 * DEFINE AJAX SOURCE FOR MASONRY REFERENCE
-				 */
-				const videoSource = "./build/_ajax-video.json";
-			</script>
 			<section class="partnersSlider mb-10">
 				<div class="container">
 					<h5 class="h1 titleDecore mb-2 text-light">ISBHF PARTNERS</h5>

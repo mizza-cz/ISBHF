@@ -10,11 +10,7 @@
   > :last-child {
     margin-bottom: 0;
   }
-  .table {
-    @include media-breakpoint-down(lg) {
-      min-width: 400px;
-    }
-  }
+  
   p {
     margin-bottom: 20px;
   }
