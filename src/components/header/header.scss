@@ -55,22 +55,23 @@
       text-decoration-color: inherit;
     }
   }
-}
-
-.navbar-nav {
-  display: flex;
-  @include media-breakpoint-down(lg) {
-    flex-direction: column;
+  .navbar-nav {
+    display: flex;
+    @include media-breakpoint-down(lg) {
+      flex-direction: column;
+      position: relative;
+      z-index: 30;
+      margin-bottom: 16px;
+      width: 100%;
+    }
+  }
+  
+  .nav-item {
     position: relative;
-    z-index: 30;
-    margin-bottom: 16px;
-    width: 100%;
   }
 }
 
-.nav-item {
-  position: relative;
-}
+ 
 
 .dropdown {
   &-toggle {

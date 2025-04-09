@@ -1,0 +1,34 @@
+{% extends "@components/base/base.twig" %} {% set title = "19.0_match-detail" %}
+{% block main %}
+<div class="topGradient-2">{% include "@components/header/header.twig" %}</div>
+
+<main class="main" aria-label="Hlavní obsah">
+  {% include "@components/match-section/match-section.twig" %} {% include
+  "@components/match-detail/match-detail.twig" %} {% include
+  "@components/partnersSlider/partnersSlider.twig" %}
+</main>
+<div
+  class="modal fade"
+  id="modalVideoToggle"
+  aria-hidden="true"
+  aria-labelledby="modalVideoLabel"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/-6xNMzouiAM?si=muepwU1sToYnqndX"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

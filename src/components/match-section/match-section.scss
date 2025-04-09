@@ -1,0 +1,217 @@
+.matchBoard {
+  color: var(--color-light);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px 8px;
+  background: var(--color-blue-600);
+  border-radius: 12px;
+  align-items: center;
+  @include media-breakpoint-down(md) {
+    padding-bottom: 24px;
+  }
+  &__top {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 24px;
+    li {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 15.31px;
+    }
+    li + li {
+      padding-left: 32px;
+      margin-left: 24px;
+      position: relative;
+      @include media-breakpoint-down(lg) {
+        padding-left: 28px;
+        margin-left: 20px;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 4px;
+        width: 8px;
+        height: 8px;
+        border-radius: 100%;
+        background: var(--color-accent);
+      }
+    }
+  }
+  &__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    margin-bottom: 24px;
+    @include media-breakpoint-down(lg) {
+      gap: 24px;
+    }
+  }
+  &__bottom {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14.4px;
+    text-align: center;
+  }
+  &__flag {
+    height: 44px;
+    width: 64px;
+    border: 8px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  &__result {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 44px;
+    color: var(--color-accent);
+    width: 120px;
+  }
+  &__team {
+    display: flex;
+    align-items: center;
+    flex: 0 0 40%;
+    max-width: 40%;
+    &:first-child {
+      justify-content: flex-end;
+    }
+    gap: 12px;
+    .h1 {
+      color: var(--color-light);
+      @include media-breakpoint-down(md) {
+        display: none;
+      }
+    }
+  }
+}
+.match-section {
+  padding-top: 28px;
+  background-color: var(--color-light);
+  padding-bottom: 40px;
+}
+.matchBoard__line {
+  width: 100%;
+
+  .period {
+    position: absolute;
+    left: 0;
+    top: 4rem;
+    text-align: center;
+    font-weight: 800;
+    color: var(--color-light);
+    border: 1px solid var(--color-light);
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 100%;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 24px;
+    z-index: 89;
+    background: var(--color-blue-700);
+    min-width: 24px;
+  }
+  .period--finish {
+    right: 0;
+    left: auto;
+  }
+  .match-detail__list {
+    padding-left: 32px;
+    padding-right: 32px;
+    border-radius: 12px;
+    background: linear-gradient(214.45deg, #ff1522 0%, #ff0046 100%);
+  }
+  .game__timeline {
+    display: none;
+    position: relative;
+  }
+  @media (min-width: 768px) {
+    .game__timeline {
+      display: block;
+    }
+  }
+  .game__timeline__logo {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 60px;
+    border-bottom: 1px solid #fff;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    height: 100%;
+  }
+  .game__timeline__logo img {
+    width: 100%;
+    max-width: 32px;
+    height: 18px;
+    width: 100%;
+    object-fit: contain;
+  }
+  .game__timeline__logo--away {
+    border-bottom: 0;
+  }
+  .game__timeline__period {
+    height: 40px;
+    position: relative;
+    border-bottom: 1px solid #fff;
+    height: 80px;
+  }
+  .game__timeline__period--away {
+    border-bottom: 0;
+  }
+  .game__timeline__goal {
+    margin-left: -10px;
+    bottom: -1px;
+    position: absolute;
+    text-align: center;
+  }
+
+  .game__timeline__goal span {
+    display: block;
+    margin-top: 4px;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    line-height: 19px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-blue-700);
+    margin-bottom: 4px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+  }
+
+  .game__timeline__goal--away {
+    bottom: auto;
+    top: -1px;
+  }
+  .game__timeline__goal--away span {
+    margin-top: 0;
+    margin-bottom: 4px;
+    padding-bottom: 0;
+    margin-top: 4px;
+  }
+}
+
+.icon-ball {
+  background-image: url("../images/ico/match-ball.svg");
+  height: 20px !important;
+  margin-bottom: 0 !important;
+}
+.icon-whistle {
+  background-image: url("../images/ico/whistle.svg");
+}
