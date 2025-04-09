@@ -1,0 +1,140 @@
+.matches-section {
+  padding-bottom: 80px;
+  background-color: var(--color-light);
+  padding-top: 40px;
+  @include media-breakpoint-down(lg) {
+    padding-bottom: 40px;
+  }
+
+  &__wrapper + &__wrapper {
+    margin-top: 32px;
+  }
+}
+
+.match {
+  padding: 1.5rem 1rem;
+  background: rgba(#fff, 1);
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+  &:nth-child(odd) {
+    background: transparent;
+  }
+  &:hover {
+    box-shadow: 0 0.3125rem 0.875rem 0 rgba(0, 0, 0, 0.09);
+  }
+  &__logos {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  &__logo {
+    position: relative;
+    z-index: 3;
+    padding: 0 12px;
+    img {
+      width: 3.5rem;
+      object-fit: cover;
+    }
+  }
+  &__team {
+    padding: 0 16px;
+    .h4 {
+      text-transform: uppercase;
+    }
+    @include media-breakpoint-down(xl) {
+      text-align: center;
+      justify-content: center;
+    }
+    ul {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 4px;
+      @include media-breakpoint-down(xl) {
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 8px;
+      }
+      li + li {
+        position: relative;
+        padding-left: 10px;
+        margin-left: 10px;
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 10px;
+          width: 2px;
+          height: 2px;
+          border-radius: 100%;
+          background-color: var(--color-accent);
+        }
+      }
+    }
+  }
+
+  &__result {
+    color: var(--blue);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 59.83px;
+
+    @include media-breakpoint-down(xl) {
+      text-align: center;
+      justify-content: center;
+    }
+  }
+  &__links {
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 4;
+    //  flex-wrap: wrap;
+    width: 100%;
+    margin-top: auto;
+    @include media-breakpoint-down(xl) {
+      text-align: center;
+      justify-content: center;
+    }
+    li {
+      padding: 0 4px;
+    }
+    a {
+      font-size: 0.875rem;
+      letter-spacing: -0.00875rem;
+      line-height: 1.1875rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      background-color: #f2f2f2;
+      border-radius: 0.375rem;
+      transition: all 0.3s;
+      text-decoration: none;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100%;
+      width: 48px;
+      padding: 0;
+      img,
+      svg {
+        transition: all 0.2s;
+        width: 24px;
+        height: 24px;
+        display: block;
+      }
+      &:hover {
+        background-color: var(--color-accent);
+        color: var(--color-light);
+        svg,
+        img {
+          filter: brightness(0) invert(1);
+        }
+      }
+    }
+  }
+}

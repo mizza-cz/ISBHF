@@ -10,6 +10,11 @@
   > :last-child {
     margin-bottom: 0;
   }
+  .table {
+    @include media-breakpoint-down(lg) {
+      min-width: 400px;
+    }
+  }
   p {
     margin-bottom: 20px;
   }
@@ -22,7 +27,7 @@
       margin-bottom: 8px;
       &::before {
         content: "";
-        background-color: var(--color-orange);
+        background-color: var(--color-accent);
         position: absolute;
         top: 6px;
         left: 0;
@@ -50,7 +55,7 @@
       margin-bottom: 8px;
       &::before {
         content: counter(item) ")";
-        color: var(--color-orange);
+        color: var(--color-accent);
         font-weight: 500;
         position: absolute;
         top: 0;

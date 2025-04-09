@@ -1,0 +1,45 @@
+.table-section {
+  padding-bottom: 80px;
+  background-color: var(--color-light);
+  padding-top: 40px;
+  @include media-breakpoint-down(lg) {
+    padding-bottom: 40px;
+  }
+  .o-content table {
+    white-space: nowrap;
+    th,
+    td {
+      text-align: center;
+      width: 60px;
+    }
+    td:nth-child(1) {
+      border-radius: 4px 0 0 4px;
+    }
+    td:last-child {
+      border-radius: 0 4px 4px 0;
+    }
+    td:nth-child(1),
+    th:nth-child(1),
+    td:nth-child(2),
+    th:nth-child(2) {
+      width: 40px;
+    }
+    td:nth-child(3),
+    th:nth-child(3) {
+      text-align: left;
+      width: auto;
+      padding-left: 0;
+    }
+    td {
+      align-items: center;
+      vertical-align: middle;
+      img {
+        width: 20px;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        margin: auto;
+      }
+    }
+  }
+}

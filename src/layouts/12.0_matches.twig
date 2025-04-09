@@ -1,0 +1,42 @@
+{% extends "@components/base/base.twig" %} {% set title = "12.0_matches" %} {%
+block main %}
+<div class="topGradient">
+  {% include "@components/header/header.twig" %}
+  <section class="subpage-header">
+    <div class="container">
+      <h1 class="h1 titleDecore mb-3 text-light">Matches</h1>
+      <form class="menuFilter">
+        <ul class="menuCategories" role="tablist">
+          <li>
+            <button
+              name="category"
+              value="all"
+              class="active"
+              role="tab"
+              aria-selected="true"
+            >
+              All
+            </button>
+          </li>
+          <li>
+            <button name="category" value="1" role="tab">A</button>
+          </li>
+          <li>
+            <button name="category" value="2" role="tab">B</button>
+          </li>
+          <li>
+            <button name="category" value="3" role="tab">C</button>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </section>
+</div>
+
+<main class="main" aria-label="Hlavní obsah">
+  
+  {% include "@components/matches-section/matches-section.twig" %}
+  {% include "@components/partnersSlider/partnersSlider.twig" %}
+</main>
+
+{% endblock %}

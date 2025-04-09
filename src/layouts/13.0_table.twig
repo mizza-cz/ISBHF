@@ -1,0 +1,17 @@
+{% extends "@components/base/base.twig" %} {% set title = "13.0_table" %} {%
+block main %}
+<div class="topGradient">
+  {% include "@components/header/header.twig" %}
+  <section class="subpage-header">
+    <div class="container">
+      <h1 class="h1 titleDecore text-light">Standings</h1>
+    </div>
+  </section>
+</div>
+
+<main class="main" aria-label="Hlavní obsah">
+  {% include "@components/table-section/table-section.twig" %} {% include
+  "@components/partnersSlider/partnersSlider.twig" %}
+</main>
+
+{% endblock %}

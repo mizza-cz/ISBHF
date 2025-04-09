@@ -1,12 +1,12 @@
 .subpage {
   padding-bottom: 80px;
   background-color: var(--color-light);
+  padding-top: 40px;
   @include media-breakpoint-down(lg) {
     padding-bottom: 40px;
   }
 
   &-header {
-    margin-bottom: 40px;
     padding-top: 40px;
     padding-bottom: 60px;
     @include media-breakpoint-down(lg) {
