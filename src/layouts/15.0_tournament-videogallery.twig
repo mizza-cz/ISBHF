@@ -1,0 +1,122 @@
+{% extends "@components/base/base.twig" %} {% set title =
+"15.0_tournament-videogallery" %} {% block main %}
+<div class="topGradient">
+  {% include "@components/header/header.twig" %}
+  <section class="subpage-header">
+    <div class="container">
+      <div class="d-flex align-items-center gap-3 flex-wrap mb-3">
+        <img
+          srcset="images/content/event-2.png 16w"
+          width="80"
+          height="80"
+          loading="lazy"
+          alt="logo"
+          class="object-fit-contain"
+        />
+        <h1 class="h1 titleDecore text-light">Poprad 2025</h1>
+      </div>
+
+      <form class="menuFilter">
+        <ul class="menuCategories" role="tablist">
+          <li>
+            <button name="category" value="1" role="tab">Matches</button>
+          </li>
+          <li>
+            <button name="category" value="2" role="tab">Standings</button>
+          </li>
+          <li>
+            <button name="category" value="3" role="tab">Awards</button>
+          </li>
+          <li>
+            <button name="category" value="4" role="tab">Statistics</button>
+          </li>
+          <li>
+            <button name="category" value="5" role="tab">News</button>
+          </li>
+          <li>
+            <button
+              class="active"
+              aria-selected="true"
+              name="category"
+              value="6"
+              role="tab"
+            >
+              Videos
+            </button>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </section>
+</div>
+
+<main class="main" aria-label="Hlavní obsah">
+  <section class="subpage">
+    <div class="container">
+      <h1 class="h1 titleDecore mb-3 text-blue-700">Video</h1>
+
+      <form class="menuFilter mb-40">
+        <input type="text" placeholder="Search" />
+        <!-- hidden input to keep current category value if query search -->
+        <input type="hidden" name="category" value="1" />
+      </form>
+      <div class="row g-4" id="video-grid">
+        <div class="col-lg-4 col-sm-6">
+          {% include "@components/videoItem/videoItem.twig" %}
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          {% include "@components/videoItem/videoItem.twig" %}
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          {% include "@components/videoItem/videoItem.twig" %}
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          {% include "@components/videoItem/videoItem.twig" %}
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          {% include "@components/videoItem/videoItem.twig" %}
+        </div>
+        <div class="col-lg-4 col-sm-6">
+          {% include "@components/videoItem/videoItem.twig" %}
+        </div>
+      </div>
+      <div
+        class="modal fade"
+        id="modalVideoToggle"
+        aria-hidden="true"
+        aria-labelledby="modalVideoLabel"
+        tabindex="-1"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body">
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/-6xNMzouiAM?si=muepwU1sToYnqndX"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        class="btn btn-primary mx-auto mt-40 text-lg fw-medium video-load-more"
+      >
+        More
+      </button>
+    </div>
+  </section>
+  <script>
+    /**
+     * DEFINE AJAX SOURCE FOR MASONRY REFERENCE
+     */
+    const videoSource = "./build/_ajax-video.json";
+  </script>
+  {% include "@components/partnersSlider/partnersSlider.twig" %}
+</main>
+{% endblock %}

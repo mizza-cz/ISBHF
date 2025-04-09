@@ -1,0 +1,59 @@
+{% extends "@components/base/base.twig" %} {% set title =
+"13.0_tournament-table" %} {% block main %}
+<div class="topGradient">
+  {% include "@components/header/header.twig" %}
+  <section class="subpage-header">
+    <div class="container">
+      <div class="d-flex align-items-center gap-3 flex-wrap mb-3">
+        <img
+          srcset="images/content/event-2.png 16w"
+          width="80"
+          height="80"
+          loading="lazy"
+          alt="logo"
+          class="object-fit-contain"
+        />
+        <h1 class="h1 titleDecore text-light">Poprad 2025</h1>
+      </div>
+
+      <form class="menuFilter">
+        <ul class="menuCategories" role="tablist">
+          <li>
+            <button name="category" value="1" role="tab">Matches</button>
+          </li>
+          <li>
+            <button
+              class="active"
+              aria-selected="true"
+              name="category"
+              value="2"
+              role="tab"
+            >
+              Standings
+            </button>
+          </li>
+          <li>
+            <button name="category" value="3" role="tab">Awards</button>
+          </li>
+          <li>
+            <button name="category" value="4" role="tab">Statistics</button>
+          </li>
+          <li>
+            <button name="category" value="5" role="tab">News</button>
+          </li>
+          <li>
+            <button name="category" value="6" role="tab">Videos</button>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </section>
+  
+</div>
+
+<main class="main" aria-label="Hlavní obsah">
+  {% include "@components/table-section/table-section.twig" %} {% include
+  "@components/partnersSlider/partnersSlider.twig" %}
+</main>
+
+{% endblock %}

@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>14.0_awards - ISBHF</title>
+	<title>13.0_tournament-table - ISBHF</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
 	<meta name="format-detection" content="telephone=no" />
 
@@ -32,7 +32,7 @@
 
 <body>
 	<div class="base">
-		<div class="topGradient-2">
+		<div class="topGradient">
 			<header class="header">
 				<div class="container">
 					<div class="header__inner">
@@ -180,138 +180,233 @@
 					</div>
 				</div>
 			</header>
+			<section class="subpage-header">
+				<div class="container">
+					<div class="d-flex align-items-center gap-3 flex-wrap mb-3">
+						<img srcset="images/content/event-2.png 16w" width="80" height="80" loading="lazy" alt="logo" class="object-fit-contain" />
+						<h1 class="h1 titleDecore text-light">Poprad 2025</h1>
+					</div>
+
+					<form class="menuFilter">
+						<ul class="menuCategories" role="tablist">
+							<li>
+								<button name="category" value="1" role="tab">Matches</button>
+							</li>
+							<li>
+								<button class="active" aria-selected="true" name="category" value="2" role="tab">
+									Standings
+								</button>
+							</li>
+							<li>
+								<button name="category" value="3" role="tab">Awards</button>
+							</li>
+							<li>
+								<button name="category" value="4" role="tab">Statistics</button>
+							</li>
+							<li>
+								<button name="category" value="5" role="tab">News</button>
+							</li>
+							<li>
+								<button name="category" value="6" role="tab">Videos</button>
+							</li>
+						</ul>
+					</form>
+				</div>
+			</section>
+
 		</div>
 
 		<main class="main" aria-label="Hlavní obsah">
-			<section class="subpage">
+			<section class="table-section">
 				<div class="container">
-					<h1 class="h1 titleDecore mb-lg-40">Individual awards</h1>
+					<h2 class="h1 mb-4">Standings</h2>
+					<div class="o-content">
+						<table>
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>
+										<a class="team" href="#"><strong>State</strong></a>
+									</th>
+									<th>
+										<a href="#"> </a>
+									</th>
+									<th>
+										<a href="#">Z</a>
+									</th>
+									<th>
+										<a>V</a>
+									</th>
+									<th>
+										<a href="#">VP</a>
+									</th>
+									<th>
+										<a href="#">PP</a>
+									</th>
+									<th>
+										<a href="#">P</a>
+									</th>
+									<th>
+										<a href="#"> Score</a>
+									</th>
+									<th>
+										<a href="#"><strong>B</strong></a>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><strong>1</strong></td>
+									<td><img src="images/ico/cz.svg" alt="" /></td>
+									<td>
+										<a class="text-primary" href="#"><strong>Czech Republic</strong></a>
+									</td>
+									<td>2</td>
+									<td>44</td>
+									<td>22</td>
+									<td>19</td>
+									<td>3</td>
 
-					<div class="row gx-3 gy-lg-5 gy-3 mb-5">
-						<div class="col-lg-4 col-sm-6">
-							<div class="contactItem">
-								<h3 class="h4 text-accent mb-2">Best scorer:</h3>
-								<h5 class="h2 mb-2">Jan Čejka</h5>
-								<ul class="tags text-primary text-sm">
-									<li>
-										<img srcset="images/content/cz.png" width="16" height="16" alt="" />Czechia
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<div class="contactItem">
-								<h3 class="h4 text-accent mb-2">Best Forward:</h3>
-								<h5 class="h2 mb-2">Jan Čejka</h5>
-								<ul class="tags text-primary text-sm">
-									<li>
-										<img srcset="images/content/cz.png" width="16" height="16" alt="" />Czechia
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<div class="contactItem">
-								<h3 class="h4 text-accent mb-2">Best defenceman:</h3>
-								<h5 class="h2 mb-2">Jan Čejka</h5>
-								<ul class="tags text-primary text-sm">
-									<li>
-										<img srcset="images/content/cz.png" width="16" height="16" alt="" />Czechia
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<div class="contactItem">
-								<h3 class="h4 text-accent mb-2">Best goalkeeper:</h3>
-								<h5 class="h2 mb-2">Jan Čejka</h5>
-								<ul class="tags text-primary text-sm">
-									<li>
-										<img srcset="images/content/cz.png" width="16" height="16" alt="" />Czechia
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<div class="contactItem">
-								<h3 class="h4 text-accent mb-2">MVP:</h3>
-								<h5 class="h2 mb-2">Jan Čejka</h5>
-								<ul class="tags text-primary text-sm">
-									<li>
-										<img srcset="images/content/cz.png" width="16" height="16" alt="" />Czechia
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<h2 class="h2 mb-3">All star team</h2>
-					<div class="row gx-3 gy-lg-5 gy-3 mb-5">
-						<div class="col-lg-4 col-sm-6">
-							<div class="contactItem">
-								<h3 class="h4 text-accent mb-2">all star team - goalkeeper:</h3>
-								<h5 class="h2 mb-2">Jan Čejka</h5>
-								<ul class="tags text-primary text-sm">
-									<li>
-										<img srcset="images/content/cz.png" width="16" height="16" alt="" />Czechia
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<div class="contactItem">
-								<h3 class="h4 text-accent mb-2">all star team - player:</h3>
-								<h5 class="h2 mb-2">Jan Čejka</h5>
-								<ul class="tags text-primary text-sm">
-									<li>
-										<img srcset="images/content/cz.png" width="16" height="16" alt="" />Czechia
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<div class="contactItem">
-								<h3 class="h4 text-accent mb-2">all star team - player:</h3>
-								<h5 class="h2 mb-2">Jan Čejka</h5>
-								<ul class="tags text-primary text-sm">
-									<li>
-										<img srcset="images/content/cz.png" width="16" height="16" alt="" />Czechia
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<div class="contactItem">
-								<h3 class="h4 text-accent mb-2">all star team - player:</h3>
-								<h5 class="h2 mb-2">Jan Čejka</h5>
-								<ul class="tags text-primary text-sm">
-									<li>
-										<img srcset="images/content/cz.png" width="16" height="16" alt="" />Czechia
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<div class="contactItem">
-								<h3 class="h4 text-accent mb-2">all star team - player:</h3>
-								<h5 class="h2 mb-2">Jan Čejka</h5>
-								<ul class="tags text-primary text-sm">
-									<li>
-										<img srcset="images/content/cz.png" width="16" height="16" alt="" />Czechia
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<div class="contactItem">
-								<h3 class="h4 text-accent mb-2">all star team - player:</h3>
-								<h5 class="h2 mb-2">Jan Čejka</h5>
-								<ul class="tags text-primary text-sm">
-									<li>
-										<img srcset="images/content/cz.png" width="16" height="16" alt="" />Czechia
-									</li>
-								</ul>
-							</div>
-						</div>
+									<td>3,07</td>
+									<td><strong>86,36 </strong></td>
+								</tr>
+								<tr>
+									<td><strong>1</strong></td>
+									<td><img src="images/ico/cz.svg" alt="" /></td>
+									<td>
+										<a class="text-primary" href="#"><strong>Czech Republic</strong></a>
+									</td>
+									<td>2</td>
+									<td>44</td>
+									<td>22</td>
+									<td>19</td>
+									<td>3</td>
+
+									<td>3,07</td>
+									<td><strong>86,36 </strong></td>
+								</tr>
+								<tr>
+									<td><strong>1</strong></td>
+									<td><img src="images/ico/cz.svg" alt="" /></td>
+									<td>
+										<a class="text-primary" href="#"><strong>Czech Republic</strong></a>
+									</td>
+									<td>2</td>
+									<td>44</td>
+									<td>22</td>
+									<td>19</td>
+									<td>3</td>
+
+									<td>3,07</td>
+									<td><strong>86,36 </strong></td>
+								</tr>
+								<tr>
+									<td><strong>1</strong></td>
+									<td><img src="images/ico/cz.svg" alt="" /></td>
+									<td>
+										<a class="text-primary" href="#"><strong>Czech Republic</strong></a>
+									</td>
+									<td>2</td>
+									<td>44</td>
+									<td>22</td>
+									<td>19</td>
+									<td>3</td>
+
+									<td>3,07</td>
+									<td><strong>86,36 </strong></td>
+								</tr>
+								<tr>
+									<td><strong>1</strong></td>
+									<td><img src="images/ico/cz.svg" alt="" /></td>
+									<td>
+										<a class="text-primary" href="#"><strong>Czech Republic</strong></a>
+									</td>
+									<td>2</td>
+									<td>44</td>
+									<td>22</td>
+									<td>19</td>
+									<td>3</td>
+
+									<td>3,07</td>
+									<td><strong>86,36 </strong></td>
+								</tr>
+								<tr>
+									<td><strong>1</strong></td>
+									<td><img src="images/ico/cz.svg" alt="" /></td>
+									<td>
+										<a class="text-primary" href="#"><strong>Czech Republic</strong></a>
+									</td>
+									<td>2</td>
+									<td>44</td>
+									<td>22</td>
+									<td>19</td>
+									<td>3</td>
+
+									<td>3,07</td>
+									<td><strong>86,36 </strong></td>
+								</tr>
+								<tr>
+									<td><strong>1</strong></td>
+									<td><img src="images/ico/cz.svg" alt="" /></td>
+									<td>
+										<a class="text-primary" href="#"><strong>Czech Republic</strong></a>
+									</td>
+									<td>2</td>
+									<td>44</td>
+									<td>22</td>
+									<td>19</td>
+									<td>3</td>
+
+									<td>3,07</td>
+									<td><strong>86,36 </strong></td>
+								</tr>
+								<tr>
+									<td><strong>1</strong></td>
+									<td><img src="images/ico/cz.svg" alt="" /></td>
+									<td>
+										<a class="text-primary" href="#"><strong>Czech Republic</strong></a>
+									</td>
+									<td>2</td>
+									<td>44</td>
+									<td>22</td>
+									<td>19</td>
+									<td>3</td>
+
+									<td>3,07</td>
+									<td><strong>86,36 </strong></td>
+								</tr>
+								<tr>
+									<td><strong>1</strong></td>
+									<td><img src="images/ico/cz.svg" alt="" /></td>
+									<td>
+										<a class="text-primary" href="#"><strong>Czech Republic</strong></a>
+									</td>
+									<td>2</td>
+									<td>44</td>
+									<td>22</td>
+									<td>19</td>
+									<td>3</td>
+
+									<td>3,07</td>
+									<td><strong>86,36 </strong></td>
+								</tr>
+								<tr>
+									<td><strong>1</strong></td>
+									<td><img src="images/ico/cz.svg" alt="" /></td>
+									<td>
+										<a class="text-primary" href="#"><strong>Czech Republic</strong></a>
+									</td>
+									<td>2</td>
+									<td>44</td>
+									<td>22</td>
+									<td>19</td>
+									<td>3</td>
+
+									<td>3,07</td>
+									<td><strong>86,36 </strong></td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</section>

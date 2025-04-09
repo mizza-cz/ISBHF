@@ -1,0 +1,100 @@
+{% extends "@components/base/base.twig" %} {% set title = "16.0_tournament-news"
+%} {% block main %}
+<div class="topGradient">
+  {% include "@components/header/header.twig" %}
+  <section class="subpage-header">
+    <div class="container">
+      <div class="d-flex align-items-center gap-3 flex-wrap mb-3">
+        <img
+          srcset="images/content/event-2.png 16w"
+          width="80"
+          height="80"
+          loading="lazy"
+          alt="logo"
+          class="object-fit-contain"
+        />
+        <h1 class="h1 titleDecore text-light">Poprad 2025</h1>
+      </div>
+
+      <form class="menuFilter">
+        <ul class="menuCategories" role="tablist">
+          <li>
+            <button name="category" value="1" role="tab">Matches</button>
+          </li>
+          <li>
+            <button name="category" value="2" role="tab">Standings</button>
+          </li>
+          <li>
+            <button name="category" value="3" role="tab">Awards</button>
+          </li>
+          <li>
+            <button name="category" value="4" role="tab">Statistics</button>
+          </li>
+          <li>
+            <button
+              class="active"
+              aria-selected="true"
+              name="category"
+              value="5"
+              role="tab"
+            >
+              News
+            </button>
+          </li>
+          <li>
+            <button name="category" value="6" role="tab">Videos</button>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </section>
+</div>
+
+<main class="main" aria-label="Hlavní obsah">
+  <section class="subpage">
+    <div class="container">
+      <h1 class="h1 titleDecore mb-3 text-blue-700">NEWS</h1>
+
+      <form class="menuFilter mb-40">
+        <input type="text" placeholder="Search" />
+        <!-- hidden input to keep current category value if query search -->
+        <input type="hidden" name="category" value="1" />
+      </form>
+      <div class="row justify-content-between gy-5">
+        <div class="col-lg-8">
+          <div id="news-grid" class="d-flex flex-column gap-4" role="list">
+            {% include "@components/newsItem/newsItem.twig" %} {% include
+            "@components/newsItem/newsItem.twig" %} {% include
+            "@components/newsItem/newsItem.twig" %} {% include
+            "@components/newsItem/newsItem.twig" %}
+          </div>
+          <button
+            class="btn btn-primary mx-auto mt-40 text-lg fw-medium news-load-more"
+          >
+            +
+          </button>
+        </div>
+        <script>
+          /**
+           * DEFINE AJAX SOURCE FOR MASONRY REFERENCE
+           */
+          const newsSource = "./_ajax-news.json";
+        </script>
+        <div class="col-lg-3">
+          <aside class="aside">
+            <a href="#" target="_blank" class="aside__ban">
+              <img
+                src="images/content/aside-ban.png"
+                loading="lazy"
+                alt="app"
+              />
+            </a>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% include "@components/partnersSlider/partnersSlider.twig" %}
+</main>
+
+{% endblock %}
