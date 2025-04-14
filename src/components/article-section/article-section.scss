@@ -68,6 +68,9 @@
       height: 32px;
       object-fit: contain;
     }
+    svg path {
+      fill: var(--color-dark);
+    }
   }
 }
 
