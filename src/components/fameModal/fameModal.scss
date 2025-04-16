@@ -59,7 +59,5 @@
   display: flex;
   gap: 16px;
   margin-bottom: 16px;
-  @include media-breakpoint-down(sm) {
-    flex-direction: column;
-  }
+  flex-wrap: wrap;
 }
