@@ -1,0 +1,12 @@
+{% extends "@components/base/base.twig" %} {% set title = "20.0_player-detail"
+%} {% block main %}
+<div class="topGradient">
+  {% include "@components/header/header.twig" %} {% include
+  "@components/player-section/player-section.twig" %}
+</div>
+
+<main class="main" aria-label="Hlavní obsah">
+  {% include "@components/player-detail/player-detail.twig" %} {% include
+  "@components/partnersSlider/partnersSlider.twig" %}
+</main>
+{% endblock %}

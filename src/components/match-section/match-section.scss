@@ -208,9 +208,11 @@
 }
 
 .icon-ball {
-  background-image: url("../images/ico/match-ball.svg");
-  height: 20px !important;
-  margin-bottom: 0 !important;
+  border-radius: 100%;
+  background-color: var(--color-accent);
+  height: 16px !important;
+  width: 16px !important;
+  margin: 6px 0 !important;
 }
 .icon-whistle {
   background-image: url("../images/ico/whistle.svg");
