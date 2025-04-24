@@ -1,12 +1,12 @@
 .titleDecore {
   position: relative;
   padding-right: 8px;
-  width: fit-content;
-  &::before {
+  display: inline-block;
+  @include media-breakpoint-down(md) {
+  }
+  &::after {
     content: ".";
-    position: absolute;
     color: var(--color-accent);
-    right: 0;
-    bottom: 0;
+    margin-left: 0.15em;
   }
 }
