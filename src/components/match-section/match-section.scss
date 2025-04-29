@@ -80,7 +80,15 @@
     font-weight: 700;
     line-height: 44px;
     color: var(--color-accent);
-    width: 120px;
+    miw-width: 120px;
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    span {
+      font-size: 32px;
+      text-transform: uppercase;
+      line-height: 40px;
+    }
   }
   &__team {
     display: flex;
