@@ -97,11 +97,11 @@
   .statsGame__infoline:first-child .statsGame__number {
     color: var(--color-blue-700);
     text-align: right;
-    padding-right: 64px;
+    padding-right: 72px;
   }
   .statsGame__infoline:last-child .statsGame__number {
     color: var(--color-accent);
-    padding-left: 64px;
+    padding-left: 72px;
   }
   &__number {
     font-size: 16px;
@@ -128,5 +128,60 @@
   &__value {
     height: 100%;
     display: block;
+  }
+}
+
+.goals-time {
+  min-width: 44px;
+  position: relative;
+  padding-right: 12px;
+  &::after {
+    content: "|";
+    right: 0;
+    position: absolute;
+  }
+}
+
+.tab-stats {
+  table {
+    border-collapse: collapse;
+    margin-bottom: 0;
+  }
+  th {
+    background-color: #f3f3f3;
+    font-weight: 600;
+    text-align: left;
+    font-size: 0.75rem;
+    line-height: 0.975rem;
+  }
+  th,
+  td {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  td {
+    background-color: var(--color-light);
+    font-size: 0.875rem;
+    line-height: 1.4rem;
+    border-bottom: 1px solid var(--color-gray-200);
+    &:first-child {
+      text-align: center;
+    }
+    span {
+      color: var(--color-accent);
+      font-weight: 600;
+    }
+    a {
+      color: var(--color-blue-600);
+      text-decoration-color: transparent;
+      font-weight: 600;
+      white-space: nowrap;
+      &:hover {
+        text-decoration-color: inherit;
+      }
+    }
+  }
+  tbody tr:last-child td {
+    border-bottom: none;
   }
 }
