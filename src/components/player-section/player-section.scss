@@ -63,6 +63,8 @@
     line-height: 72px;
     padding-left: 217px;
     position: relative;
+    display: flex;
+    flex-direction: column;
     @include media-breakpoint-down(lg) {
       font-size: 32px;
       line-height: 40px;
