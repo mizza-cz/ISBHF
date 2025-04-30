@@ -40,6 +40,13 @@
     padding: 0 16px;
     .h4 {
       text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 4px;
+      @include media-breakpoint-down(xl) {
+        justify-content: center;
+      }
     }
     @include media-breakpoint-down(xl) {
       text-align: center;
@@ -52,7 +59,7 @@
       line-height: 20px;
       margin-bottom: 4px;
       flex-wrap: wrap;
-      
+
       @include media-breakpoint-down(xl) {
         justify-content: center;
         text-align: center;
@@ -92,8 +99,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    
- 
+
     width: 100%;
     min-width: 180px;
     margin-top: auto;
