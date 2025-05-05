@@ -55,6 +55,7 @@
     align-items: center;
     gap: 48px;
     margin-bottom: 24px;
+    width: 100%;
     @include media-breakpoint-down(lg) {
       gap: 24px;
     }
@@ -97,6 +98,7 @@
     max-width: 40%;
     &:first-child {
       justify-content: flex-end;
+      text-align: right;
     }
     gap: 12px;
     .h1 {
@@ -234,5 +236,3 @@
 .icon-whistle {
   background-image: url("../images/ico/whistle.svg");
 }
-
-
