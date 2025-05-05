@@ -1,9 +1,9 @@
 .galleryItem {
   display: block;
   position: relative;
-  border-radius: 16px;
+  border-radius: 12px;
   overflow: hidden;
-  aspect-ratio: 392/490;
+  aspect-ratio: 392/260;
   &:hover {
     img {
       transform: scale(1.1);
