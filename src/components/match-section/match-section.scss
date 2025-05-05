@@ -68,12 +68,13 @@
   }
   &__flag {
     height: 44px;
-    width: 64px;
-    border: 8px;
+    width: 44px;
+    border-radius: 100%;
+    overflow: hidden;
     img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
     }
   }
   &__result {
@@ -172,10 +173,10 @@
   }
   .game__timeline__logo img {
     width: 100%;
-    max-width: 32px;
-    height: 18px;
-    width: 100%;
-    object-fit: contain;
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 100%;
   }
   .game__timeline__logo--away {
     border-bottom: 0;
