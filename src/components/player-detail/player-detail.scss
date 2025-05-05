@@ -1,12 +1,13 @@
 .player-detail {
   padding-top: 103px;
   padding-bottom: 80px;
+  background-color: var(--color-light);
   @include media-breakpoint-down(lg) {
     padding-bottom: 40px;
     padding-top: 40px;
   }
   &__box {
-    background-color: var(--color-gray-100);
+    background-color: var(--color-white);
     padding: 24px;
     border-radius: 12px;
     table {

@@ -1,7 +1,7 @@
 .player-section {
   padding: 20px 0 36px;
   @include media-breakpoint-down(lg) {
-    padding-top: 60px;
+    padding-top: 40px;
   }
   &__inner {
     position: relative;
@@ -42,9 +42,7 @@
     height: 193px;
     border-radius: 24px;
     overflow: hidden;
-    position: absolute;
-    left: 0;
-    bottom: -100px;
+
     @include media-breakpoint-down(lg) {
       bottom: 0;
       width: 120px;
@@ -61,14 +59,12 @@
     font-weight: 600;
     font-size: 64px;
     line-height: 72px;
-    padding-left: 217px;
     position: relative;
     display: flex;
     flex-direction: column;
     @include media-breakpoint-down(lg) {
       font-size: 32px;
       line-height: 40px;
-      padding-left: 140px;
     }
   }
 }
