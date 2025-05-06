@@ -86,9 +86,6 @@
 }
 
 .statsBox__players-row {
-  padding-top: 18px;
-  padding-bottom: 18px;
-  border-bottom: 1px solid #cecece;
   display: flex;
   gap: 24px;
   @include media-breakpoint-down(sm) {
@@ -98,10 +95,9 @@
 .statsBox__player {
   display: flex;
   gap: 16px;
-  flex: 0 50%;
-  @include media-breakpoint-down(sm) {
-    flex: 100%;
-  }
+  padding-top: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #cecece;
   a {
     display: flex;
     align-items: center;
