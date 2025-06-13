@@ -37,6 +37,9 @@
     }
   }
   .topstoryMain__content {
+    img {
+      transform: none !important;
+    }
     @include media-breakpoint-down(sm) {
       position: relative;
       bottom: auto;

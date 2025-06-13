@@ -63,11 +63,7 @@
     &:hover {
       text-decoration-color: inherit;
     }
-    img {
-      width: 32px;
-      height: 32px;
-      object-fit: contain;
-    }
+
     svg path {
       fill: var(--color-dark);
     }
