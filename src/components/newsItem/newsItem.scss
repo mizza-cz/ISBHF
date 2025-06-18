@@ -3,24 +3,36 @@
   gap: 24px;
   height: 100%;
   width: 100%;
+
   @include media-breakpoint-down(md) {
     flex-direction: column;
   }
+
   &__img {
-    width: 100%;
-    aspect-ratio: 302/220;
+    width: 302px;
+    height: 220px;
     min-width: 302px;
     border-radius: 16px;
     display: block;
     overflow: hidden;
-    &:hover img {
-      transform: scale(1.1);
+
+    @include media-breakpoint-down(md) {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 302 / 220;
+      min-width: unset;
     }
+
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: all 0.3s;
+      display: block;
+    }
+
+    &:hover img {
+      transform: scale(1.1);
     }
   }
 }

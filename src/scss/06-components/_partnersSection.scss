@@ -24,7 +24,9 @@
   a {
     background-color: var(--color-white);
     border-radius: 8px;
-    height: 100%;
+    height: auto;
+    width: 100%;
+    aspect-ratio: 244/195;
     display: flex;
     justify-content: center;
     align-items: center;
