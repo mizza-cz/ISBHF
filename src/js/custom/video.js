@@ -6,7 +6,6 @@
 
   const checkVideoCount = () => {
     const items = videoGrid.querySelectorAll(".videoItem");
-    loadMoreBtn.style.display = items.length < 10 ? "none" : "block";
   };
 
   checkVideoCount();

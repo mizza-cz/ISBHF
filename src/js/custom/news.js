@@ -6,7 +6,7 @@
 
   const checkNewsCount = () => {
     const items = blogGrid.querySelectorAll(".newsItem");
-    loadMoreBtn.style.display = items.length < 10 ? "none" : "block";
+   
   };
 
   checkNewsCount();

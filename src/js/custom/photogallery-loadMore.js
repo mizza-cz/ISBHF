@@ -7,7 +7,7 @@
 
   const checkGalleryCount = () => {
     const items = photogalleryGrid.querySelectorAll(".galleryItem");
-    loadMoreBtn.style.display = items.length < 10 ? "none" : "block";
+    
   };
 
   checkGalleryCount();
