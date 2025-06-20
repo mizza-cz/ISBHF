@@ -35,10 +35,6 @@
         display: none;
       }
     }
-    .tags img {
-      width: 20px;
-      height: 20px;
-    }
   }
   .topstoryMain__content {
     img {
@@ -104,4 +100,8 @@
       overflow: hidden;
     }
   }
+}
+.topstoryMain .tags img {
+  width: 20px;
+  height: 20px;
 }
