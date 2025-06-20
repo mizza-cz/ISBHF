@@ -33,7 +33,7 @@ function initSliderIfEnoughSlides() {
   } else if (width < 1340) {
     slidesToShow = 3;
   } else {
-    slidesToShow = 5;
+    slidesToShow = 4;
   }
 
   if (slideCount > slidesToShow) {
