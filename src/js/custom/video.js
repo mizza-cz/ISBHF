@@ -15,41 +15,44 @@
     loader.classList.add("loader");
     loadMoreBtn.prepend(loader);
 
-    const currentPage = parseInt(loadMoreBtn.dataset.page ?? 2);
+    const currentPage = parseInt(loadMoreBtn.dataset.page ?? "2", 10);
 
-    const searchParams = new URLSearchParams(window.location.search);
-    searchParams.set("page", currentPage);
+    const url = videoSource.includes("?")
+      ? `${videoSource}&page=${currentPage}`
+      : `${videoSource}?page=${currentPage}`;
 
-    const url = new URL(videoSource, window.location.origin);
-    url.search = searchParams.toString();
+    window.history.replaceState(null, "", url);
 
-    const visibleUrl = `${window.location.pathname}?${searchParams.toString()}`;
-    window.history.replaceState(null, "", visibleUrl);
+    try {
+      const response = await fetch(url, {
+        method: "GET",
+        headers: { Accept: "application/json" },
+        credentials: "same-origin",
+      });
 
-    const response = await fetch(url.toString(), {
-      method: "GET",
-      headers: { Accept: "application/json" },
-    });
+      loader.remove();
 
-    loader.remove();
+      if (!response.ok) {
+        console.error("Nepodařilo se načíst data:", response.status);
+        return;
+      }
 
-    if (!response.ok) {
-      console.error("Nepodařilo se načíst data:", response.status);
-      return;
-    }
+      const data = await response.json();
 
-    const data = await response.json();
+      if (data.html) {
+        videoGrid.innerHTML += data.html;
+      }
 
-    if (data.html) {
-      videoGrid.innerHTML += data.html;
-    }
+      checkVideoCount();
 
-    checkVideoCount();
-
-    if (data.loadMore === false) {
-      loadMoreBtn.style.display = "none";
-    } else {
-      loadMoreBtn.dataset.page = currentPage + 1;
+      if (data.loadMore === false) {
+        loadMoreBtn.style.display = "none";
+      } else {
+        loadMoreBtn.dataset.page = currentPage + 1;
+      }
+    } catch (error) {
+      console.error("Chyba při fetchu:", error);
+      loader.remove();
     }
   });
 })();

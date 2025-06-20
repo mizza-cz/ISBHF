@@ -6,7 +6,6 @@
 
   const checkNewsCount = () => {
     const items = blogGrid.querySelectorAll(".newsItem");
-   
   };
 
   checkNewsCount();
@@ -16,34 +15,39 @@
     loader.classList.add("loader");
     loadMoreBtn.prepend(loader);
 
-    const searchParams = new URLSearchParams(window.location.search);
-    const currentPage = loadMoreBtn.dataset.page ?? 2;
-    searchParams.set("page", currentPage);
+    const currentPage = parseInt(loadMoreBtn.dataset.page ?? "2", 10);
 
-    const url = new URL(newsSource, window.location.origin);
-    url.search = searchParams.toString();
+    const url = newsSource.includes("?")
+      ? `${newsSource}&page=${currentPage}`
+      : `${newsSource}?page=${currentPage}`;
 
-    const response = await fetch(url.toString(), {
-      method: "GET",
-      headers: { Accept: "application/json" },
-    });
+    try {
+      const response = await fetch(url, {
+        method: "GET",
+        headers: { Accept: "application/json" },
+        credentials: "same-origin",
+      });
 
-    loader.remove();
+      loader.remove();
 
-    if (!response.ok) return;
+      if (!response.ok) return;
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (data.html) {
-      blogGrid.innerHTML += data.html;
-    }
+      if (data.html) {
+        blogGrid.innerHTML += data.html;
+      }
 
-    checkNewsCount();
+      checkNewsCount();
 
-    if (data.loadMore === false) {
-      loadMoreBtn.style.display = "none";
-    } else {
-      loadMoreBtn.dataset.page = parseInt(currentPage) + 1;
+      if (data.loadMore === false) {
+        loadMoreBtn.style.display = "none";
+      } else {
+        loadMoreBtn.dataset.page = currentPage + 1;
+      }
+    } catch (error) {
+      console.error("Chyba při načítání dat:", error);
+      loader.remove();
     }
   });
 })();
