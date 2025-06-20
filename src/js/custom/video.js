@@ -18,8 +18,8 @@
     const currentPage = parseInt(loadMoreBtn.dataset.page ?? "2", 10);
 
     const url = videoSource.includes("?")
-      ? `${videoSource}&page=${currentPage}`
-      : `${videoSource}?page=${currentPage}`;
+      ? `${videoSource}&pageNumber=${currentPage}`
+      : `${videoSource}?pageNumber=${currentPage}`;
 
     window.history.replaceState(null, "", url);
 

@@ -19,8 +19,8 @@
     const currentPage = parseInt(loadMoreBtn.dataset.page ?? "2", 10);
 
     const url = gallerySource.includes("?")
-      ? `${gallerySource}&page=${currentPage}`
-      : `${gallerySource}?page=${currentPage}`;
+      ? `${gallerySource}&pageNumber=${currentPage}`
+      : `${gallerySource}?pageNumber=${currentPage}`;
 
     window.history.replaceState(null, "", url);
 

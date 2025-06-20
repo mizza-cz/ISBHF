@@ -18,8 +18,8 @@
     const currentPage = parseInt(loadMoreBtn.dataset.page ?? "2", 10);
 
     const url = newsSource.includes("?")
-      ? `${newsSource}&page=${currentPage}`
-      : `${newsSource}?page=${currentPage}`;
+      ? `${newsSource}&pageNumber=${currentPage}`
+      : `${newsSource}?pageNumber=${currentPage}`;
 
     try {
       const response = await fetch(url, {
