@@ -21,8 +21,6 @@
       ? `${videoSource}&pageNumber=${currentPage}`
       : `${videoSource}?pageNumber=${currentPage}`;
 
-    window.history.replaceState(null, "", url);
-
     try {
       const response = await fetch(url, {
         method: "GET",
@@ -32,10 +30,7 @@
 
       loader.remove();
 
-      if (!response.ok) {
-        console.error("Nepodařilo se načíst data:", response.status);
-        return;
-      }
+      if (!response.ok) return;
 
       const data = await response.json();
 

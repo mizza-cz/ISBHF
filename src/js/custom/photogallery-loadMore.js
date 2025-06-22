@@ -22,8 +22,6 @@
       ? `${gallerySource}&pageNumber=${currentPage}`
       : `${gallerySource}?pageNumber=${currentPage}`;
 
-    window.history.replaceState(null, "", url);
-
     try {
       const response = await fetch(url, {
         method: "GET",
@@ -33,10 +31,7 @@
 
       loader.remove();
 
-      if (!response.ok) {
-        console.error("Chyba při načítání dat:", response.status);
-        return;
-      }
+      if (!response.ok) return;
 
       const data = await response.json();
 
