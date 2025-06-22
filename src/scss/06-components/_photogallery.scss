@@ -1,14 +1,14 @@
 .photogallery {
   &__inner {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 24px;
     flex-wrap: wrap;
     @include media-breakpoint-only(md) {
-      grid-template-columns: auto auto;
+      grid-template-columns: 1fr 1fr;
     }
     @include media-breakpoint-only(sm) {
-      grid-template-columns: auto auto;
+      grid-template-columns: 1fr 1fr;
     }
     @include media-breakpoint-down(sm) {
       grid-template-columns: 1fr;
