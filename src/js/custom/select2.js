@@ -4,8 +4,7 @@ $(".js-select").select2({
 });
 
 $(function () {
-  //presmerovani pomoci selectu
-  $(".js-select").change(function () {
-    location.href = $(this).val();
+  $(".js-select").on("change", function () {
+    $(this).closest("form").submit();
   });
 });
