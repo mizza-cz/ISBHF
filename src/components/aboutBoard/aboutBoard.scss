@@ -68,6 +68,9 @@
       background-image: url(../images/content/about-bg.png);
       background-repeat: no-repeat;
       background-size: cover;
+      @include media-breakpoint-down(xxl) {
+        right: 0;
+      }
       @include media-breakpoint-down(lg) {
         display: none;
       }

@@ -14,6 +14,7 @@
       height: 100%;
       object-fit: cover;
       transition: all 0.3s;
+      aspect-ratio: 320/240;
     }
     &::before {
       content: "";
@@ -29,9 +30,13 @@
       left: 0;
       top: 0;
     }
+    .tags {
+      flex-wrap: wrap;
+    }
     .tags img {
       width: 20px;
       height: 20px;
+      aspect-ratio: auto;
     }
   }
   &__post-content {
