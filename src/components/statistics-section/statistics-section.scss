@@ -45,8 +45,8 @@
     .avatar {
       display: flex;
       align-items: center;
-      width: 25px;
-      height: 25px;
+      width: 26px;
+      height: 26px;
       position: relative;
       img {
         width: 100%;
@@ -58,11 +58,11 @@
     }
     .state {
       position: absolute;
-      width: 10px;
+      width: 15px;
       display: block;
-      height: 10px;
-      bottom: -2px;
-      right: -2px;
+      height: 15px;
+      bottom: -5px;
+      right: -5px;
       border-radius: 100%;
       img {
         width: 100%;
