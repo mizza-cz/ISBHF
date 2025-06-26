@@ -3,8 +3,12 @@ function sortTable(table, colIndex, isNumeric = true, isDescending = false) {
   const rows = Array.from(tbody.querySelectorAll("tr"));
 
   rows.sort((a, b) => {
-    const aVal = a.children[colIndex].innerText.trim().replace(",", ".");
-    const bVal = b.children[colIndex].innerText.trim().replace(",", ".");
+    const aCell = a.children[colIndex];
+    const bCell = b.children[colIndex];
+
+    const aVal = aCell ? aCell.innerText.trim().replace(",", ".") : "";
+    const bVal = bCell ? bCell.innerText.trim().replace(",", ".") : "";
+
     const valA = isNumeric ? parseFloat(aVal) || 0 : aVal;
     const valB = isNumeric ? parseFloat(bVal) || 0 : bVal;
 
@@ -38,7 +42,14 @@ function makeSortable(table, defaultSortCol = null, defaultDescending = true) {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  const tables = document.querySelectorAll("table");
-  makeSortable(tables[0], 8, true);
-  makeSortable(tables[1]);
+  const statsSection = document.querySelector(".statistics-section__inner");
+
+  if (statsSection) {
+    const tables = statsSection.querySelectorAll("table");
+
+    if (tables.length > 0) {
+      if (tables[0]) makeSortable(tables[0], 8, true);
+      if (tables[1]) makeSortable(tables[1]);
+    }
+  }
 });
