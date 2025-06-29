@@ -58,25 +58,25 @@ window.addEventListener("DOMContentLoaded", () => {
       if (headers.length === 11) {
         console.log("Found player table");
         makeSortable(table, {
-          4: "desc", // GP
-          5: "desc", // G
-          6: "desc", // A
-          7: "desc", // P
-          8: "desc", // PPG
-          9: "desc", // SHG
-          10: "desc", // PIM
+          4: "asc", // GP
+          5: "asc", // G
+          6: "asc", // A
+          7: "asc", // P
+          8: "asc", // PPG
+          9: "asc", // SHG
+          10: "asc", // PIM
         });
       }
       // Если таблица имеет 10 столбцов (для вратарей)
       else if (headers.length === 10) {
         console.log("Found goalkeeper table");
         makeSortable(table, {
-          4: "desc", // GP
-          5: "desc", // MIN
-          6: "desc", // SV
-          7: "asc", // GA
-          8: "desc", // SV%
-          9: "asc", // GPG
+          4: "asc", // GP
+          5: "asc", // MIN
+          6: "asc", // SV
+          7: "desc", // GA
+          8: "asc", // SV%
+          9: "desc", // GPG
         });
 
         // Устанавливаем начальную сортировку для вратарей по SV% (индекс 8)
