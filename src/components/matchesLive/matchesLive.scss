@@ -4,7 +4,7 @@
   margin-top: -20px;
   background-color: var(--color-light);
   padding-bottom: 64px;
- 
+
   @include media-breakpoint-down(lg) {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -25,6 +25,9 @@
     align-self: stretch;
     height: 100%;
   }
+  .matchItem__head {
+    min-height: 55px;
+  }
 }
 
 .matchesLive__btn {
@@ -44,10 +47,18 @@
   align-items: center;
   border-radius: 100%;
   z-index: 3;
+  @media (max-width: 1440px) {
+    width: 40px;
+    height: 40px;
+  }
   img {
     width: 16px;
     height: 24px;
     object-fit: contain;
+    @media (max-width: 1440px) {
+      width: 12px;
+      height: 20px;
+    }
   }
 }
 .matchesLive__btnnext {
