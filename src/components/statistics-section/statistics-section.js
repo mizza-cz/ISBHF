@@ -1,23 +1,39 @@
-function sortTable(table, colIndex, isNumeric = true, isDescending = false) {
+function sortTable(
+  table,
+  colIndex,
+  isNumeric = true,
+  isDescending = false,
+  sortBySurname = false,
+  locale = "cs"
+) {
   const tbody = table.tBodies[0];
   const rows = Array.from(tbody.querySelectorAll("tr"));
 
   rows.sort((a, b) => {
-    const aVal = a.children[colIndex]?.innerText.trim().replace(",", ".") || "";
-    const bVal = b.children[colIndex]?.innerText.trim().replace(",", ".") || "";
+    let aVal = a.children[colIndex]?.innerText.trim().replace(",", ".") || "";
+    let bVal = b.children[colIndex]?.innerText.trim().replace(",", ".") || "";
 
-    const valA = isNumeric ? parseFloat(aVal) || 0 : aVal;
-    const valB = isNumeric ? parseFloat(bVal) || 0 : bVal;
+    if (!isNumeric && sortBySurname) {
+      aVal = aVal.split(" ").slice(-1)[0];
+      bVal = bVal.split(" ").slice(-1)[0];
+    }
 
-    if (valA < valB) return isDescending ? 1 : -1;
-    if (valA > valB) return isDescending ? -1 : 1;
-    return 0;
+    const valA = isNumeric ? parseFloat(aVal) || 0 : aVal.toLowerCase();
+    const valB = isNumeric ? parseFloat(bVal) || 0 : bVal.toLowerCase();
+
+    if (isNumeric) {
+      return isDescending ? valB - valA : valA - valB;
+    } else {
+      return isDescending
+        ? valB.localeCompare(valA, locale, { sensitivity: "base" })
+        : valA.localeCompare(valB, locale, { sensitivity: "base" });
+    }
   });
 
-  rows.forEach((row) => tbody.appendChild(row)); // Перемещаем строки обратно в tbody
+  rows.forEach((row) => tbody.appendChild(row));
 }
 
-function makeSortable(table, columnDirections = {}) {
+function makeSortable(table, columnDirections = {}, textColumns = {}) {
   const headers = table.querySelectorAll("thead th");
   const sortStates = Array.from(headers).map(() => null);
 
@@ -25,19 +41,40 @@ function makeSortable(table, columnDirections = {}) {
     th.style.cursor = "pointer";
     th.addEventListener("click", () => {
       const currentState = sortStates[index];
-      const defaultDesc = columnDirections[index] === "desc";
-      const isDescending = currentState === "asc" ? true : !defaultDesc;
-      sortStates.fill(null); // Сброс состояния сортировки
-      sortStates[index] = isDescending ? "desc" : "asc"; // Сохранение состояния сортировки
-      sortTable(table, index, true, isDescending);
+
+      const isDescending =
+        currentState === "asc"
+          ? true
+          : currentState === "desc"
+          ? false
+          : columnDirections[index] === "desc";
+
+      sortStates.fill(null);
+      sortStates[index] = isDescending ? "desc" : "asc";
+
+      const isText = !!textColumns[index];
+      const sortBySurname = textColumns[index]?.bySurname || false;
+      const locale = textColumns[index]?.locale || "cs";
+
+      sortTable(table, index, !isText, isDescending, sortBySurname, locale);
     });
   });
 
   // Применение начальной сортировки, если указано
   for (const [index, direction] of Object.entries(columnDirections)) {
+    const isText = !!textColumns[index];
+    const sortBySurname = textColumns[index]?.bySurname || false;
+    const locale = textColumns[index]?.locale || "cs";
     sortStates[index] = direction;
-    sortTable(table, parseInt(index), true, direction === "desc");
-    break; // Только один начальный запуск
+    sortTable(
+      table,
+      parseInt(index),
+      !isText,
+      direction === "desc",
+      sortBySurname,
+      locale
+    );
+    break; // применяем только к первому указанному столбцу
   }
 }
 
@@ -46,41 +83,60 @@ window.addEventListener("DOMContentLoaded", () => {
 
   if (statsSection) {
     const tables = statsSection.querySelectorAll("table");
-
-    // Проверяем, что таблицы есть
     console.log("Tables found:", tables.length);
 
-    tables.forEach((table, tableIndex) => {
+    tables.forEach((table) => {
       const headers = table.querySelectorAll("thead th");
-      console.log("Headers in table:", headers.length); // Проверяем, сколько столбцов в таблице
+      console.log("Headers in table:", headers.length);
 
-      // Если таблица имеет 11 столбцов (для игроков)
+      // Player table
       if (headers.length === 11) {
         console.log("Found player table");
-        makeSortable(table, {
-          4: "asc", // GP
-          5: "asc", // G
-          6: "asc", // A
-          7: "asc", // P
-          8: "asc", // PPG
-          9: "asc", // SHG
-          10: "asc", // PIM
-        });
+        makeSortable(
+          table,
+          {
+            0: "asc", // #
+            2: "asc", // Name
+            3: "asc", // POST
+            4: "desc", // GP
+            5: "desc", // G
+            6: "desc", // A
+            7: "desc", // P
+            8: "desc", // PPG
+            9: "desc", // SHG
+            10: "desc", // PIM
+          },
+          {
+            2: { bySurname: true, locale: "cs" }, // Name
+            3: { bySurname: false, locale: "cs" }, // POST
+          }
+        );
       }
-      // Если таблица имеет 10 столбцов (для вратарей)
+
+      // Goalkeeper table
       else if (headers.length === 10) {
         console.log("Found goalkeeper table");
-        makeSortable(table, {
-          4: "asc", // GP
-          5: "asc", // MIN
-          6: "asc", // SV
-          7: "desc", // GA
-          8: "asc", // SV%
-          9: "desc", // GPG
-        });
+        makeSortable(
+          table,
+          {
+            0: "asc", // #
+            2: "asc", // Name
+            3: "asc", // POST
+            4: "desc", // GP
+            5: "desc", // MIN
+            6: "desc", // SV
+            7: "asc", // GA
+            8: "desc", // SV%
+            9: "asc", // GPG
+          },
+          {
+            2: { bySurname: true, locale: "cs" }, // Name
+            3: { bySurname: false, locale: "cs" }, // POST
+          }
+        );
 
-        // Устанавливаем начальную сортировку для вратарей по SV% (индекс 8)
-        sortTable(table, 8, true, false); // Сортируем по столбцу SV% по убыванию
+        // Начальная сортировка по SV% (index 8)
+        sortTable(table, 8, true, false);
       }
     });
   }
