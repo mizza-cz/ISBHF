@@ -14,10 +14,10 @@ function sortTable(table, colIndex, isNumeric = true, isDescending = false) {
     return 0;
   });
 
-  rows.forEach((row) => tbody.appendChild(row));
+  rows.forEach((row) => tbody.appendChild(row)); // Перемещаем строки обратно в tbody
 }
 
-function makeSortable(table, defaultDirections = {}) {
+function makeSortable(table, columnDirections = {}) {
   const headers = table.querySelectorAll("thead th");
   const sortStates = Array.from(headers).map(() => null);
 
@@ -25,16 +25,16 @@ function makeSortable(table, defaultDirections = {}) {
     th.style.cursor = "pointer";
     th.addEventListener("click", () => {
       const currentState = sortStates[index];
-      const defaultDesc = defaultDirections[index] === "desc";
+      const defaultDesc = columnDirections[index] === "desc";
       const isDescending = currentState === "asc" ? true : !defaultDesc;
-      sortStates.fill(null);
-      sortStates[index] = isDescending ? "desc" : "asc";
+      sortStates.fill(null); // Сброс состояния сортировки
+      sortStates[index] = isDescending ? "desc" : "asc"; // Сохранение состояния сортировки
       sortTable(table, index, true, isDescending);
     });
   });
 
-  // Применяем начальную сортировку, если указана
-  for (const [index, direction] of Object.entries(defaultDirections)) {
+  // Применение начальной сортировки, если указано
+  for (const [index, direction] of Object.entries(columnDirections)) {
     sortStates[index] = direction;
     sortTable(table, parseInt(index), true, direction === "desc");
     break; // Только один начальный запуск
@@ -47,27 +47,36 @@ window.addEventListener("DOMContentLoaded", () => {
   if (statsSection) {
     const tables = statsSection.querySelectorAll("table");
 
-    if (tables.length > 0) {
-      // Первая таблица (вратари): GA=7, GPG=9 — ASC; другие DESC
-      makeSortable(tables[0], {
-        4: "desc", // GP
-        5: "desc", // MIN
-        6: "desc", // SV
-        7: "asc", // GA
-        8: "desc", // SV%
-        9: "asc", // GPG
-      });
+    // Проверяем, что таблицы есть
+    console.log("Tables found:", tables.length);
 
-      // Вторая таблица (игроки): GP=4, G=5, A=6, P=7, PPG=8, SHG=9, PIM=10 — все DESC
-      makeSortable(tables[1], {
-        4: "desc",
-        5: "desc",
-        6: "desc",
-        7: "desc",
-        8: "desc",
-        9: "desc",
-        10: "desc",
-      });
-    }
+    tables.forEach((table, tableIndex) => {
+      const headers = table.querySelectorAll("thead th");
+      console.log("Headers in table:", headers.length); // Проверяем, сколько столбцов в таблице
+
+      // Если таблица имеет 10 столбцов (для игроков)
+      if (headers.length === 11) {
+        console.log("Found player table");
+        makeSortable(table, {
+          4: "desc", // GP
+          5: "desc", // G
+          6: "desc", // A
+          7: "desc", // P
+          8: "desc", // PPG
+          9: "desc", // SHG
+          10: "desc", // PIM
+        });
+      } else if (headers.length === 10) {
+        console.log("Found goalkeeper table");
+        makeSortable(table, {
+          4: "desc", // GP
+          5: "desc", // MIN
+          6: "desc", // SV
+          7: "asc", // GA
+          8: "desc", // SV%
+          9: "asc", // GPG
+        });
+      }
+    });
   }
 });
