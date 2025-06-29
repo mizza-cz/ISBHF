@@ -54,7 +54,7 @@ window.addEventListener("DOMContentLoaded", () => {
       const headers = table.querySelectorAll("thead th");
       console.log("Headers in table:", headers.length); // Проверяем, сколько столбцов в таблице
 
-      // Если таблица имеет 10 столбцов (для игроков)
+      // Если таблица имеет 11 столбцов (для игроков)
       if (headers.length === 11) {
         console.log("Found player table");
         makeSortable(table, {
@@ -66,7 +66,9 @@ window.addEventListener("DOMContentLoaded", () => {
           9: "desc", // SHG
           10: "desc", // PIM
         });
-      } else if (headers.length === 10) {
+      }
+      // Если таблица имеет 10 столбцов (для вратарей)
+      else if (headers.length === 10) {
         console.log("Found goalkeeper table");
         makeSortable(table, {
           4: "desc", // GP
@@ -76,6 +78,9 @@ window.addEventListener("DOMContentLoaded", () => {
           8: "desc", // SV%
           9: "asc", // GPG
         });
+
+        // Устанавливаем начальную сортировку для вратарей по SV% (индекс 8)
+        sortTable(table, 8, true, false); // Сортируем по столбцу SV% по убыванию
       }
     });
   }
