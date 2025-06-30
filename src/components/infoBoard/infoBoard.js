@@ -8,8 +8,8 @@ $(".matchesAfter").slick({
   prevArrow:
     ' <button class="matchesLive__btn  matchesLive__btnprev"><img src="images/content/arrow-left.png" alt="left" loading="lazy" /></button>',
   responsive: [
-    { breakpoint: 1200, settings: { slidesToShow: 3 } },
-    { breakpoint: 940, settings: { slidesToShow: 2 } },
+    { breakpoint: 1400, settings: { slidesToShow: 3 } },
+    { breakpoint: 1100, settings: { slidesToShow: 2 } },
     { breakpoint: 640, settings: { slidesToShow: 1 } },
   ],
 });
