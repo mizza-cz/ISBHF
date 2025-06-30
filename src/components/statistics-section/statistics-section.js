@@ -111,6 +111,7 @@ window.addEventListener("DOMContentLoaded", () => {
             3: { bySurname: false, locale: "cs" }, // POST
           }
         );
+        sortTable(table, 7, true, true);
       }
 
       // Goalkeeper table
@@ -136,7 +137,7 @@ window.addEventListener("DOMContentLoaded", () => {
         );
 
         // Начальная сортировка по SV% (index 8)
-        sortTable(table, 8, true, false);
+        sortTable(table, 8, true, true);
       }
     });
   }
