@@ -16,7 +16,7 @@ function headerNavOpenerClick() {
   });
 }
 
-const button = document.querySelector(".iconBtn");
+const button = document.querySelector("button.iconBtn");
 const header = document.querySelector(".header");
 
 button.addEventListener("click", () => {
