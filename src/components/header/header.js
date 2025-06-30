@@ -17,8 +17,13 @@ function headerNavOpenerClick() {
 }
 
 const button = document.querySelector("button.iconBtn");
-const header = document.querySelector(".header");
 
-button.addEventListener("click", () => {
-  header.classList.toggle("show");
-});
+if (button) {
+  const header = document.querySelector(".header");
+
+  button.addEventListener("click", () => {
+    if (header) {
+      header.classList.toggle("show");
+    }
+  });
+}
