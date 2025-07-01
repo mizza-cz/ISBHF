@@ -1,13 +1,13 @@
 .matchesLive {
-  padding-top: 66px;
+  padding-top: 40px;
   border-radius: 24px 24px 0 0;
   margin-top: -20px;
   background-color: var(--color-light);
-  padding-bottom: 64px;
+  padding-bottom: 24px;
 
   @include media-breakpoint-down(lg) {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
   &__inner {
     margin: 0 -12px;

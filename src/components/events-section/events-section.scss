@@ -1,8 +1,8 @@
 .events-section {
   background-color: var(--color-light);
-  padding-bottom: 56px;
+  padding-bottom: 40px;
   @include media-breakpoint-down(lg) {
-    padding-bottom: 40px;
+    padding-bottom: 32px;
   }
   &__wrapper {
     background: linear-gradient(90deg, #007bc0 0%, #003a5f 63.6%);
