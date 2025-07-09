@@ -1,4 +1,7 @@
 .o-content {
+  img {
+    height: auto !important;
+  }
   &::after {
     display: table;
     clear: both;
