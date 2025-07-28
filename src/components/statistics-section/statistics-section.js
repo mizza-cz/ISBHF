@@ -273,26 +273,22 @@ function sortTableMulti(table, criteria) {
   });
 
   rows.forEach((row) => tbody.appendChild(row));
-
-  // Обновление порядкового номера с учетом направления сортировки
-  const primary = criteria[0];
-  const isDescending = !!primary.isDescending;
-  updateRankColumn(table, isDescending);
 }
 
 /**
- * Обновляет порядковый номер в первом столбце таблицы
+ * Обновляет порядковые номера в первом столбце таблицы
  * @param {HTMLTableElement} table
- * @param {boolean} descending - нужно ли инвертировать счёт
+ * @param {boolean} descending - если true, то инвертированный порядок
  */
-function updateRankColumn(table, descending = false) {
+function updateRankingColumn(table, descending = false) {
   const rows = Array.from(table.tBodies[0].querySelectorAll("tr"));
   const total = rows.length;
 
   rows.forEach((row, index) => {
-    const cell = row.querySelector("td.rank-cell strong");
-    if (cell) {
-      cell.textContent = descending ? total - index : index + 1;
+    const rankCell = row.querySelector("td.rank-cell");
+    if (rankCell) {
+      const value = descending ? total - index : index + 1;
+      rankCell.querySelector("strong").innerText = value;
     }
   });
 }
@@ -304,16 +300,27 @@ function makeSortableMulti(table, config) {
   const headers = table.querySelectorAll("thead th");
   const sortStates = Array(headers.length).fill(null);
 
+  // Сортировка по колонке #
+  const rankTh = table.querySelector("thead th:first-child");
+  if (rankTh) {
+    let rankDescending = false;
+    rankTh.style.cursor = "pointer";
+    rankTh.addEventListener("click", () => {
+      const rows = Array.from(table.tBodies[0].querySelectorAll("tr"));
+      if (rankDescending) rows.reverse();
+      rows.forEach((row) => table.tBodies[0].appendChild(row));
+      updateRankingColumn(table, rankDescending);
+      rankDescending = !rankDescending;
+    });
+  }
+
   headers.forEach((th, idx) => {
+    const mainConfig = config.criteriaMap[idx];
+    if (!mainConfig) return;
+
     th.style.cursor = "pointer";
     th.addEventListener("click", () => {
-      const mainConfig = config.criteriaMap[idx];
-      if (!mainConfig) return;
-
-      // Переключение направления сортировки
       sortStates[idx] = sortStates[idx] === "desc" ? "asc" : "desc";
-
-      // Сброс остальных
       sortStates.forEach((_, i) => {
         if (i !== idx) sortStates[i] = null;
       });
@@ -321,7 +328,9 @@ function makeSortableMulti(table, config) {
       const dir = sortStates[idx];
       const primary = { ...mainConfig, isDescending: dir === "desc" };
       const tieList = config.tieBreakers[idx] || [];
+
       sortTableMulti(table, [primary, ...tieList]);
+      updateRankingColumn(table, primary.isDescending);
     });
   });
 
@@ -335,6 +344,7 @@ function makeSortableMulti(table, config) {
     };
     const tieList = config.tieBreakers[i] || [];
     sortTableMulti(table, [primary, ...tieList]);
+    updateRankingColumn(table, primary.isDescending);
   }
 }
 
@@ -345,23 +355,23 @@ window.addEventListener("DOMContentLoaded", () => {
   statsSection.querySelectorAll("table").forEach((table) => {
     const cols = table.querySelectorAll("thead th").length;
 
-    // Игроки (11 столбцов)
+    // Игроки
     if (cols === 11) {
       const playerConfig = {
         criteriaMap: {
           7: { colIndex: 7, isNumeric: true, defaultDirection: "desc" }, // P
-          5: { colIndex: 5, isNumeric: true }, // G
-          6: { colIndex: 6, isNumeric: true }, // A
-          4: { colIndex: 4, isNumeric: true }, // GP
-          8: { colIndex: 8, isNumeric: true }, // PPG
-          9: { colIndex: 9, isNumeric: true }, // SHG
-          10: { colIndex: 10, isNumeric: true }, // PIM
+          5: { colIndex: 5, isNumeric: true },
+          6: { colIndex: 6, isNumeric: true },
+          4: { colIndex: 4, isNumeric: true },
+          8: { colIndex: 8, isNumeric: true },
+          9: { colIndex: 9, isNumeric: true },
+          10: { colIndex: 10, isNumeric: true },
           2: {
             colIndex: 2,
             isNumeric: false,
             sortBySurname: true,
             locale: "cs",
-          }, // Name
+          },
         },
         tieBreakers: {
           7: [
@@ -438,26 +448,26 @@ window.addEventListener("DOMContentLoaded", () => {
       makeSortableMulti(table, playerConfig);
     }
 
-    // Вратари (10 столбцов)
+    // Вратари
     else if (cols === 10) {
       const gkConfig = {
         criteriaMap: {
-          8: { colIndex: 8, isNumeric: true, defaultDirection: "desc" }, // SV%
-          6: { colIndex: 6, isNumeric: true }, // SV
-          4: { colIndex: 4, isNumeric: true }, // GP
-          9: { colIndex: 9, isNumeric: true }, // GPG
+          8: { colIndex: 8, isNumeric: true, defaultDirection: "desc" },
+          6: { colIndex: 6, isNumeric: true },
+          4: { colIndex: 4, isNumeric: true },
+          9: { colIndex: 9, isNumeric: true },
           5: {
             colIndex: 5,
             isNumeric: true,
             sortBySurname: false,
             locale: "cs",
-          }, // MIN
+          },
           2: {
             colIndex: 2,
             isNumeric: false,
             sortBySurname: true,
             locale: "cs",
-          }, // Name
+          },
         },
         tieBreakers: {
           8: [
