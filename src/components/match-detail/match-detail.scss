@@ -186,3 +186,18 @@
     border-bottom: none;
   }
 }
+
+#penalties {
+  .o-content ul > li:before {
+    display: none;
+  }
+  .o-content ul > li {
+    padding-left: 0;
+  }
+}
+.contactItem__type {
+  color: var(--color-dark);
+  font-weight: 500;
+  min-width: 16px;
+  text-align: center;
+}

@@ -35,6 +35,9 @@
         display: none;
       }
     }
+    .tags {
+      padding: 8px 12px;
+    }
   }
   .topstoryMain__content {
     img {
@@ -58,9 +61,7 @@
     gap: 8px;
   }
   .tags {
-    padding: 0;
     margin-bottom: 16px;
-    background-color: transparent;
   }
   &:hover {
     .topstoryItem__img img {
