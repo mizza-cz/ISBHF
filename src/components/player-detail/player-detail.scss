@@ -28,9 +28,11 @@
       padding-top: 14px;
       padding-bottom: 14px;
       white-space: nowrap;
+      height: 62px;
     }
     th,
     td {
+      vertical-align: middle;
       border-bottom: 1px solid #cecece;
     }
   }
