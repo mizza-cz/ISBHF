@@ -1,0 +1,69 @@
+{% extends "@components/base/base.twig" %} {% set title =
+"12.0_tournament-matches" %} {% block main %}
+<div class="topGradient">
+  {% include "@components/header/header.twig" %}
+  <section class="subpage-header">
+    <div class="container">
+      <div class="d-flex align-items-center gap-3 flex-wrap mb-3">
+        <img
+          srcset="images/content/event-2.png 16w"
+          width="80"
+          height="80"
+          loading="lazy"
+          alt="logo"
+          class="object-fit-contain"
+        />
+        <h1 class="h1 titleDecore text-light text-uppercase">Poprad 2025</h1>
+      </div>
+
+      <form class="menuFilter">
+        <ul class="menuCategories" role="tablist">
+          <li>
+            <button
+              name="category"
+              value="1"
+              class="active"
+              role="tab"
+              aria-selected="true"
+            >
+              Games
+            </button>
+          </li>
+          <li>
+            <button name="category" value="2" role="tab">Standings</button>
+          </li>
+          <li>
+            <button name="category" value="3" role="tab">Awards</button>
+          </li>
+          <li>
+            <button name="category" value="4" role="tab">Statistics</button>
+          </li>
+          <li>
+            <button name="category" value="7" role="tab">Rosters</button>
+          </li>
+          <li>
+            <button name="category" value="5" role="tab">News</button>
+          </li>
+          <li>
+            <button name="category" value="6" role="tab">Video</button>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </section>
+</div>
+
+<main class="main" aria-label="Hlavní obsah">
+  <section class="matches-section">
+    <div class="container">
+      <h2 class="h1 mb-3">Games</h2>
+      <div class="alert alert-danger text-center" role="alert">
+        Data is not yet available. Please check back later.
+      </div>
+    </div>
+  </section>
+
+  {% include "@components/partnersSlider/partnersSlider.twig" %}
+</main>
+
+{% endblock %}
