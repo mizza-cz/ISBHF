@@ -1,7 +1,7 @@
 /**
  * Сортирует строки таблицы по множественным критериям.
  * @param {HTMLTableElement} table
- * @param {Array} criteria - массив критериев сортировки
+ * @param {Array} criteria - [{ colIndex, isNumeric, isDescending, sortBySurname, locale }]
  */
 function sortTableMulti(table, criteria) {
   const tbody = table.tBodies[0];
@@ -15,8 +15,11 @@ function sortTableMulti(table, criteria) {
       sortBySurname = false,
       locale = "cs",
     } of criteria) {
-      let aRaw = a.children[colIndex]?.innerText.trim().replace(",", ".") || "";
-      let bRaw = b.children[colIndex]?.innerText.trim().replace(",", ".") || "";
+      const aCell = a.children[colIndex];
+      const bCell = b.children[colIndex];
+
+      let aRaw = aCell ? aCell.innerText.trim().replace(",", ".") : "";
+      let bRaw = bCell ? bCell.innerText.trim().replace(",", ".") : "";
 
       if (!isNumeric && sortBySurname) {
         aRaw = aRaw.split(" ").slice(-1)[0];
@@ -25,10 +28,10 @@ function sortTableMulti(table, criteria) {
 
       const valA = isNumeric ? parseFloat(aRaw) || 0 : aRaw.toLowerCase();
       const valB = isNumeric ? parseFloat(bRaw) || 0 : bRaw.toLowerCase();
-      let diff;
 
-      if (isNumeric) diff = valA - valB;
-      else diff = valA.localeCompare(valB, locale, { sensitivity: "base" });
+      const diff = isNumeric
+        ? valA - valB
+        : valA.localeCompare(valB, locale, { sensitivity: "base" });
 
       if (diff !== 0) return isDescending ? -diff : diff;
     }
@@ -39,75 +42,148 @@ function sortTableMulti(table, criteria) {
 }
 
 /**
- * Обновляет порядковые номера в первом столбце таблицы (#)
- * Всегда нумерует 1..N сверху вниз по текущему порядку строк
+ * Нумерация ранга (с точкой) с учётом направления (asc/desc).
+ * Направление читается из table.dataset.rankDir, либо можно передать opts.descending.
  * @param {HTMLTableElement} table
+ * @param {{descending?: boolean}} opts
  */
-function updateRankingColumn(table) {
+function updateRankingColumn(table, opts = {}) {
   const rows = Array.from(table.tBodies[0].querySelectorAll("tr"));
+  const currentDir = table.dataset.rankDir === "desc" ? "desc" : "asc";
+  const descending =
+    typeof opts.descending === "boolean"
+      ? opts.descending
+      : currentDir === "desc";
+
+  const n = rows.length;
   rows.forEach((row, index) => {
     const strong = row.querySelector("td.rank-cell strong");
-    if (strong) strong.textContent = index + 1;
+    if (!strong) return;
+    const num = descending ? n - index : index + 1;
+    strong.textContent = `${num}.`; // точка на конце
   });
 }
 
 /**
- * Навешивает сортировку на заголовки с поддержкой множественных уровней
+ * Возвращает маппинги ключей колонок (из классов statsCol-*) к индексам th и сами th.
  * @param {HTMLTableElement} table
- * @param {Object} config
+ */
+function getHeaderMaps(table) {
+  const headers = Array.from(table.querySelectorAll("thead th"));
+  const colIndexByKey = {};
+  const thByKey = {};
+  headers.forEach((th, i) => {
+    for (const cls of th.classList) {
+      const m = /^statsCol-(.+)$/.exec(cls);
+      if (m) {
+        const key = m[1]; // например "rank", "jersey", "name", "svPercent", "p"
+        colIndexByKey[key] = i;
+        thByKey[key] = th;
+      }
+    }
+  });
+  return { colIndexByKey, thByKey, headers };
+}
+
+/**
+ * Преобразует список критериев (по ключам) в список с индексами колонок.
+ * Пропускает критерии, у которых колонка не найдена.
+ */
+function criteriaByKeysToIndices(criteriaList, colIndexByKey) {
+  return criteriaList
+    .map((c) => {
+      const colIndex = colIndexByKey[c.key];
+      if (colIndex == null) return null;
+      return { ...c, colIndex };
+    })
+    .filter(Boolean);
+}
+
+/**
+ * Навешивает сортировку на заголовки (по классам statsCol-*) с поддержкой tie-breakers.
+ * @param {HTMLTableElement} table
+ * @param {{criteriaMapByKey:Object, tieBreakersByKey:Object, initialKey?:string}} config
  */
 function makeSortableMulti(table, config) {
-  const headers = table.querySelectorAll("thead th");
-  const sortStates = Array(headers.length).fill(null);
+  const { colIndexByKey, thByKey, headers } = getHeaderMaps(table);
 
-  // Сортировка по колонке #
-  const rankTh = table.querySelector("thead th:first-child");
+  // Состояние направления сортировки по ключу ('asc' | 'desc' | null)
+  const sortStates = {};
+
+  // Обработчик клика по колонке # — только переключаем направление нумерации (строки не трогаем)
+  const rankTh = thByKey["rank"] || table.querySelector("thead th:first-child");
   if (rankTh) {
-    let rankDescending = false;
+    if (!table.dataset.rankDir) table.dataset.rankDir = "asc"; // дефолт
     rankTh.style.cursor = "pointer";
     rankTh.addEventListener("click", () => {
-      const rows = Array.from(table.tBodies[0].querySelectorAll("tr"));
-      if (rankDescending) rows.reverse();
-      rows.forEach((row) => table.tBodies[0].appendChild(row));
-      updateRankingColumn(table); // без инверсии — просто 1..N
-      rankDescending = !rankDescending;
+      table.dataset.rankDir = table.dataset.rankDir === "desc" ? "asc" : "desc";
+      updateRankingColumn(table);
     });
   }
 
-  headers.forEach((th, idx) => {
-    const mainConfig = config.criteriaMap[idx];
+  // Обработчики для колонок, которые описаны в конфиге
+  headers.forEach((th) => {
+    // определяем ключ из класса statsCol-*
+    let key = null;
+    for (const cls of th.classList) {
+      const m = /^statsCol-(.+)$/.exec(cls);
+      if (m) {
+        key = m[1];
+        break;
+      }
+    }
+    if (!key) return;
+
+    const mainConfig = config.criteriaMapByKey[key];
     if (!mainConfig) return;
 
     th.style.cursor = "pointer";
     th.addEventListener("click", () => {
-      // переключаем направление для выбранного столбца
-      sortStates[idx] = sortStates[idx] === "desc" ? "asc" : "desc";
-      // сбрасываем остальные
-      sortStates.forEach((_, i) => {
-        if (i !== idx) sortStates[i] = null;
+      // toggle: первый клик = defaultDirection, дальше — инвертируем
+      const prev = sortStates[key] ?? null;
+      const next = prev
+        ? prev === "desc"
+          ? "asc"
+          : "desc"
+        : mainConfig.defaultDirection || "asc";
+
+      sortStates[key] = next;
+
+      // сбрасываем состояния у других ключей
+      Object.keys(sortStates).forEach((k) => {
+        if (k !== key) sortStates[k] = null;
       });
 
-      const dir = sortStates[idx];
-      const primary = { ...mainConfig, isDescending: dir === "desc" };
-      const tieList = config.tieBreakers[idx] || [];
+      const primary = { ...mainConfig, isDescending: next === "desc" };
+      const tieListKeys = config.tieBreakersByKey[key] || [];
+      const criteria = criteriaByKeysToIndices(
+        [primary, ...tieListKeys],
+        colIndexByKey
+      );
 
-      sortTableMulti(table, [primary, ...tieList]);
-      updateRankingColumn(table); // всегда перенумеровываем как 1..N
+      sortTableMulti(table, criteria);
+      updateRankingColumn(table); // нумерация с учётом текущего table.dataset.rankDir
     });
   });
 
-  // Начальная сортировка
-  if (typeof config.initial === "number") {
-    const i = config.initial;
-    sortStates[i] = config.criteriaMap[i].defaultDirection;
-    const primary = {
-      ...config.criteriaMap[i],
-      isDescending: config.criteriaMap[i].defaultDirection === "desc",
-    };
-    const tieList = config.tieBreakers[i] || [];
-    sortTableMulti(table, [primary, ...tieList]);
-    updateRankingColumn(table);
+  // Начальная сортировка (если задана)
+  if (config.initialKey && config.criteriaMapByKey[config.initialKey]) {
+    const base = config.criteriaMapByKey[config.initialKey];
+    const dir = base.defaultDirection === "desc" ? "desc" : "asc";
+    sortStates[config.initialKey] = dir;
+
+    const primary = { ...base, isDescending: dir === "desc" };
+    const tieListKeys = config.tieBreakersByKey[config.initialKey] || [];
+    const criteria = criteriaByKeysToIndices(
+      [primary, ...tieListKeys],
+      colIndexByKey
+    );
+
+    sortTableMulti(table, criteria);
   }
+
+  // Проставим нумерацию ранга при инициализации (учтём текущее направление)
+  updateRankingColumn(table);
 }
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -115,141 +191,161 @@ window.addEventListener("DOMContentLoaded", () => {
   if (!statsSection) return;
 
   statsSection.querySelectorAll("table").forEach((table) => {
-    const cols = table.querySelectorAll("thead th").length;
+    const { colIndexByKey } = getHeaderMaps(table);
 
-    // Игроки (11 колонок)
-    if (cols === 11) {
+    // Тип таблицы:
+    // Вратари: есть svPercent
+    // Игроки:  есть p (поинты)
+    const isGoalies = "svPercent" in colIndexByKey;
+    const isPlayers = "p" in colIndexByKey;
+
+    if (isPlayers) {
+      // Конфиг для игроков
       const playerConfig = {
-        criteriaMap: {
-          7: { colIndex: 7, isNumeric: true, defaultDirection: "desc" }, // P
-          5: { colIndex: 5, isNumeric: true },
-          6: { colIndex: 6, isNumeric: true },
-          4: { colIndex: 4, isNumeric: true },
-          8: { colIndex: 8, isNumeric: true },
-          9: { colIndex: 9, isNumeric: true },
-          10: { colIndex: 10, isNumeric: true },
-          2: {
-            colIndex: 2,
+        criteriaMapByKey: {
+          // основные числовые
+          p: { key: "p", isNumeric: true, defaultDirection: "desc" }, // Points
+          gp: { key: "gp", isNumeric: true },
+          g: { key: "g", isNumeric: true },
+          a: { key: "a", isNumeric: true },
+          ppg: { key: "ppg", isNumeric: true },
+          shg: { key: "shg", isNumeric: true },
+          pim: { key: "pim", isNumeric: true },
+          // имя по фамилии
+          name: {
+            key: "name",
             isNumeric: false,
             sortBySurname: true,
             locale: "cs",
           },
+          // номер — по умолчанию по возрастанию
+          jersey: { key: "jersey", isNumeric: true, defaultDirection: "asc" },
         },
-        tieBreakers: {
-          7: [
-            { colIndex: 5, isNumeric: true, isDescending: true },
-            { colIndex: 4, isNumeric: true, isDescending: false },
-            { colIndex: 10, isNumeric: true, isDescending: false },
+        tieBreakersByKey: {
+          p: [
+            { key: "g", isNumeric: true, isDescending: true },
+            { key: "gp", isNumeric: true, isDescending: false },
+            { key: "pim", isNumeric: true, isDescending: false },
             {
-              colIndex: 2,
+              key: "name",
               isNumeric: false,
               isDescending: false,
               sortBySurname: true,
             },
           ],
-          5: [
-            { colIndex: 4, isNumeric: true, isDescending: false },
-            { colIndex: 7, isNumeric: true, isDescending: true },
-            { colIndex: 10, isNumeric: true, isDescending: false },
+          g: [
+            { key: "a", isNumeric: true, isDescending: true },
+            { key: "gp", isNumeric: true, isDescending: false },
+            { key: "p", isNumeric: true, isDescending: true },
             {
-              colIndex: 2,
+              key: "name",
               isNumeric: false,
               isDescending: false,
               sortBySurname: true,
             },
           ],
-          6: [
-            { colIndex: 4, isNumeric: true, isDescending: false },
-            { colIndex: 7, isNumeric: true, isDescending: true },
-            { colIndex: 10, isNumeric: true, isDescending: false },
+          a: [
+            { key: "g", isNumeric: true, isDescending: true },
+            { key: "gp", isNumeric: true, isDescending: false },
+            { key: "p", isNumeric: true, isDescending: true },
             {
-              colIndex: 2,
+              key: "name",
               isNumeric: false,
               isDescending: false,
               sortBySurname: true,
             },
           ],
-          8: [
-            { colIndex: 4, isNumeric: true, isDescending: false },
-            { colIndex: 5, isNumeric: true, isDescending: true },
-            { colIndex: 7, isNumeric: true, isDescending: true },
-            { colIndex: 10, isNumeric: true, isDescending: false },
+          jersey: [
             {
-              colIndex: 2,
-              isNumeric: false,
-              isDescending: false,
-              sortBySurname: true,
-            },
-          ],
-          9: [
-            { colIndex: 4, isNumeric: true, isDescending: false },
-            { colIndex: 5, isNumeric: true, isDescending: true },
-            { colIndex: 7, isNumeric: true, isDescending: true },
-            { colIndex: 10, isNumeric: true, isDescending: false },
-            {
-              colIndex: 2,
-              isNumeric: false,
-              isDescending: false,
-              sortBySurname: true,
-            },
-          ],
-          10: [
-            { colIndex: 4, isNumeric: true, isDescending: false },
-            { colIndex: 7, isNumeric: true, isDescending: false },
-            { colIndex: 5, isNumeric: true, isDescending: false },
-            {
-              colIndex: 2,
+              key: "name",
               isNumeric: false,
               isDescending: false,
               sortBySurname: true,
             },
           ],
         },
-        initial: 7,
+        initialKey: "p", // стартовая сортировка по Points
       };
-      makeSortableMulti(table, playerConfig);
-    }
 
-    // Вратари (10 колонок)
-    else if (cols === 10) {
+      makeSortableMulti(table, playerConfig);
+    } else if (isGoalies) {
+      // Конфиг для вратарей
       const gkConfig = {
-        criteriaMap: {
-          8: { colIndex: 8, isNumeric: true, defaultDirection: "desc" }, // SV%
-          6: { colIndex: 6, isNumeric: true }, // SV
-          4: { colIndex: 4, isNumeric: true }, // GP
-          9: { colIndex: 9, isNumeric: true }, // GPG
-          5: { colIndex: 5, isNumeric: true }, // MIN
-          2: {
-            colIndex: 2,
+        criteriaMapByKey: {
+          svPercent: {
+            key: "svPercent",
+            isNumeric: true,
+            defaultDirection: "desc",
+          }, // SV%
+          sv: { key: "sv", isNumeric: true }, // Saves
+          gp: { key: "gp", isNumeric: true }, // Games Played
+          gpg: { key: "gpg", isNumeric: true }, // Goals per Game
+          min: { key: "min", isNumeric: true }, // Minutes
+          name: {
+            key: "name",
             isNumeric: false,
             sortBySurname: true,
             locale: "cs",
           },
+          jersey: { key: "jersey", isNumeric: true, defaultDirection: "asc" },
         },
-        tieBreakers: {
-          8: [
-            { colIndex: 6, isNumeric: true, isDescending: true },
-            { colIndex: 4, isNumeric: true, isDescending: true },
+        tieBreakersByKey: {
+          svPercent: [
+            { key: "sv", isNumeric: true, isDescending: true },
+            { key: "gp", isNumeric: true, isDescending: true },
             {
-              colIndex: 2,
+              key: "name",
               isNumeric: false,
               isDescending: false,
               sortBySurname: true,
             },
           ],
-          9: [
-            { colIndex: 5, isNumeric: true, isDescending: true },
+          gpg: [
+            { key: "min", isNumeric: true, isDescending: true },
             {
-              colIndex: 2,
+              key: "name",
+              isNumeric: false,
+              isDescending: false,
+              sortBySurname: true,
+            },
+          ],
+          jersey: [
+            {
+              key: "name",
               isNumeric: false,
               isDescending: false,
               sortBySurname: true,
             },
           ],
         },
-        initial: 8,
+        initialKey: "svPercent",
       };
+
       makeSortableMulti(table, gkConfig);
+    } else {
+      // Фолбэк: хотя бы имя и номер
+      const fallbackConfig = {
+        criteriaMapByKey: {
+          name: {
+            key: "name",
+            isNumeric: false,
+            sortBySurname: true,
+            locale: "cs",
+          },
+          jersey: { key: "jersey", isNumeric: true, defaultDirection: "asc" },
+        },
+        tieBreakersByKey: {
+          jersey: [
+            {
+              key: "name",
+              isNumeric: false,
+              isDescending: false,
+              sortBySurname: true,
+            },
+          ],
+        },
+      };
+      makeSortableMulti(table, fallbackConfig);
     }
   });
 });
