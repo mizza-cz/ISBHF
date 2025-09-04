@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>17.0_tournament-statistics - ISBHF</title>
+	<title>22.0_tournament-team-statistics - ISBHF</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
 	<meta name="format-detection" content="telephone=no" />
 
@@ -200,7 +200,7 @@
 							</li>
 							<li>
 								<button class="active" aria-selected="true" name="category" value="4" role="tab">
-									Statistics
+									Players Statistics
 								</button>
 							</li>
 							<li>
@@ -219,9 +219,10 @@
 		</div>
 
 		<main class="main" aria-label="Hlavní obsah">
-			<section class="statistics-section">
+
+			<section class="statistics-section teamStatistics-section">
 				<div class="container">
-					<h2 class="h1 mb-4">Statistics</h2>
+					<h2 class="h1 mb-4">Teams Statistics</h2>
 					<form class="menuFilter mb-40">
 						<label class="o-select mb-12 d-block">
 							<select class="js-select">
@@ -263,481 +264,180 @@
 							<table>
 								<thead>
 									<tr>
-										<th class="text-center fw-semibold statsCol-rank"></th>
+										<th class="text-center fw-semibold statsCol-rank">#</th>
 										<th class="statsCol-avatar"></th>
-										<th class="text-center fw-semibold statsCol-jersey">#</th>
-										<th class="fw-semibold statsCol-name">Name</th>
-										<th class="text-center fw-semibold statsCol-post">POST</th>
-
-										<th class="text-center fw-semibold statsCol-gp">GP</th>
-										<th class="text-center fw-semibold statsCol-min">MIN</th>
-										<th class="text-center fw-semibold statsCol-sv">SV</th>
+										<th class="fw-semibold statsCol-name">State</th>
+										<th class="text-center fw-semibold statsCol-w">W</th>
+										<th class="text-center fw-semibold statsCol-l">L</th>
+										<th class="text-center fw-semibold statsCol-gf">GF</th>
 										<th class="text-center fw-semibold statsCol-ga">GA</th>
-										<th class="text-center fw-bold statsCol-svPercent">SV%</th>
-										<th class="text-center fw-semibold statsCol-gpg">GPG</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td class="rank-cell"><strong>31</strong></td>
-										<td>
-											<div class="avatar">
-												<img src="https://stats.isbhf.com/upload/player/photo/_1748399865_MaxFowle.jpg" alt="" />
-												<span class="state"><img src="https://stats.isbhf.com/upload/team/logo_mobile/4_1747152536_canada.png" alt="" /></span>
-											</div>
-										</td>
-										<td class="text-center">13</td>
-										<td>
-											<a class="text-primary fw-semibold" href="#">Max Fowle</a>
-										</td>
-										<td>GK</td>
-
-										<td>5</td>
-										<td>22</td>
-										<td>0</td>
-										<td>0</td>
-										<td><strong>55</strong></td>
-										<td>0</td>
-									</tr>
-									<tr>
-										<td class="rank-cell"><strong>31</strong></td>
-										<td>
-											<div class="avatar">
-												<img src="https://stats.isbhf.com/upload/player/photo/_1748399865_MaxFowle.jpg" alt="" />
-												<span class="state"><img src="https://stats.isbhf.com/upload/team/logo_mobile/4_1747152536_canada.png" alt="" /></span>
-											</div>
-										</td>
-										<td class="text-center">97</td>
-										<td>
-											<a class="text-primary fw-semibold" href="#">Max Fowle</a>
-										</td>
-										<td>GK</td>
-
-										<td>5</td>
-										<td>22</td>
-										<td>5</td>
-										<td>0</td>
-										<td><strong>55</strong></td>
-										<td>0</td>
-									</tr>
-									<tr>
-										<td class="rank-cell"><strong>31</strong></td>
-										<td>
-											<div class="avatar">
-												<img src="https://stats.isbhf.com/upload/player/photo/_1748399865_MaxFowle.jpg" alt="" />
-												<span class="state"><img src="https://stats.isbhf.com/upload/team/logo_mobile/4_1747152536_canada.png" alt="" /></span>
-											</div>
-										</td>
-										<td class="text-center">97</td>
-										<td>
-											<a class="text-primary fw-semibold" href="#">Max Fowle</a>
-										</td>
-										<td>GK</td>
-
-										<td>4</td>
-										<td>22</td>
-										<td>2</td>
-										<td>0</td>
-										<td><strong>55</strong></td>
-										<td>0</td>
-									</tr>
-									<tr>
-										<td class="rank-cell"><strong>31</strong></td>
-										<td>
-											<div class="avatar">
-												<img src="https://stats.isbhf.com/upload/player/photo/_1748399865_MaxFowle.jpg" alt="" />
-												<span class="state"><img src="https://stats.isbhf.com/upload/team/logo_mobile/4_1747152536_canada.png" alt="" /></span>
-											</div>
-										</td>
-										<td class="text-center">97</td>
-										<td>
-											<a class="text-primary fw-semibold" href="#">Max Fowle</a>
-										</td>
-										<td>GK</td>
-
-										<td>1</td>
-										<td>22</td>
-										<td>2</td>
-										<td>0</td>
-										<td><strong>55</strong></td>
-										<td>0</td>
-									</tr>
-								</tbody>
-							</table>
-
-							<br />
-							<br />
-
-							<table>
-								<thead>
-									<tr>
-										<th class="text-center fw-semibold statsCol-rank"></th>
-										<th class="statsCol-avatar"></th>
-										<th class="text-center fw-semibold statsCol-jersey">#</th>
-										<th class="fw-semibold statsCol-name">Name</th>
-										<th class="text-center fw-semibold statsCol-post">POST</th>
-
-										<th class="text-center fw-semibold statsCol-gp">GP</th>
-										<th class="text-center fw-semibold statsCol-g">G</th>
-										<th class="text-center fw-semibold statsCol-a">A</th>
-										<th class="text-center fw-bold statsCol-p">P</th>
-										<th class="text-center fw-semibold statsCol-ppg">PPG</th>
-										<th class="text-center fw-semibold statsCol-shg">SHG</th>
+										<th class="text-center fw-bold statsCol-ppPercent">PP%</th>
+										<th class="text-center fw-semibold statsCol-pkPercent">PK%</th>
+										<th class="text-center fw-semibold statsCol-pp">PP</th>
+										<th class="text-center fw-semibold statsCol-pk">PK</th>
 										<th class="text-center fw-semibold statsCol-pim">PIM</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
-										<td class="rank-cell"><strong>24</strong></td>
+										<td class="rank-cell"><strong>31</strong></td>
 										<td>
 											<div class="avatar">
-												<img src="https://stats.isbhf.com/upload/player/photo/_1748342449_Sima.jpg" alt="" />
-												<span class="state"><img src="https://stats.isbhf.com/upload/team/logo_mobile/5_1749747939_czech.png" alt="" /></span>
+												<img src=" images/content/canada.png" alt="" />
 											</div>
 										</td>
-										<td class="text-center">13</td>
 										<td>
-											<a class="text-primary fw-semibold" href="#">Petr Šíma</a>
-										</td>
-										<td>FW</td>
-
-										<td>2</td>
-										<td>4</td>
-										<td>3</td>
-										<td><strong>7</strong></td>
-										<td>4</td>
-										<td>0</td>
-										<td>2</td>
-									</tr>
-									<tr>
-										<td class="rank-cell"><strong>88</strong></td>
-										<td>
-											<div class="avatar">
-												<img src="https://stats.isbhf.com/upload/player/photo/_1748341261_Kubicek.jpg" alt="" />
-												<span class="state"><img src="https://stats.isbhf.com/upload/team/logo_mobile/5_1749747939_czech.png" alt="" /></span>
-											</div>
+											<a class="text-primary fw-semibold" href="#">Canada</a>
 										</td>
 										<td class="text-center">13</td>
-										<td>
-											<a class="text-primary fw-semibold" href="#">Martin Kubíček</a>
-										</td>
-										<td>DE</td>
-
-										<td>2</td>
-										<td>3</td>
 										<td>5</td>
-										<td><strong>6</strong></td>
-										<td>3</td>
+										<td>22</td>
+										<td>0</td>
+										<td>0</td>
+										<td>55</td>
+										<td>0</td>
 										<td>0</td>
 										<td>0</td>
 									</tr>
 									<tr>
-										<td class="rank-cell"><strong>7</strong></td>
+										<td class="rank-cell"><strong>31</strong></td>
 										<td>
 											<div class="avatar">
-												<img src="https://stats.isbhf.com/upload/player/photo/_1749194683_oli stu.jpg" alt="" />
-												<span class="state"><img src="https://stats.isbhf.com/upload/team/logo_mobile/6_1749748235_slovakia.png" alt="" /></span>
+												<img src=" images/ico/cz.svg" alt="" />
 											</div>
 										</td>
-										<td class="text-center">13</td>
 										<td>
-											<a class="text-primary fw-semibold" href="#">Oliver Stümpel</a>
+											<a class="text-primary fw-semibold" href="#">Czech</a>
 										</td>
-										<td>DE</td>
-
-										<td>3</td>
-										<td>0</td>
+										<td class="text-center">13</td>
 										<td>5</td>
-										<td><strong>5</strong></td>
+										<td>22</td>
+										<td>0</td>
+										<td>0</td>
+										<td>55</td>
 										<td>0</td>
 										<td>0</td>
 										<td>0</td>
 									</tr>
 									<tr>
-										<td class="rank-cell"><strong>13</strong></td>
+										<td class="rank-cell"><strong>31</strong></td>
 										<td>
 											<div class="avatar">
-												<img src="https://stats.isbhf.com/upload/player/photo/_1748399516_ColeDupperreault.jpg" alt="" />
-												<span class="state"><img src="https://stats.isbhf.com/upload/team/logo_mobile/4_1747152536_canada.png" alt="" /></span>
+												<img src=" images/ico/de.svg" alt="" />
 											</div>
 										</td>
-										<td class="text-center">13</td>
 										<td>
-											<a class="text-primary fw-semibold" href="#">Cole Dupperreault</a>
+											<a class="text-primary fw-semibold" href="#">Germany</a>
 										</td>
-										<td>FW</td>
-
-										<td>2</td>
+										<td class="text-center">13</td>
+										<td>51</td>
+										<td>13</td>
 										<td>4</td>
+										<td>3</td>
+										<td>33</td>
+										<td>2</td>
+										<td>1</td>
+										<td>7</td>
+									</tr>
+									<tr>
+										<td class="rank-cell"><strong>31</strong></td>
+										<td>
+											<div class="avatar">
+												<img src=" images/ico/de.svg" alt="" />
+											</div>
+										</td>
+										<td>
+											<a class="text-primary fw-semibold" href="#">Germany</a>
+										</td>
+										<td class="text-center">13</td>
+										<td>51</td>
+										<td>13</td>
+										<td>4</td>
+										<td>3</td>
+										<td>33</td>
+										<td>2</td>
+										<td>1</td>
+										<td>7</td>
+									</tr>
+									<tr>
+										<td class="rank-cell"><strong>31</strong></td>
+										<td>
+											<div class="avatar">
+												<img src=" images/content/canada.png" alt="" />
+											</div>
+										</td>
+										<td>
+											<a class="text-primary fw-semibold" href="#">Canada</a>
+										</td>
+										<td class="text-center">13</td>
 										<td>5</td>
-										<td><strong>5</strong></td>
-										<td>4</td>
+										<td>22</td>
 										<td>0</td>
-										<td>2</td>
+										<td>0</td>
+										<td>55</td>
+										<td>0</td>
+										<td>0</td>
+										<td>0</td>
 									</tr>
 									<tr>
-										<td class="rank-cell"><strong>7</strong></td>
+										<td class="rank-cell"><strong>31</strong></td>
 										<td>
 											<div class="avatar">
-												<img src="https://stats.isbhf.com/upload/player/photo/_1748402161_Jason Granitto.jpg" alt="" />
-												<span class="state"><img src="https://stats.isbhf.com/upload/team/logo_mobile/4_1747152536_canada.png" alt="" /></span>
+												<img src=" images/ico/de.svg" alt="" />
 											</div>
 										</td>
-										<td class="text-center">55</td>
 										<td>
-											<a class="text-primary fw-semibold" href="#">Jason Grannitto</a>
+											<a class="text-primary fw-semibold" href="#">Germany</a>
 										</td>
-										<td>DE</td>
-
+										<td class="text-center">13</td>
+										<td>51</td>
+										<td>13</td>
+										<td>4</td>
+										<td>3</td>
+										<td>33</td>
 										<td>2</td>
-										<td>2</td>
+										<td>1</td>
+										<td>7</td>
+									</tr>
+									<tr>
+										<td class="rank-cell"><strong>31</strong></td>
+										<td>
+											<div class="avatar">
+												<img src=" images/content/canada.png" alt="" />
+											</div>
+										</td>
+										<td>
+											<a class="text-primary fw-semibold" href="#">Canada</a>
+										</td>
+										<td class="text-center">13</td>
 										<td>5</td>
-										<td><strong>5</strong></td>
-										<td>2</td>
+										<td>22</td>
 										<td>0</td>
 										<td>0</td>
-									</tr>
-									<tr>
-										<td class="rank-cell"><strong>4</strong></td>
-										<td>
-											<div class="avatar">
-												<img src="https://stats.isbhf.com/upload/player/photo/_1748399326_CarterLongland.jpg" alt="" />
-												<span class="state"><img src="https://stats.isbhf.com/upload/team/logo_mobile/4_1747152536_canada.png" alt="" /></span>
-											</div>
-										</td>
-										<td class="text-center">24</td>
-										<td>
-											<a class="text-primary fw-semibold" href="#">Carter Longland</a>
-										</td>
-										<td>DE</td>
-
-										<td>2</td>
-										<td>1</td>
-										<td>3</td>
-										<td><strong>4</strong></td>
-										<td>1</td>
-										<td>0</td>
-										<td>0</td>
-									</tr>
-									<tr>
-										<td class="rank-cell"><strong>28</strong></td>
-										<td>
-											<div class="avatar">
-												<img src="https://stats.isbhf.com/upload/player/photo/_1748399865_NoahWebster.jpeg" alt="" />
-												<span class="state"><img src="https://stats.isbhf.com/upload/team/logo_mobile/4_1747152536_canada.png" alt="" /></span>
-											</div>
-										</td>
-										<td class="text-center">3</td>
-										<td>
-											<a class="text-primary fw-semibold" href="#">Noah Webster</a>
-										</td>
-										<td>FW</td>
-
-										<td>2</td>
-										<td>1</td>
-										<td>3</td>
-										<td><strong>4</strong></td>
-										<td>1</td>
-										<td>0</td>
-										<td>2</td>
-									</tr>
-									<tr>
-										<td class="rank-cell"><strong>12</strong></td>
-										<td>
-											<div class="avatar">
-												<img src="https://stats.isbhf.com/upload/player/photo/_1749194339_10907.jpg" alt="" />
-												<span class="state"><img src="https://stats.isbhf.com/upload/team/logo_mobile/6_1749748235_slovakia.png" alt="" /></span>
-											</div>
-										</td>
-										<td class="text-center">38</td>
-										<td>
-											<a class="text-primary fw-semibold" href="#">Jozef Šechný</a>
-										</td>
-										<td>DE</td>
-
-										<td>2</td>
-										<td>1</td>
-										<td>2</td>
-										<td><strong>3</strong></td>
-										<td>4</td>
-										<td>0</td>
-										<td>0</td>
-									</tr>
-									<tr>
-										<td class="rank-cell"><strong>10</strong></td>
-										<td>
-											<div class="avatar">
-												<img src="https://stats.isbhf.com/upload/player/photo/_1749195042_9769.jpg" alt="" />
-												<span class="state"><img src="https://stats.isbhf.com/upload/team/logo_mobile/6_1749748235_slovakia.png" alt="" /></span>
-											</div>
-										</td>
-										<td class="text-center">91</td>
-										<td>
-											<a class="text-primary fw-semibold" href="#">Adam Belák</a>
-										</td>
-										<td>DE</td>
-
-										<td>3</td>
-										<td>3</td>
-										<td>2</td>
-										<td><strong>5</strong></td>
-										<td>4</td>
-										<td>0</td>
-										<td>0</td>
-									</tr>
-									<tr>
-										<td class="rank-cell"><strong>44</strong></td>
-										<td>
-											<div class="avatar">
-												<img src="https://stats.isbhf.com/upload/player/photo/4591_1749264486_WylieBirkettNEW.jpeg" alt="" />
-												<span class="state"><img src="https://stats.isbhf.com/upload/team/logo_mobile/4_1747152536_canada.png" alt="" /></span>
-											</div>
-										</td>
-										<td class="text-center">87</td>
-										<td>
-											<a class="text-primary fw-semibold" href="#">Wylie Birkett</a>
-										</td>
-										<td>FW</td>
-
-										<td>1</td>
-										<td>1</td>
-										<td>2</td>
-										<td><strong>7</strong></td>
-										<td>4</td>
-										<td>0</td>
-										<td>0</td>
-									</tr>
-									<tr>
-										<td class="rank-cell"><strong>55</strong></td>
-										<td>
-											<div class="avatar">
-												<img src="https://stats.isbhf.com/upload/player/photo/_1749194477_10866.jpg" alt="" />
-												<span class="state"><img src="https://stats.isbhf.com/upload/team/logo_mobile/6_1749748235_slovakia.png" alt="" /></span>
-											</div>
-										</td>
-										<td class="text-center">79</td>
-										<td>
-											<a class="text-primary fw-semibold" href="#">Martin Dubeň</a>
-										</td>
-										<td>DE</td>
-
-										<td>3</td>
-										<td>0</td>
-										<td>2</td>
-										<td><strong>2</strong></td>
-										<td>0</td>
-										<td>0</td>
-										<td>8</td>
-									</tr>
-									<tr>
-										<td class="rank-cell"><strong>92</strong></td>
-										<td>
-											<div class="avatar">
-												<img src="https://stats.isbhf.com/upload/player/photo/_1749195143_10859.jpg" alt="" />
-												<span class="state"><img src="https://stats.isbhf.com/upload/team/logo_mobile/6_1749748235_slovakia.png" alt="" /></span>
-											</div>
-										</td>
-										<td class="text-center">53</td>
-										<td>
-											<a class="text-primary fw-semibold" href="#">Maximilián Mikula</a>
-										</td>
-										<td>DE</td>
-
-										<td>3</td>
-										<td>0</td>
-										<td>2</td>
-										<td><strong>2</strong></td>
+										<td>55</td>
 										<td>0</td>
 										<td>0</td>
 										<td>0</td>
 									</tr>
 									<tr>
-										<td class="rank-cell"><strong>6</strong></td>
+										<td class="rank-cell"><strong>31</strong></td>
 										<td>
 											<div class="avatar">
-												<img src="https://stats.isbhf.com/upload/player/photo/_1749195771_5740.jpg" alt="" />
-												<span class="state"><img src="https://stats.isbhf.com/upload/team/logo_mobile/6_1749748235_slovakia.png" alt="" /></span>
+												<img src=" images/ico/de.svg" alt="" />
 											</div>
+										</td>
+										<td>
+											<a class="text-primary fw-semibold" href="#">Germany</a>
 										</td>
 										<td class="text-center">13</td>
-										<td>
-											<a class="text-primary fw-semibold" href="#">René Marek</a>
-										</td>
-										<td>FW</td>
-
+										<td>51</td>
+										<td>13</td>
+										<td>4</td>
 										<td>3</td>
-										<td>0</td>
-										<td>2</td>
-										<td><strong>2</strong></td>
-										<td>0</td>
-										<td>0</td>
-										<td>0</td>
-									</tr>
-									<tr>
-										<td class="rank-cell"><strong>82</strong></td>
-										<td>
-											<div class="avatar">
-												<img src="https://stats.isbhf.com/upload/player/photo/4290_1750511761_image0.jpeg" alt="" />
-												<span class="state"><img src="https://stats.isbhf.com/upload/team/logo_mobile/5_1749747939_czech.png" alt="" /></span>
-											</div>
-										</td>
-										<td class="text-center">2</td>
-										<td>
-											<a class="text-primary fw-semibold" href="#">Jan Matoušek</a>
-										</td>
-										<td>DE</td>
-
-										<td>2</td>
-										<td>0</td>
-										<td>2</td>
-										<td><strong>2</strong></td>
-										<td>0</td>
-										<td>0</td>
-										<td>0</td>
-									</tr>
-									<tr>
-										<td class="rank-cell"><strong>25</strong></td>
-										<td>
-											<div class="avatar">
-												<img src="https://stats.isbhf.com/upload/player/photo/_1748399865_JagpalPhangura.jpg" alt="" />
-												<span class="state"><img src="https://stats.isbhf.com/upload/team/logo_mobile/4_1747152536_canada.png" alt="" /></span>
-											</div>
-										</td>
-										<td class="text-center">45</td>
-										<td>
-											<a class="text-primary fw-semibold" href="#">Jagjeevan Phangura</a>
-										</td>
-										<td>FW</td>
-
+										<td>33</td>
 										<td>2</td>
 										<td>1</td>
-										<td>1</td>
-										<td><strong>2</strong></td>
-										<td>1</td>
-										<td>0</td>
-										<td>0</td>
-									</tr>
-									<tr>
-										<td class="rank-cell"><strong>73</strong></td>
-										<td>
-											<div class="avatar">
-												<img src="https://stats.isbhf.com/upload/player/photo/_1748399865_OwenWeihs.jpeg" alt="" />
-												<span class="state"><img src="https://stats.isbhf.com/upload/team/logo_mobile/4_1747152536_canada.png" alt="" /></span>
-											</div>
-										</td>
-										<td class="text-center">13</td>
-										<td>
-											<a class="text-primary fw-semibold" href="#">Owen Weihs</a>
-										</td>
-										<td>FW</td>
-
-										<td>2</td>
-										<td>2</td>
-										<td>0</td>
-										<td><strong>2</strong></td>
-										<td>2</td>
-										<td>0</td>
-										<td>2</td>
+										<td>7</td>
 									</tr>
 								</tbody>
 							</table>

@@ -1,5 +1,5 @@
 {% extends "@components/base/base.twig" %} {% set title =
-"17.0_tournament-statistics" %} {% block main %}
+"22.0_tournament-team-statistics" %} {% block main %}
 <div class="topGradient">
   {% include "@components/header/header.twig" %}
   <section class="subpage-header">
@@ -35,7 +35,7 @@
               value="4"
               role="tab"
             >
-              Statistics
+              Players Statistics
             </button>
           </li>
           <li>
@@ -54,8 +54,9 @@
 </div>
 
 <main class="main" aria-label="Hlavní obsah">
-  {% include "@components/statistics-section/statistics-section.twig" %} {%
-  include "@components/partnersSlider/partnersSlider.twig" %}
+   
+ {% include "@components/statistics-section/team-statistics-section.twig" %}
+  {% include "@components/partnersSlider/partnersSlider.twig" %}
 </main>
 
 {% endblock %}

@@ -81,3 +81,18 @@
     }
   }
 }
+
+.teamStatistics-section .statistics-section__inner {
+  th:nth-child(3),
+  td:nth-child(3) {
+    width: auto;
+    text-align: left;
+    padding-left: 0;
+  }
+  th:nth-child(4),
+  td:nth-child(4) {
+    width: 50px;
+    text-align: center;
+    padding-left: 0;
+  }
+}
