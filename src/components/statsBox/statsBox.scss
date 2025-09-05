@@ -15,6 +15,7 @@
   .nav-tabs {
     gap: 12px;
     margin: 0;
+    border: none;
   }
   .nav-link {
     background-color: transparent;
@@ -50,6 +51,7 @@
     border-bottom: 1px solid #cecece;
     padding-top: 0;
     padding-bottom: 7px;
+    background-color: transparent;
   }
   td {
     font-weight: 400;
@@ -61,6 +63,7 @@
     padding-top: 13px;
     padding-bottom: 13px;
     white-space: nowrap;
+    background-color: transparent;
   }
   td img {
     border-radius: 100%;
