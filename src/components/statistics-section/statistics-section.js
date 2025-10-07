@@ -427,14 +427,17 @@ function makeSortableMulti(table, config) {
   const { colIndexByKey, thByKey, headers } = getHeaderMaps(table);
   const sortStates = {};
   const rankTh = thByKey["rank"] || table.querySelector("thead th:first-child");
+
+  // === Устанавливаем начальное направление сортировки DESC ===
   if (rankTh) {
-    if (!table.dataset.rankDir) table.dataset.rankDir = "asc";
+    if (!table.dataset.rankDir) table.dataset.rankDir = "desc";
     rankTh.style.cursor = "pointer";
     rankTh.addEventListener("click", () => {
       table.dataset.rankDir = table.dataset.rankDir === "desc" ? "asc" : "desc";
       updateRankingColumn(table);
     });
   }
+
   headers.forEach((th) => {
     let key = null;
     for (const cls of th.classList) {
@@ -449,12 +452,8 @@ function makeSortableMulti(table, config) {
     if (!mainConfig) return;
     th.style.cursor = "pointer";
     th.addEventListener("click", () => {
-      const prev = sortStates[key] ?? null;
-      const next = prev
-        ? prev === "desc"
-          ? "asc"
-          : "desc"
-        : mainConfig.defaultDirection || "asc";
+      const prev = sortStates[key];
+      const next = prev ? (prev === "desc" ? "asc" : "desc") : "desc"; // Первое нажатие всегда DESC
       sortStates[key] = next;
       Object.keys(sortStates).forEach((k) => {
         if (k !== key) sortStates[k] = null;
@@ -469,11 +468,11 @@ function makeSortableMulti(table, config) {
       updateRankingColumn(table);
     });
   });
+
+  // === Первичная сортировка ===
   if (config.initialKey && config.criteriaMapByKey[config.initialKey]) {
     const base = config.criteriaMapByKey[config.initialKey];
-    const dir = base.defaultDirection === "desc" ? "desc" : "asc";
-    sortStates[config.initialKey] = dir;
-    const primary = { ...base, isDescending: dir === "desc" };
+    const primary = { ...base, isDescending: true }; // Первое сразу DESC
     const tieListKeys = config.tieBreakersByKey[config.initialKey] || [];
     const criteria = criteriaByKeysToIndices(
       [primary, ...tieListKeys],
@@ -491,6 +490,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const { colIndexByKey } = getHeaderMaps(table);
     const isGoalies = "svPercent" in colIndexByKey;
     const isPlayers = "p" in colIndexByKey;
+
     if (isPlayers) {
       const playerConfig = {
         criteriaMapByKey: {
