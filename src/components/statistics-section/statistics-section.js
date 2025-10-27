@@ -31,16 +31,19 @@ function sortTableMulti(table, criteria) {
 
 function updateRankingColumn(table, opts = {}) {
   const rows = Array.from(table.tBodies[0].querySelectorAll("tr"));
-  const currentDir = table.dataset.rankDir === "desc" ? "desc" : "asc";
-  const descending =
-    typeof opts.descending === "boolean"
-      ? opts.descending
-      : currentDir === "asc";
   const n = rows.length;
+
+  // === Узнаем текущее направление сортировки ===
+  const currentDir = table.dataset.activeDir || "desc"; // по умолчанию DESC
+  const descending = currentDir === "desc";
+
   rows.forEach((row, index) => {
     const strong = row.querySelector("td.rank-cell strong");
     if (!strong) return;
-    const num = descending ? n - index : index + 1;
+
+    // Если сортировка DESC — сверху лучшие (1, 2, 3...)
+    // Если сортировка ASC — сверху худшие (n, n-1, ...)
+    const num = descending ? index + 1 : n - index;
     strong.textContent = `${num}.`;
   });
 }
@@ -77,12 +80,12 @@ function makeSortableMulti(table, config) {
   const sortStates = {};
   const rankTh = thByKey["rank"] || table.querySelector("thead th:first-child");
 
-  // === Устанавливаем начальное направление сортировки DESC ===
+  // Ручная смена направления сортировки по клику на колонку "Ранк"
   if (rankTh) {
-    if (!table.dataset.rankDir) table.dataset.rankDir = "desc";
     rankTh.style.cursor = "pointer";
     rankTh.addEventListener("click", () => {
-      table.dataset.rankDir = table.dataset.rankDir === "desc" ? "asc" : "desc";
+      table.dataset.activeDir =
+        table.dataset.activeDir === "desc" ? "asc" : "desc";
       updateRankingColumn(table);
     });
   }
@@ -102,39 +105,51 @@ function makeSortableMulti(table, config) {
     th.style.cursor = "pointer";
     th.addEventListener("click", () => {
       const prev = sortStates[key];
-      const next = prev ? (prev === "desc" ? "asc" : "desc") : "desc"; // Первое нажатие всегда DESC
+      const next = prev ? (prev === "desc" ? "asc" : "desc") : "desc"; // первое нажатие DESC
       sortStates[key] = next;
       Object.keys(sortStates).forEach((k) => {
         if (k !== key) sortStates[k] = null;
       });
+
+      // сохраняем активную колонку и направление
+      table.dataset.activeKey = key;
+      table.dataset.activeDir = next;
+
       const primary = { ...mainConfig, isDescending: next === "desc" };
       const tieListKeys = config.tieBreakersByKey[key] || [];
       const criteria = criteriaByKeysToIndices(
         [primary, ...tieListKeys],
         colIndexByKey
       );
+
       sortTableMulti(table, criteria);
       updateRankingColumn(table);
     });
   });
 
-  // === Первичная сортировка ===
+  // Первичная сортировка (по initialKey, если задан)
   if (config.initialKey && config.criteriaMapByKey[config.initialKey]) {
     const base = config.criteriaMapByKey[config.initialKey];
-    const primary = { ...base, isDescending: true }; // Первое сразу DESC
+    const primary = { ...base, isDescending: true };
     const tieListKeys = config.tieBreakersByKey[config.initialKey] || [];
     const criteria = criteriaByKeysToIndices(
       [primary, ...tieListKeys],
       colIndexByKey
     );
+
+    table.dataset.activeKey = config.initialKey;
+    table.dataset.activeDir = "desc";
+
     sortTableMulti(table, criteria);
   }
+
   updateRankingColumn(table);
 }
 
 window.addEventListener("DOMContentLoaded", () => {
   const statsSection = document.querySelector(".statistics-section__inner");
   if (!statsSection) return;
+
   statsSection.querySelectorAll("table").forEach((table) => {
     const { colIndexByKey } = getHeaderMaps(table);
     const isGoalies = "svPercent" in colIndexByKey;
@@ -192,14 +207,6 @@ window.addEventListener("DOMContentLoaded", () => {
               sortBySurname: true,
             },
           ],
-          jersey: [
-            {
-              key: "name",
-              isNumeric: false,
-              isDescending: false,
-              sortBySurname: true,
-            },
-          ],
         },
         initialKey: "p",
       };
@@ -235,23 +242,6 @@ window.addEventListener("DOMContentLoaded", () => {
               sortBySurname: true,
             },
           ],
-          gpg: [
-            { key: "min", isNumeric: true, isDescending: true },
-            {
-              key: "name",
-              isNumeric: false,
-              isDescending: false,
-              sortBySurname: true,
-            },
-          ],
-          jersey: [
-            {
-              key: "name",
-              isNumeric: false,
-              isDescending: false,
-              sortBySurname: true,
-            },
-          ],
         },
         initialKey: "svPercent",
       };
@@ -267,16 +257,7 @@ window.addEventListener("DOMContentLoaded", () => {
           },
           jersey: { key: "jersey", isNumeric: true, defaultDirection: "asc" },
         },
-        tieBreakersByKey: {
-          jersey: [
-            {
-              key: "name",
-              isNumeric: false,
-              isDescending: false,
-              sortBySurname: true,
-            },
-          ],
-        },
+        initialKey: "name",
       };
       makeSortableMulti(table, fallbackConfig);
     }
