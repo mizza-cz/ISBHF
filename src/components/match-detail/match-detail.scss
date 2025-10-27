@@ -135,7 +135,7 @@
   top: 4px !important;
 }
 .goals-time {
-  min-width: 56px;
+  min-width: 3rem;
   position: relative;
   padding-right: 12px;
   &::after {
@@ -201,6 +201,6 @@
 .contactItem__type {
   color: var(--color-dark);
   font-weight: 500;
-  min-width: 26px;
-  text-align: center;
+  min-width: 20px;
+  text-align: left;
 }

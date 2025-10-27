@@ -1,0 +1,203 @@
+{% extends "@components/base/base.twig" %} {% set title = "19.0_match-detail" %}
+{% block main %}
+<div class="topGradient-2">{% include "@components/header/header.twig" %}</div>
+
+<main class="main" aria-label="Hlavní obsah">
+  <section class="match-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 col-sm-11 mx-auto my-48"></div>
+      </div>
+      <div class="matchBoard">
+        <ul class="matchBoard__top">
+          <li>Svijanska arena</li>
+          <li>15.04.2025, 18:00</li>
+        </ul>
+        <div class="matchBoard__status">Live - 1st Period</div>
+        <div class="matchBoard__inner">
+          <div class="matchBoard__team">
+            <h2 class="h1">Czech Republic</h2>
+            <div class="matchBoard__flag">
+              <img src="images/content/cz.png" alt="flag" />
+            </div>
+          </div>
+          <div class="matchBoard__result">2:3 <span>SN</span></div>
+          <div class="matchBoard__team">
+            <div class="matchBoard__flag">
+              <img src="images/ico/de.svg" alt="flag" />
+            </div>
+            <h2 class="h1">Germany</h2>
+          </div>
+        </div>
+        <div class="matchBoard__bottom">(1:0, 0:1, 0:0 - 0:2)</div>
+
+        <div class="matchBoard__line">
+          <!-- home timeline     POZOR !!! win or lose !-->
+          <div class="game__timeline game__timeline--home win">
+            <div class="game__timeline__logo">
+              <img src="images/content/cz.png" />
+            </div>
+
+            <div class="game__timeline__container">
+              <!-- Период 1 -->
+              <div
+                class="game__timeline__period game__timeline__period--home"
+                data-period-seconds="1200"
+              >
+                <div class="period">1</div>
+                <div
+                  style="left: 2.6666666666667%"
+                  class="game__timeline__goal game__timeline__goal--home"
+                >
+                  <span class="icon-ball" title="Jenáček"></span>
+                </div>
+                <div
+                  style="left: 65%"
+                  class="game__timeline__goal game__timeline__goal--home"
+                >
+                  <span class="icon-ball" title="Jenáček"></span>
+                </div>
+                <div
+                  style="left: 80%"
+                  class="game__timeline__goal game__timeline__goal--home"
+                >
+                  <span class="icon-whistle" title="Jenáček"></span>
+                </div>
+                <div
+                  style="left: 95%"
+                  class="game__timeline__goal game__timeline__goal--home"
+                >
+                  <span class="icon-ball" title="Jenáček"></span>
+                </div>
+              </div>
+
+              <!-- Период 2 -->
+              <div
+                class="game__timeline__period game__timeline__period--home"
+                data-period-seconds="1200"
+              >
+                <div class="period">2</div>
+                <div
+                  style="left: 2.6666666666667%"
+                  class="game__timeline__goal game__timeline__goal--home"
+                >
+                  <span class="icon-ball" title="Nižnikov"></span>
+                </div>
+                <div
+                  style="left: 70%"
+                  class="game__timeline__goal game__timeline__goal--home"
+                >
+                  <span class="icon-ball" title="Nižnikov"></span>
+                </div>
+                <div
+                  style="left: 83%"
+                  class="game__timeline__goal game__timeline__goal--home"
+                >
+                  <span class="icon-whistle" title="Nižnikov"></span>
+                </div>
+                <div
+                  style="left: 95%"
+                  class="game__timeline__goal game__timeline__goal--home"
+                >
+                  <span class="icon-ball" title="Hruška"></span>
+                </div>
+              </div>
+
+              <!-- Период 3 -->
+              <div
+                class="game__timeline__period game__timeline__period--home"
+                data-period-seconds="1200"
+              >
+                <div class="period">3</div>
+              </div>
+
+              <!-- Продления -->
+
+              <div
+                class="game__timeline__period game__timeline__period--home"
+                data-period-seconds="0"
+              >
+                <div class="period period--finish">F</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- away timeline -->
+          <div class="game__timeline game__timeline--away">
+            <div class="game__timeline__logo game__timeline__logo--away">
+              <img src="images/ico/de.svg" />
+            </div>
+
+            <div class="game__timeline__container">
+              <div
+                class="game__timeline__period game__timeline__period--away"
+                data-period-seconds="900"
+              >
+                <div
+                  style="left: 20%"
+                  class="game__timeline__goal game__timeline__goal--away"
+                >
+                  <span class="icon-whistle" title="Hruška"></span>
+                </div>
+              </div>
+              <div
+                class="game__timeline__period game__timeline__period--away"
+                data-period-seconds="900"
+              >
+                <div
+                  style="left: 45%"
+                  class="game__timeline__goal game__timeline__goal--away"
+                >
+                  <span class="icon-ball" title="Hruška"></span>
+                </div>
+                <div
+                  style="left: 65%"
+                  class="game__timeline__goal game__timeline__goal--away"
+                >
+                  <span class="icon-whistle" title="Hruška"></span>
+                </div>
+              </div>
+              <div
+                class="game__timeline__period game__timeline__period--away"
+                data-period-seconds="900"
+              ></div>
+
+              <div
+                class="game__timeline__period game__timeline__period--away"
+                data-period-seconds="315"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% include "@components/match-detail/match-detail.twig" %} {% include
+  "@components/partnersSlider/partnersSlider.twig" %}
+</main>
+<div
+  class="modal fade"
+  id="modalVideoToggle"
+  aria-hidden="true"
+  aria-labelledby="modalVideoLabel"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/-6xNMzouiAM?si=muepwU1sToYnqndX"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
