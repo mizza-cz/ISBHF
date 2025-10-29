@@ -110,4 +110,20 @@
 .fw-medium {
   font-weight: 500 !important;
 }
+[aria-labelledby^="modalVideoLabel"] .modal-body iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+}
+
+[aria-labelledby^="modalVideoLabel"] {
+  .modal-dialog {
+    max-width: 1200px;
+  }
+  iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+}
 /*! purgecss end ignore */

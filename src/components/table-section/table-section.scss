@@ -43,4 +43,12 @@
       }
     }
   }
+  .o-content table tr td:first-child {
+    position: relative;
+  }
+  .o-content table tr td:first-child::after {
+    content: ".";
+    font-weight: 700;
+    font-size: 0.875rem;
+  }
 }
