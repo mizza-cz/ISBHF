@@ -1,0 +1,227 @@
+{% extends "@components/base/base.twig" %} {% set title = "25.0_match-detail-4"
+%} {% block main %}
+<div class="topGradient-2">{% include "@components/header/header.twig" %}</div>
+
+<main class="main" aria-label="Hlavní obsah">
+  <section class="match-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 col-sm-11 mx-auto my-48"></div>
+      </div>
+      <div class="matchBoard">
+        <ul class="matchBoard__top">
+          <li>Hokejbalová aréna Kladno</li>
+          <li>11.09.2022, 13:30</li>
+        </ul>
+        <div class="matchBoard__inner">
+          <div class="matchBoard__team">
+            <h2 class="h1">Canada</h2>
+            <div class="matchBoard__flag">
+              <img
+                src="https://stats.isbhf.com/upload/team/logo/4_1752658521_Canada.svg"
+                alt="flag"
+              />
+            </div>
+          </div>
+          <div class="matchBoard__result">1:2</div>
+          <div class="matchBoard__team">
+            <div class="matchBoard__flag">
+              <img
+                src="https://stats.isbhf.com/upload/team/logo/3_1752690519_USA.svg"
+                alt="flag"
+              />
+            </div>
+            <h2 class="h1">USA</h2>
+          </div>
+        </div>
+        <div class="matchBoard__bottom">(0:1, 1:0, 0:1)</div>
+
+        <div class="matchBoard__line">
+          <!-- home timeline     POZOR !!! win or lose !-->
+          <div class="game__timeline game__timeline--home lose">
+            <div class="game__timeline__logo">
+              <img
+                src="https://stats.isbhf.com/upload/team/logo/4_1752658521_Canada.svg"
+              />
+            </div>
+
+            <div class="game__timeline__container">
+              <!-- time 1 -->
+              <div
+                class="game__timeline__period game__timeline__period--home"
+                data-period-seconds="720"
+              >
+                <div class="period">1</div>
+              </div>
+
+              <!-- time 2 -->
+              <div
+                class="game__timeline__period game__timeline__period--home"
+                data-period-seconds="720"
+              >
+                <div class="period">2</div>
+                <div
+                  style="left: 11.805555555556%"
+                  class="game__timeline__goal game__timeline__goal--home"
+                >
+                  <span
+                    class="icon-whistle"
+                    title="Maryelle Hannam"
+                    data-placement="top"
+                    data-toggle="tooltip"
+                  ></span>
+                </div>
+
+                <div
+                  style="left: 35.694444444444%"
+                  class="game__timeline__goal game__timeline__goal--home"
+                >
+                  <span
+                    class="icon-ball"
+                    title="Shelley Cockerill"
+                    data-placement="top"
+                    data-toggle="tooltip"
+                  ></span>
+                </div>
+              </div>
+
+              <!-- time 3 -->
+              <div
+                class="game__timeline__period game__timeline__period--home"
+                data-period-seconds="720"
+              >
+                <div class="period">3</div>
+              </div>
+
+              <!-- ot -->
+
+              <div
+                class="game__timeline__period game__timeline__period--home"
+                data-period-seconds="0"
+              >
+                <div class="period period--finish">F</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- away timeline -->
+          <div class="game__timeline game__timeline--away">
+            <div class="game__timeline__logo game__timeline__logo--away">
+              <img
+                src="https://stats.isbhf.com/upload/team/logo/3_1752690519_USA.svg"
+              />
+            </div>
+
+            <div class="game__timeline__container">
+              <div
+                class="game__timeline__period game__timeline__period--away"
+                data-period-seconds="720"
+              >
+                <div
+                  style="left: 67.083333333333%"
+                  class="game__timeline__goal game__timeline__goal--away"
+                >
+                  <span
+                    class="icon-whistle"
+                    title="Ryann Geldner"
+                    data-placement="top"
+                    data-toggle="tooltip"
+                  ></span>
+                </div>
+
+                <div
+                  style="left: 92.638888888889%"
+                  class="game__timeline__goal game__timeline__goal--away"
+                >
+                  <span
+                    class="icon-whistle"
+                    title="Randi Griffin"
+                    data-placement="top"
+                    data-toggle="tooltip"
+                  ></span>
+                </div>
+
+                <div
+                  style="left: 57.5%"
+                  class="game__timeline__goal game__timeline__goal--away"
+                >
+                  <span
+                    class="icon-ball"
+                    title="Lauren Bracco"
+                    data-placement="top"
+                    data-toggle="tooltip"
+                  ></span>
+                </div>
+              </div>
+              <div
+                class="game__timeline__period game__timeline__period--away"
+                data-period-seconds="720"
+              >
+                <div
+                  style="left: 6.1111111111111%"
+                  class="game__timeline__goal game__timeline__goal--away"
+                >
+                  <span
+                    class="icon-whistle"
+                    title="Kara Reeves"
+                    data-placement="top"
+                    data-toggle="tooltip"
+                  ></span>
+                </div>
+              </div>
+
+              <div
+                class="game__timeline__period game__timeline__period--away"
+                data-period-seconds="720"
+              >
+                <div
+                  style="left: 5.4166666666667%"
+                  class="game__timeline__goal game__timeline__goal--away"
+                >
+                  <span
+                    class="icon-ball"
+                    title="Karen Levin"
+                    data-placement="top"
+                    data-toggle="tooltip"
+                  ></span>
+                </div>
+              </div>
+              <div
+                class="game__timeline__period game__timeline__period--away"
+                data-period-seconds="0"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% include "@components/match-detail/match-detail.twig" %} {% include
+  "@components/partnersSlider/partnersSlider.twig" %}
+</main>
+<div
+  class="modal fade"
+  id="modalVideoToggle"
+  aria-hidden="true"
+  aria-labelledby="modalVideoLabel"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/-6xNMzouiAM?si=muepwU1sToYnqndX"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
