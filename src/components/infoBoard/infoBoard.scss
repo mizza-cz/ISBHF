@@ -28,6 +28,7 @@
     align-items: center;
     margin-top: 32px;
     margin-bottom: 18px;
+    border-bottom: none;
   }
   .nav-link.active {
     background-color: var(--color-red);
@@ -56,5 +57,125 @@
   }
   .matchItem__result {
     font-size: 12px;
+  }
+}
+
+.event--bermuda {
+  background-color: #0b2c5d;
+  .eventsSlider__item-footer,
+  .btn,
+  h4 {
+    color: #ed0180;
+  }
+  .btn-stroke {
+    border-color: #ed0180;
+    background: #ed0180;
+    color: #fff;
+    svg path {
+      fill: #fff;
+    }
+  }
+  .btn-stroke:hover {
+    background: transparent;
+    color: #ed0180;
+    svg path {
+      fill: #ed0180;
+    }
+  }
+}
+
+.event--bratislava {
+  background-color: #cc2e0c;
+  .eventsSlider__item-footer,
+  .btn,
+  h4 {
+    color: #2a2d34;
+  }
+  .btn-stroke {
+    border-color: #2a2d34;
+    background: #2a2d34;
+    color: #fff;
+    svg path {
+      fill: #fff;
+    }
+  }
+  .btn-stroke:hover {
+    background: transparent;
+    color: #2a2d34;
+    svg path {
+      fill: #2a2d34;
+    }
+  }
+}
+
+.event--ostrava {
+  background-color: #1f3980;
+  .eventsSlider__item-footer,
+  .btn,
+  h4 {
+    color: #da001a;
+  }
+  .btn-stroke {
+    border-color: #da001a;
+    background: #da001a;
+    color: #fff;
+    svg path {
+      fill: #fff;
+    }
+  }
+  .btn-stroke:hover {
+    background: transparent;
+    color: #da001a;
+    svg path {
+      fill: #da001a;
+    }
+  }
+}
+
+.event--banska {
+  background-color: #9f0000;
+  .eventsSlider__item-footer,
+  .btn,
+  h4 {
+    color: #0b3954;
+  }
+  .btn-stroke {
+    border-color: #0b3954;
+    background: #0b3954;
+    color: #fff;
+    svg path {
+      fill: #fff;
+    }
+  }
+  .btn-stroke:hover {
+    background: transparent;
+    color: #0b3954;
+    svg path {
+      fill: #0b3954;
+    }
+  }
+}
+
+.event--sheffield {
+  background-color: #0c2a49;
+  .eventsSlider__item-footer,
+  .btn,
+  h4 {
+    color: #ca2123;
+  }
+  .btn-stroke {
+    border-color: #ca2123;
+    background: #ca2123;
+    color: #fff;
+    svg path {
+      fill: #fff;
+    }
+  }
+  .btn-stroke:hover {
+    background: transparent;
+    color: #ca2123;
+    svg path {
+      fill: #ca2123;
+    }
   }
 }
