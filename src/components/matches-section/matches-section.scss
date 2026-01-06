@@ -33,7 +33,7 @@
     z-index: 3;
     width: 3.5rem;
     height: 3.5rem;
- 
+
     overflow: hidden;
     img {
       width: 100%;
@@ -92,7 +92,7 @@
     color: var(--blue);
     font-size: 36px;
     font-weight: 700;
-    line-height: 59.83px;
+    line-height: 48px;
 
     @include media-breakpoint-down(xl) {
       text-align: center;

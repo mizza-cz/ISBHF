@@ -24,6 +24,13 @@
     width: 100%;
     justify-content: center;
     margin-bottom: 24px;
+    .matchItem__time {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 15.31px;
+    }
+
     li {
       font-size: 12px;
       font-weight: 400;
@@ -274,4 +281,8 @@
   display: flex;
   flex-grow: 1;
   position: relative;
+}
+.matchItem__time {
+  font-size: 14px;
+  line-height: 16px !important;
 }
