@@ -30,6 +30,11 @@
     }
   }
 }
+.btn-stroke.text-white svg {
+  path {
+    fill: var(--color-light);
+  }
+}
 
 .btn-primary {
   border-color: var(--color-accent);

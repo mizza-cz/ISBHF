@@ -1,0 +1,246 @@
+{% extends "@components/base/base.twig" %} {% set title =
+"26.0_livestream-detail" %} {% block main %}
+<div class="bg-blue-600">
+  {% include "@components/header/header-live.twig" %}
+  <div class="liveStream-detail">
+    <div class="container">
+      <div class="liveStream-detail__inner">
+        <a
+          data-bs-toggle="modal"
+          href="#modalVideoToggle"
+          class="liveStream-detail__img"
+        >
+          <img
+            srcset="
+              https://picsum.photos/1474/990 1474w,
+              https://picsum.photos/737/495   600w
+            "
+            sizes="
+             (min-width: 737px) 737w
+           "
+            width="737"
+            height="495"
+            alt=""
+          />
+        </a>
+        <div class="liveStream-detail__content">
+          <div class="d-flex gap-4 mb-2 flex-wrap">
+            <div class="btn btn-primary text-sm">Live</div>
+            <ul class="tags text-gray-300">
+              <li>23. 2. 2025</li>
+              <li>14:00</li>
+              <li>1 hour 32 minutes</li>
+            </ul>
+          </div>
+          <h1 class="h2 text-white mb-2">
+            After nine years, the Ball Hockey World Championships returns to
+            Czechia
+          </h1>
+          <p class="text-md text-gray-300 mb-4">
+            Hockey is not just a popular winter sport; it’s an exhilarating and
+            adrenaline-pumping experience for both players and fans. On the ice,
+            fast-paced and strategic matches unfold, showcasing the power of
+            teamwork and individual skills. Despite its historical roots, hockey
+            continues to maintain its unique charm and popularity.
+          </p>
+          <details>
+            <summary class="liveStream-detail__more">More</summary>
+            <p class="text-md text-gray-300 mb-4">
+              Hockey is not just a popular winter sport; it’s an exhilarating
+              and adrenaline-pumping experience for both players and fans. On
+              the ice, fast-paced and strategic matches unfold, showcasing the
+              power of teamwork and individual skills. Despite its historical
+              roots, hockey continues to maintain its unique charm and
+              popularity.
+            </p>
+          </details>
+          <div class="d-flex gap-2">
+            <a
+              data-bs-toggle="modal"
+              href="#modalVideoToggle"
+              class="liveStream-detail__btn"
+            >
+              Play {% include "@images/play-btn.svg" %}
+            </a>
+            <a href="#" class="liveStream-detail__stats">
+              {% include "@images/stats.svg" %}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <main class="main" aria-label="Hlavní obsah">
+    <section class="liveStream-matches">
+      <div class="container">
+        <div
+          class="d-flex mb-4 justify-content-between align-items-center gap-3 flex-wrap"
+        >
+          <h2 class="h2 text-white">Live now</h2>
+          <a href="#" class="btn btn-stroke text-white">
+            Schedule {% include "@images/chevron-right.svg" %}
+          </a>
+        </div>
+        <div class="row g-3 mb-64">
+          {% for i in 1..4 %}
+          <div class="col-xl-3 col-lg-4 col-sm-6">
+            <a href="#" class="liveStream-match">
+              <div class="liveStream-match__img">
+                <img
+                  src="images/content/match-live-1.png"
+                  loading="lazy"
+                  alt="match"
+                />
+                <div class="btn btn-primary text-sm">Live</div>
+                <div class="liveStream-match__lock">
+                  <img src="images/ico/lock.svg" alt="lock" />
+                </div>
+              </div>
+              <ul class="tags text-gray-200 mb-2">
+                <li>
+                  <img
+                    src="images/content/edmont.png"
+                    width="20"
+                    height="20"
+                    class="object-fit-contain"
+                    alt=""
+                  />
+                  U20 Men’s
+                </li>
+                <li>Group B</li>
+              </ul>
+              <h5 class="h5 text-light">Oberwil Rebells vs. HBC Kladno</h5>
+            </a>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-sm-6">
+            <a href="#" class="liveStream-match">
+              <div class="liveStream-match__img">
+                <img
+                  src="images/content/match-live-2.png"
+                  loading="lazy"
+                  alt="match"
+                />
+                <div class="btn btn-primary text-sm">Live</div>
+                <div class="liveStream-match__lock">
+                  <img src="images/ico/lock.svg" alt="lock" />
+                </div>
+              </div>
+              <ul class="tags text-gray-200 mb-2">
+                <li>
+                  <img
+                    src="images/content/event-1.png"
+                    width="20"
+                    height="20"
+                    class="object-fit-contain"
+                    alt=""
+                  />
+                  Páňa Cup 2025
+                </li>
+                <li>Bronze</li>
+              </ul>
+              <h5 class="h5 text-light">USA vs. Slovakia</h5>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+        <div
+          class="d-flex mb-4 justify-content-between align-items-center gap-3 flex-wrap"
+        >
+          <h2 class="h2 text-white">More games</h2>
+          <a href="#" class="btn btn-stroke text-white">
+            Newest first {% include "@images/chevron-right.svg" %}
+          </a>
+        </div>
+        <div class="row g-3 mb-4">
+          {% for i in 1..4 %}
+          <div class="col-xl-3 col-lg-4 col-sm-6">
+            <a href="#" class="liveStream-match">
+              <div class="liveStream-match__img">
+                <img
+                  src="images/content/match-live-1.png"
+                  loading="lazy"
+                  alt="match"
+                />
+                <div class="btn btn-primary text-sm">Live</div>
+                <div class="liveStream-match__lock">
+                  <img src="images/ico/lock.svg" alt="lock" />
+                </div>
+              </div>
+              <ul class="tags text-gray-200 mb-2">
+                <li>
+                  <img
+                    src="images/content/edmont.png"
+                    width="20"
+                    height="20"
+                    class="object-fit-contain"
+                    alt=""
+                  />
+                  U20 Men’s
+                </li>
+                <li>Group B</li>
+              </ul>
+              <h5 class="h5 text-light">Oberwil Rebells vs. HBC Kladno</h5>
+            </a>
+          </div>
+          <div class="col-xl-3 col-lg-4 col-sm-6">
+            <a href="#" class="liveStream-match">
+              <div class="liveStream-match__img">
+                <img
+                  src="images/content/match-live-2.png"
+                  loading="lazy"
+                  alt="match"
+                />
+                <div class="btn btn-primary text-sm">Live</div>
+                <div class="liveStream-match__lock">
+                  <img src="images/ico/lock.svg" alt="lock" />
+                </div>
+              </div>
+              <ul class="tags text-gray-200 mb-2">
+                <li>
+                  <img
+                    src="images/content/event-1.png"
+                    width="20"
+                    height="20"
+                    class="object-fit-contain"
+                    alt=""
+                  />
+                  Páňa Cup 2025
+                </li>
+                <li>Bronze</li>
+              </ul>
+              <h5 class="h5 text-light">USA vs. Slovakia</h5>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+        <a href="#" class="btn btn-stroke text-white mx-auto"> Show more </a>
+      </div>
+    </section>
+  </main>
+  <div
+    class="modal fade"
+    id="modalVideoToggle"
+    aria-hidden="true"
+    aria-labelledby="modalVideoLabel"
+    tabindex="-1"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/-6xNMzouiAM?si=muepwU1sToYnqndX"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -84,6 +84,12 @@
 .text-gray-200 {
   color: var(--color-gray-200);
 }
+.text-gray-300 {
+  color: var(--color-gray-200);
+}
+.bg-gray-300 {
+  color: var(--color-gray-300);
+}
 
 .container {
   max-width: 87.4rem !important;
@@ -92,6 +98,9 @@
 }
 .bg-blue-500 {
   background-color: var(--color-blue-500);
+}
+.bg-blue-600 {
+  background: var(--color-blue-600);
 }
 .bg-gray-200 {
   background-color: var(--color-gray-200);
@@ -109,6 +118,9 @@
 }
 .fw-medium {
   font-weight: 500 !important;
+}
+.fw-semibold {
+  font-weight: 600 !important;
 }
 [aria-labelledby^="modalVideoLabel"] .modal-body iframe {
   width: 100%;

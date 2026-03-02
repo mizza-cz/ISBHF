@@ -23,3 +23,4 @@ blocks.forEach((el) => {
 
   el.textContent = `${userTime} in your timezone`;
 });
+  
