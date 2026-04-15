@@ -1,26 +1,81 @@
-const blocks = document.querySelectorAll(".s-time[data-is-localized='true']");
+function parseTimezoneOffsetToMinutes(offsetStr) {
+  if (!offsetStr || typeof offsetStr !== "string") return null;
 
-blocks.forEach((el) => {
-  const dateStr = el.dataset.dateUtc;
-  const timeStr = el.dataset.timeUtc;
-  const offset = Number(el.dataset.timeoffset || 0);
+  const match = offsetStr.trim().match(/^([+-])(\d{2}):(\d{2})$/);
+  if (!match) return null;
 
-  if (!dateStr || !timeStr || Number.isNaN(offset)) return;
+  const [, sign, hours, minutes] = match;
+  const totalMinutes = Number(hours) * 60 + Number(minutes);
 
-  const [Y, M, D] = dateStr.split("-").map(Number);
-  const [h, m, s = 0] = timeStr.split(":").map(Number);
+  return sign === "+" ? totalMinutes : -totalMinutes;
+}
 
-  const venueLocalAsIfUTC = Date.UTC(Y, M - 1, D, h, m, s);
+function formatUserMatchTime(startDate, venueOffsetStr) {
+  if (!startDate || !venueOffsetStr) return "";
 
-  const utcMs = venueLocalAsIfUTC - offset * 3600 * 1000;
+  const venueOffsetMinutes = parseTimezoneOffsetToMinutes(venueOffsetStr);
+  if (venueOffsetMinutes === null) return "";
 
-  const userDate = new Date(utcMs);
-  const userTime = userDate.toLocaleTimeString([], {
+  const [datePart, timePart = "00:00:00"] = startDate.trim().split(" ");
+  if (!datePart) return "";
+
+  const [year, month, day] = datePart.split("-").map(Number);
+  const [hours, minutes, seconds = 0] = timePart.split(":").map(Number);
+
+  if (
+    [year, month, day, hours, minutes, seconds].some((value) =>
+      Number.isNaN(value)
+    )
+  ) {
+    return "";
+  }
+
+  const venueLocalAsUtcMs = Date.UTC(
+    year,
+    month - 1,
+    day,
+    hours,
+    minutes,
+    seconds
+  );
+
+  const utcMs = venueLocalAsUtcMs - venueOffsetMinutes * 60 * 1000;
+  const matchUtcDate = new Date(utcMs);
+
+  const userOffsetMinutes = -matchUtcDate.getTimezoneOffset();
+
+  if (userOffsetMinutes === venueOffsetMinutes) {
+    return "";
+  }
+
+  const userTime = matchUtcDate.toLocaleTimeString([], {
     hour: "2-digit",
     minute: "2-digit",
     hour12: false,
   });
 
-  el.textContent = `${userTime} in your timezone`;
-});
-  
+  return `${userTime} in your timezone`;
+}
+
+function initLocalizedMatchTimes() {
+  const blocks = document.querySelectorAll(".js-user-match-time");
+
+  if (!blocks.length) return;
+
+  blocks.forEach((el) => {
+    const startDate = el.dataset.startDate;
+    const timezoneDelay = el.dataset.timezoneDelay;
+    const localizedTime = formatUserMatchTime(startDate, timezoneDelay);
+
+    if (!localizedTime) {
+      el.textContent = "";
+      el.hidden = true;
+      return;
+    }
+
+    el.textContent = localizedTime;
+    el.hidden = false;
+  });
+}
+
+initLocalizedMatchTimes();
