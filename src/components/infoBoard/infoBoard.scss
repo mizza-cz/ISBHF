@@ -219,3 +219,9 @@
     fill: #ca2123;
   }
 }
+.infoBoard.infoBoard--ostrava {
+  .statsBox__title,
+  .statsBox__player {
+    color: var(--color-dark) !important;
+  }
+}
