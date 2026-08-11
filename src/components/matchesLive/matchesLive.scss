@@ -28,6 +28,12 @@
   .matchItem__head {
     min-height: 55px;
   }
+  .matchItem {
+    max-width: 640px;
+    @include media-breakpoint-down(lg) {
+      max-width: 100%;
+    }
+  }
 }
 
 .matchesLive__btn {

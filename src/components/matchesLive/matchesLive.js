@@ -1,14 +1,62 @@
-$(".matchesLive__inner").slick({
-  slidesToShow: 3,
-  arrows: true,
-  infinite: false,
-  dots: false,
-  nextArrow:
-    ' <button class="matchesLive__btn  matchesLive__btnnext"><img src="images/content/arrow-right.png" alt="right" loading="lazy" /></button>',
-  prevArrow:
-    ' <button class="matchesLive__btn  matchesLive__btnprev"><img src="images/content/arrow-left.png" alt="left" loading="lazy" /></button>',
-  responsive: [
-    { breakpoint: 1100, settings: { slidesToShow: 2 } },
-    { breakpoint: 840, settings: { slidesToShow: 1 } },
-  ],
+$(".matchesLive__inner").each(function () {
+  const $slider = $(this);
+  const slidesCount = $slider.children("li").length;
+
+  if (slidesCount <= 1) {
+    $slider.addClass("matchesLive__inner--single");
+    return;
+  }
+
+  $slider.slick({
+    slidesToShow: Math.min(3, slidesCount),
+    slidesToScroll: 1,
+    arrows: slidesCount > 3,
+    infinite: false,
+    dots: false,
+
+    nextArrow: `
+      <button
+        type="button"
+        class="matchesLive__btn matchesLive__btnnext"
+        aria-label="Next slide"
+      >
+        <img
+          src="images/content/arrow-right.png"
+          alt=""
+          loading="lazy"
+        />
+      </button>
+    `,
+
+    prevArrow: `
+      <button
+        type="button"
+        class="matchesLive__btn matchesLive__btnprev"
+        aria-label="Previous slide"
+      >
+        <img
+          src="images/content/arrow-left.png"
+          alt=""
+          loading="lazy"
+        />
+      </button>
+    `,
+
+    responsive: [
+      {
+        breakpoint: 1100,
+        settings: {
+          slidesToShow: Math.min(2, slidesCount),
+          arrows: slidesCount > 2,
+        },
+      },
+      {
+        breakpoint: 840,
+        settings: {
+          slidesToShow: 1,
+          arrows: slidesCount > 1,
+        },
+      },
+    ],
+  });
 });
